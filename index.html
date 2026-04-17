@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Learning Platform - Mockup</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Fraunces:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue-900: #0e2f7a;
+    --blue-700: #1347c4;
+    --blue-600: #195AEC;
+    --blue-500: #3d73f0;
+    --blue-400: #6a93f4;
+    --blue-300: #97b4f7;
+    --blue-200: #c4d5fb;
+    --blue-100: #e0eafd;
+    --blue-50: #f0f4fe;
+    --white: #ffffff;
+    --surface: #f8fafc;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --text-light: #94a3b8;
+    --border: #e2e8f0;
+    --success: #10b981;
+    --success-bg: #ecfdf5;
+    --danger: #ef4444;
+    --radius: 12px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 20px rgba(0,0,0,0.07);
+    --shadow-lg: 0 8px 40px rgba(0,0,0,0.10);
+    --font-display: 'Fraunces', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--surface);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ======================== NAVIGATION ======================== */
+  .nav {
+    background: var(--white);
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--blue-700);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+  .nav-logo span { color: var(--blue-400); }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--blue-600); }
+  .nav-links a.active { color: var(--blue-600); font-weight: 700; }
+  .nav-token-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--blue-50);
+    border: 1px solid var(--blue-200);
+    padding: 6px 14px;
+    border-radius: 50px;
+    color: var(--blue-600);
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  .nav-token-badge svg { width: 16px; height: 16px; }
+  .nav-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--blue-600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--white);
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+
+  /* ======================== LANDING PAGE ======================== */
+  .landing-hero {
+    background: linear-gradient(135deg, var(--blue-600) 0%, var(--blue-500) 100%);
+    padding: 4rem 2rem 3rem; position: relative; overflow: hidden;
+  }
+  .landing-hero::before {
+    content: ''; position: absolute; top: -40%; right: -20%; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 70%); border-radius: 50%;
+  }
+  .landing-hero-inner {
+    max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 3rem; position: relative;
+  }
+  .landing-hero-text { flex: 1; }
+  .landing-hero-badge {
+    display: inline-block; background: rgba(255,255,255,0.15); backdrop-filter: blur(4px);
+    padding: 6px 16px; border-radius: 50px; font-size: 0.8rem; color: rgba(255,255,255,0.9);
+    font-weight: 600; margin-bottom: 1.5rem;
+  }
+  .landing-hero-text h1 {
+    font-family: var(--font-display); font-size: 2.8rem; color: var(--white);
+    line-height: 1.15; letter-spacing: -1px; margin-bottom: 1rem;
+  }
+  .landing-hero-text h1 span { color: var(--blue-200); }
+  .landing-hero-text > p { color: rgba(255,255,255,0.8); font-size: 1.05rem; max-width: 480px; margin-bottom: 1.5rem; line-height: 1.6; }
+  .landing-hero-actions { display: flex; gap: 0.8rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .landing-btn-primary {
+    padding: 12px 28px; background: var(--white); color: var(--blue-600); border: none; border-radius: 8px;
+    font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: all 0.2s;
+  }
+  .landing-btn-primary:hover { background: var(--blue-50); }
+  .landing-btn-secondary {
+    padding: 12px 28px; background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.4);
+    border-radius: 8px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.2s;
+  }
+  .landing-btn-secondary:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+  .landing-btn-white {
+    padding: 12px 28px; background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 8px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.2s;
+  }
+  .landing-btn-white:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+  .landing-hero-trust { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+  .landing-hero-visual { flex: 0 0 340px; display: flex; flex-direction: column; gap: 1rem; }
+  .landing-hero-card {
+    display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.12); backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius); padding: 16px 20px; color: var(--white);
+  }
+  .landing-hero-card strong { font-size: 0.95rem; display: block; }
+  .landing-hero-card span { font-size: 0.78rem; opacity: 0.7; }
+  .lhc-icon { font-size: 1.8rem; }
+  .landing-services { padding: 4rem 2rem; background: var(--white); }
+  .landing-services-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
+  .landing-services-inner h2 { font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 0.5rem; }
+  .landing-services-sub { color: var(--text-muted); margin-bottom: 2.5rem; }
+  .landing-services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .landing-service-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 2rem 1.5rem; text-align: center; transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .landing-service-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .ls-icon-wrap { font-size: 2rem; margin-bottom: 1rem; }
+  .landing-service-card h3 { font-family: var(--font-display); font-size: 1rem; margin-bottom: 0.5rem; }
+  .landing-service-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+  .landing-how { padding: 4rem 2rem; background: var(--blue-50); }
+  .landing-how-inner { max-width: 1000px; margin: 0 auto; text-align: center; }
+  .landing-how-inner h2 { font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 0.5rem; }
+  .landing-how-sub { color: var(--text-muted); margin-bottom: 2.5rem; }
+  .landing-how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .landing-how-step { text-align: center; }
+  .lhs-num {
+    width: 48px; height: 48px; border-radius: 50%; background: var(--blue-600); color: var(--white);
+    display: flex; align-items: center; justify-content: center; font-family: var(--font-display);
+    font-size: 1.2rem; font-weight: 800; margin: 0 auto 1rem;
+  }
+  .landing-how-step h3 { font-family: var(--font-display); font-size: 1rem; margin-bottom: 0.5rem; }
+  .landing-how-step p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+  .landing-cta {
+    padding: 4rem 2rem; background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+    text-align: center; color: var(--white);
+  }
+  .landing-cta-inner { max-width: 600px; margin: 0 auto; }
+  .landing-cta-inner h2 { font-family: var(--font-display); font-size: 2rem; margin-bottom: 0.8rem; }
+  .landing-cta-inner p { opacity: 0.8; margin-bottom: 1.5rem; font-size: 1rem; }
+  .landing-contact { padding: 4rem 2rem; background: var(--white); }
+  .landing-contact-inner {
+    max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+  }
+  .landing-contact-form h2 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.3rem; }
+  .landing-input {
+    padding: 12px 14px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.9rem;
+    font-family: var(--font-body); outline: none; width: 100%; transition: border-color 0.2s;
+  }
+  .landing-input:focus { border-color: var(--blue-500); }
+  .landing-contact-info h3 { font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 0.5rem; }
+  .landing-contact-info p { color: var(--text-muted); font-size: 0.9rem; }
+
+  /* ======================== SECTIONS ======================== */
+  .page-section { display: none; }
+  .page-section.active { display: block; }
+
+  /* ======================== HERO ======================== */
+  .hero {
+    background: linear-gradient(135deg, var(--blue-600) 0%, var(--blue-500) 100%);
+    padding: 4rem 2rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -30%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40%;
+    left: -20%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+    position: relative;
+  }
+  .hero h1 span { color: var(--blue-200); }
+  .hero p {
+    color: rgba(255,255,255,0.8);
+    font-size: 1.1rem;
+    max-width: 550px;
+    margin: 0 auto 2rem;
+    position: relative;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    position: relative;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--white);
+  }
+  .hero-stat-label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ======================== COURSES GRID ======================== */
+  .section-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 1rem;
+  }
+  .section-header h2 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    letter-spacing: -0.5px;
+  }
+  .section-header p { color: var(--text-muted); margin-top: 0.3rem; }
+
+  .courses-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .course-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: pointer;
+    border: 1px solid var(--border);
+  }
+  .course-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .course-thumb { height: 170px; position: relative; overflow: hidden; }
+  .course-thumb-overlay {
+    position: absolute; inset: 0;
+    display: flex; align-items: flex-start; justify-content: space-between; padding: 12px;
+  }
+  .course-badge {
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+    padding: 4px 10px; border-radius: 4px; background: var(--blue-600); color: var(--white);
+  }
+  .course-badge.free { background: var(--success); }
+  .course-price-tag {
+    background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); color: var(--white);
+    padding: 4px 12px; border-radius: 6px; font-weight: 700; font-size: 0.95rem;
+  }
+  .course-body { padding: 1.2rem; }
+  .course-category {
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px;
+    color: var(--blue-600); font-weight: 700; margin-bottom: 0.5rem;
+  }
+  .course-title {
+    font-family: var(--font-display); font-size: 1.1rem; font-weight: 700;
+    margin-bottom: 0.5rem; line-height: 1.35; letter-spacing: -0.3px;
+  }
+  .course-desc {
+    font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .course-meta {
+    display: flex; align-items: center; gap: 1rem; font-size: 0.8rem;
+    color: var(--text-light); padding-top: 1rem; border-top: 1px solid var(--border);
+  }
+  .course-meta-item { display: flex; align-items: center; gap: 4px; }
+  .course-meta-item svg { width: 14px; height: 14px; opacity: 0.5; }
+  .course-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 100%; padding: 10px; margin-top: 1rem;
+    background: var(--blue-600); color: var(--white); border: none; border-radius: 8px;
+    font-family: var(--font-body); font-size: 0.85rem; font-weight: 600;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .course-btn:hover { background: var(--blue-700); }
+
+  /* ======================== COURSE DETAIL ======================== */
+  .course-detail {
+    max-width: 1200px; margin: 0 auto; padding: 2rem;
+    display: grid; grid-template-columns: 1fr 360px; gap: 2.5rem;
+  }
+  .cd-breadcrumb { grid-column: 1 / -1; font-size: 0.8rem; color: var(--text-muted); }
+  .cd-breadcrumb a { color: var(--blue-600); text-decoration: none; }
+  .cd-main h1 { font-family: var(--font-display); font-size: 2rem; letter-spacing: -0.5px; margin-bottom: 0.5rem; }
+  .cd-main-desc { color: var(--text-muted); font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.7; }
+  .cd-instructor {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 2rem;
+    padding: 1rem; background: var(--blue-50); border-radius: var(--radius); border: 1px solid var(--blue-100);
+  }
+  .cd-instructor-avatar {
+    width: 48px; height: 48px; border-radius: 50%; background: var(--blue-600);
+    color: var(--white); display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-family: var(--font-display);
+  }
+  .cd-instructor-name { font-weight: 700; font-size: 0.95rem; }
+  .cd-instructor-role { font-size: 0.8rem; color: var(--text-muted); }
+  .cd-curriculum { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .cd-curriculum-header {
+    padding: 1.2rem 1.5rem; font-family: var(--font-display); font-size: 1.15rem; font-weight: 700;
+    border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;
+  }
+  .cd-curriculum-count { font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; color: var(--text-muted); }
+  .cd-module { border-bottom: 1px solid var(--border); }
+  .cd-module:last-child { border-bottom: none; }
+  .cd-module-title {
+    padding: 1rem 1.5rem; font-weight: 600; font-size: 0.9rem; background: var(--blue-50);
+    display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--blue-900);
+  }
+  .cd-module-title svg { width: 16px; height: 16px; color: var(--blue-400); }
+  .cd-lesson {
+    padding: 0.7rem 1.5rem 0.7rem 2.5rem; font-size: 0.85rem;
+    display: flex; align-items: center; justify-content: space-between;
+    color: var(--text-muted); border-top: 1px solid rgba(0,0,0,0.04);
+  }
+  .cd-lesson-left { display: flex; align-items: center; gap: 8px; }
+  .cd-lesson-left svg { width: 14px; height: 14px; color: var(--blue-400); opacity: 0.7; }
+  .cd-lesson-duration { font-size: 0.75rem; color: var(--text-light); }
+
+  .cd-sidebar-card {
+    background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
+    overflow: hidden; box-shadow: var(--shadow-md); position: sticky; top: 80px;
+  }
+  .cd-sidebar-thumb {
+    height: 200px; background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cd-play-btn {
+    width: 64px; height: 64px; background: rgba(255,255,255,0.25); backdrop-filter: blur(8px);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: transform 0.2s;
+  }
+  .cd-play-btn:hover { transform: scale(1.1); }
+  .cd-play-btn svg { width: 28px; height: 28px; color: var(--white); margin-left: 3px; }
+  .cd-sidebar-body { padding: 1.5rem; }
+  .cd-price { font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--blue-700); margin-bottom: 1rem; }
+  .cd-price del { font-size: 1rem; color: var(--text-light); font-weight: 500; margin-left: 8px; }
+  .cd-enroll-btn {
+    width: 100%; padding: 14px; background: var(--blue-600); color: var(--white); border: none;
+    border-radius: 8px; font-family: var(--font-body); font-size: 1rem; font-weight: 700;
+    cursor: pointer; transition: background 0.2s; margin-bottom: 1rem;
+  }
+  .cd-enroll-btn:hover { background: var(--blue-700); }
+  .cd-features { list-style: none; }
+  .cd-features li {
+    display: flex; align-items: center; gap: 10px; padding: 8px 0;
+    font-size: 0.85rem; color: var(--text-muted); border-bottom: 1px solid var(--border);
+  }
+  .cd-features li:last-child { border-bottom: none; }
+  .cd-features li svg { width: 16px; height: 16px; color: var(--blue-500); flex-shrink: 0; }
+
+  /* ======================== SUBSCRIPTIONS ======================== */
+  .sub-hero {
+    background: linear-gradient(135deg, var(--blue-600) 0%, var(--blue-500) 100%);
+    padding: 3rem 2rem; text-align: center; position: relative; overflow: hidden;
+  }
+  .sub-hero::after {
+    content: ''; position: absolute; bottom: -100px; left: 50%; transform: translateX(-50%);
+    width: 800px; height: 200px;
+    background: radial-gradient(ellipse, rgba(255,255,255,0.1) 0%, transparent 70%);
+  }
+  .sub-hero h2 { font-family: var(--font-display); font-size: 2.2rem; color: var(--white); margin-bottom: 0.5rem; position: relative; }
+  .sub-hero h2 span { color: var(--blue-200); }
+  .sub-hero p { color: rgba(255,255,255,0.75); max-width: 500px; margin: 0 auto; position: relative; }
+
+  .sub-grid {
+    max-width: 1000px; margin: -2rem auto 3rem; padding: 0 2rem;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; position: relative; z-index: 2;
+  }
+  .sub-card {
+    background: var(--white); border: 2px solid var(--border); border-radius: var(--radius);
+    padding: 2rem 1.5rem; text-align: center; transition: transform 0.25s, box-shadow 0.25s; position: relative;
+  }
+  .sub-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .sub-card.featured { border-color: var(--blue-500); box-shadow: 0 0 0 1px var(--blue-500), var(--shadow-lg); }
+  .sub-popular {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--blue-600); color: var(--white); font-size: 0.65rem; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 1.5px; padding: 4px 16px; border-radius: 50px; white-space: nowrap;
+  }
+  .sub-plan-name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--blue-700); }
+  .sub-price { font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--text); margin-bottom: 0.3rem; }
+  .sub-price span { font-size: 0.9rem; font-weight: 400; color: var(--text-muted); }
+  .sub-tokens {
+    display: inline-flex; align-items: center; gap: 6px; background: var(--blue-50); color: var(--blue-600);
+    font-weight: 700; font-size: 0.85rem; padding: 6px 14px; border-radius: 50px;
+    margin-bottom: 1.5rem; border: 1px solid var(--blue-200);
+  }
+  .sub-tokens svg { width: 16px; height: 16px; }
+  .sub-features { list-style: none; text-align: left; margin-bottom: 1.5rem; }
+  .sub-features li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.85rem; color: var(--text-muted); padding: 6px 0; }
+  .sub-features li svg { width: 16px; height: 16px; color: var(--blue-500); flex-shrink: 0; margin-top: 2px; }
+  .sub-btn {
+    width: 100%; padding: 12px; border-radius: 8px; font-family: var(--font-body); font-size: 0.9rem;
+    font-weight: 700; cursor: pointer; transition: all 0.2s; border: 2px solid var(--blue-600);
+    background: transparent; color: var(--blue-600);
+  }
+  .sub-btn:hover { background: var(--blue-600); color: var(--white); }
+  .sub-card.featured .sub-btn { background: var(--blue-600); border-color: var(--blue-600); color: var(--white); }
+  .sub-card.featured .sub-btn:hover { background: var(--blue-700); border-color: var(--blue-700); }
+
+  /* ======================== LIVE SESSIONS ======================== */
+  .live-header {
+    max-width: 1200px; margin: 0 auto; padding: 2.5rem 2rem 0.5rem;
+    display: flex; justify-content: space-between; align-items: flex-end;
+  }
+  .live-header h2 { font-family: var(--font-display); font-size: 1.8rem; letter-spacing: -0.5px; }
+  .live-header p { color: var(--text-muted); margin-top: 0.3rem; }
+  .live-balance {
+    display: flex; align-items: center; gap: 8px; background: var(--white);
+    border: 2px solid var(--blue-500); padding: 10px 20px; border-radius: var(--radius);
+    font-weight: 700; color: var(--text);
+  }
+  .live-balance svg { width: 20px; height: 20px; color: var(--blue-500); }
+  .live-balance strong { color: var(--blue-600); font-size: 1.2rem; }
+
+  .live-grid {
+    max-width: 1200px; margin: 0 auto; padding: 1.5rem 2rem 3rem;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.2rem;
+  }
+  .live-card {
+    background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1.5rem; display: flex; flex-direction: column; transition: box-shadow 0.2s;
+  }
+  .live-card:hover { box-shadow: var(--shadow-md); }
+  .live-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.8rem; }
+  .live-date {
+    display: flex; flex-direction: column; align-items: center; background: var(--blue-600);
+    color: var(--white); border-radius: 8px; padding: 8px 14px; min-width: 56px;
+  }
+  .live-date-month { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+  .live-date-day { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; line-height: 1; }
+  .live-status { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 4px 10px; border-radius: 4px; }
+  .live-status.open { background: var(--success-bg); color: var(--success); }
+  .live-status.full { background: #fef2f2; color: var(--danger); }
+  .live-status.booked { background: var(--blue-50); color: var(--blue-600); }
+  .live-card h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; margin-bottom: 0.3rem; letter-spacing: -0.3px; }
+  .live-card p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; flex-grow: 1; }
+  .live-card-meta { display: flex; gap: 1rem; font-size: 0.78rem; color: var(--text-light); margin-bottom: 1rem; flex-wrap: wrap; }
+  .live-card-meta span { display: flex; align-items: center; gap: 4px; }
+  .live-card-meta svg { width: 13px; height: 13px; }
+  .live-book-btn {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    width: 100%; padding: 10px; border-radius: 8px; font-family: var(--font-body);
+    font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s;
+    border: none; background: var(--blue-600); color: var(--white);
+  }
+  .live-book-btn:hover { background: var(--blue-700); }
+  .live-book-btn.booked { background: var(--blue-50); color: var(--blue-600); border: 1px solid var(--blue-200); cursor: default; }
+  .live-book-btn.disabled { background: var(--surface); color: var(--text-light); border: 1px solid var(--border); cursor: not-allowed; }
+  .live-book-btn svg { width: 16px; height: 16px; }
+
+  /* ======================== DASHBOARD ======================== */
+  .dash-grid {
+    max-width: 1200px; margin: 0 auto; padding: 2rem;
+    display: grid; grid-template-columns: 1fr 360px; gap: 2rem;
+  }
+  .dash-welcome {
+    grid-column: 1 / -1; background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+    border-radius: var(--radius); padding: 2rem; color: var(--white);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .dash-welcome h2 { font-family: var(--font-display); font-size: 1.6rem; margin-bottom: 0.3rem; }
+  .dash-welcome p { opacity: 0.8; font-size: 0.9rem; }
+  .dash-welcome-stats { display: flex; gap: 2rem; text-align: center; }
+  .dash-welcome-stat-num { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: var(--white); }
+  .dash-welcome-stat-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; }
+
+  .dash-courses h3, .dash-sidebar h3 { font-family: var(--font-display); font-size: 1.15rem; margin-bottom: 1rem; }
+  .dash-course-item {
+    background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1rem 1.2rem; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 1rem;
+  }
+  .dash-course-thumb { width: 80px; height: 55px; border-radius: 8px; flex-shrink: 0; }
+  .dash-course-info { flex-grow: 1; }
+  .dash-course-info h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 6px; }
+  .dash-progress-bar { height: 6px; background: var(--blue-100); border-radius: 3px; overflow: hidden; }
+  .dash-progress-fill { height: 100%; background: linear-gradient(90deg, var(--blue-600), var(--blue-400)); border-radius: 3px; }
+  .dash-progress-text { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+
+  .dash-sidebar-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem; margin-bottom: 1rem; }
+  .dash-token-display { text-align: center; padding: 1rem 0; }
+  .dash-token-circle {
+    width: 100px; height: 100px; border-radius: 50%; border: 4px solid var(--blue-500);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 0.8rem;
+  }
+  .dash-token-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--blue-600); line-height: 1; }
+  .dash-token-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
+  .dash-token-info { font-size: 0.8rem; color: var(--text-muted); text-align: center; }
+  .dash-upcoming h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 6px; }
+  .dash-upcoming-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.04); }
+  .dash-upcoming-item:last-child { border: none; }
+  .dash-upcoming-date { background: var(--blue-600); color: var(--white); border-radius: 6px; padding: 6px 10px; text-align: center; min-width: 44px; }
+  .dash-upcoming-date-d { font-family: var(--font-display); font-weight: 800; font-size: 1rem; line-height: 1; }
+  .dash-upcoming-date-m { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+  .dash-upcoming-info { font-size: 0.82rem; }
+  .dash-upcoming-info strong { display: block; font-size: 0.85rem; }
+  .dash-upcoming-info span { color: var(--text-muted); font-size: 0.75rem; }
+
+  .dash-sub-status {
+    display: flex; align-items: center; gap: 8px; padding: 10px 14px;
+    background: var(--blue-50); border: 1px solid var(--blue-200); border-radius: 8px;
+    font-size: 0.85rem; font-weight: 600; color: var(--blue-600);
+  }
+  .dash-sub-status svg { width: 18px; height: 18px; }
+
+  /* ======================== FOOTER ======================== */
+  .footer { background: var(--white); color: var(--text-muted); text-align: center; padding: 2rem; font-size: 0.8rem; border-top: 1px solid var(--border); }
+
+  /* ======================== PAGE LABEL ======================== */
+  .page-label { text-align: center; padding: 1rem; background: var(--blue-50); border-bottom: 1px solid var(--blue-100); }
+  .page-label span { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--blue-600); }
+
+  /* ======================== COURSES PAGE V2 ======================== */
+  .courses-sidebar {
+    width: 220px; flex-shrink: 0; padding-right: 1.5rem; border-right: 1px solid var(--border);
+  }
+  .filter-item {
+    padding: 10px 0; font-size: 0.88rem; color: var(--text-muted); cursor: pointer;
+    border-bottom: 1px solid var(--border); display: flex; align-items: center;
+    justify-content: space-between; transition: color 0.2s;
+  }
+  .filter-item::after { content: '›'; font-size: 1rem; color: var(--text-light); }
+  .filter-item:hover { color: var(--blue-600); }
+  .filter-item.active { color: var(--blue-600); font-weight: 700; }
+
+  .featured-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-bottom: 1rem;
+  }
+  .featured-card {
+    background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
+    overflow: hidden; transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .featured-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .featured-thumb { height: 130px; }
+  .featured-card h4 { padding: 0.8rem 1rem 0.2rem; font-size: 0.92rem; font-weight: 700; }
+  .featured-card p { padding: 0 1rem; }
+  .featured-enroll-btn {
+    display: block; margin: 0.8rem 1rem 1rem; padding: 8px; text-align: center;
+    background: var(--blue-600); color: var(--white); border: none; border-radius: 8px;
+    font-family: var(--font-body); font-size: 0.82rem; font-weight: 600; cursor: pointer;
+    transition: background 0.2s; width: calc(100% - 2rem);
+  }
+  .featured-enroll-btn:hover { background: var(--blue-700); }
+
+  .all-courses-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem;
+  }
+  .course-card-v2 {
+    background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
+    overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; cursor: pointer;
+  }
+  .course-card-v2:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  .cc2-thumb {
+    height: 150px; position: relative; display: flex; align-items: flex-start;
+    justify-content: flex-end; padding: 10px;
+  }
+  .cc2-level {
+    font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+    padding: 3px 10px; border-radius: 4px; color: var(--white);
+  }
+  .cc2-level.beginner { background: #10b981; }
+  .cc2-level.intermediate { background: #f59e0b; }
+  .cc2-level.advanced { background: #ef4444; }
+  .cc2-level.intermediate-advanced { background: #f97316; font-size: 0.58rem; }
+  .cc2-level.beginner-intermediate { background: #06b6d4; font-size: 0.58rem; }
+  .cc2-body { padding: 1rem 1.2rem; }
+  .cc2-rating-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+  .cc2-rating { font-size: 0.82rem; font-weight: 600; color: var(--text); }
+  .cc2-reviews { font-weight: 400; color: var(--text-muted); font-size: 0.75rem; }
+  .cc2-price { font-weight: 800; font-size: 1rem; color: var(--text); }
+  .cc2-title { font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; letter-spacing: -0.3px; }
+  .cc2-desc {
+    font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.6rem;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .cc2-instructor {
+    display: flex; align-items: center; gap: 5px; font-size: 0.78rem; color: var(--text-light);
+    margin-bottom: 0.8rem;
+  }
+  .cc2-btn {
+    display: block; width: 100%; padding: 10px; text-align: center;
+    background: var(--blue-600); color: var(--white); border: none; border-radius: 8px;
+    font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .cc2-btn:hover { background: var(--blue-700); }
+
+  /* ======================== RECORDINGS ======================== */
+  .rec-header {
+    max-width: 1200px; margin: 0 auto; padding: 2.5rem 2rem 0.5rem;
+  }
+  .rec-header h2 { font-family: var(--font-display); font-size: 1.8rem; letter-spacing: -0.5px; }
+  .rec-header p { color: var(--text-muted); margin-top: 0.3rem; }
+  .rec-filters {
+    max-width: 1200px; margin: 0 auto; padding: 1rem 2rem 0;
+    display: flex; gap: 0.5rem; flex-wrap: wrap;
+  }
+  .rec-filter {
+    padding: 6px 16px; border-radius: 50px; font-size: 0.8rem; font-weight: 600;
+    border: 1px solid var(--border); background: var(--white); color: var(--text-muted);
+    cursor: pointer; transition: all 0.2s; font-family: var(--font-body);
+  }
+  .rec-filter:hover { border-color: var(--blue-400); color: var(--blue-600); }
+  .rec-filter.active { background: var(--blue-600); color: var(--white); border-color: var(--blue-600); }
+
+  .rec-grid {
+    max-width: 1200px; margin: 0 auto; padding: 1.5rem 2rem 3rem;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem;
+  }
+  .rec-card {
+    background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
+    overflow: hidden; transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .rec-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  .rec-card-video {
+    position: relative; background: var(--blue-900); aspect-ratio: 16/9;
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+  }
+  .rec-card-video-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+    opacity: 0.9;
+  }
+  .rec-play-btn {
+    width: 56px; height: 56px; background: rgba(255,255,255,0.2); backdrop-filter: blur(8px);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: transform 0.2s, background 0.2s; position: relative; z-index: 1;
+  }
+  .rec-play-btn:hover { transform: scale(1.1); background: rgba(255,255,255,0.35); }
+  .rec-play-btn svg { width: 24px; height: 24px; color: var(--white); margin-left: 2px; }
+  .rec-duration {
+    position: absolute; bottom: 10px; right: 10px; z-index: 1;
+    background: rgba(0,0,0,0.7); color: var(--white); font-size: 0.72rem; font-weight: 600;
+    padding: 2px 8px; border-radius: 4px;
+  }
+  .rec-vimeo-badge {
+    position: absolute; top: 10px; right: 10px; z-index: 1;
+    background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);
+    color: var(--white); font-size: 0.6rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1px; padding: 3px 8px; border-radius: 4px;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .rec-vimeo-badge svg { width: 12px; height: 12px; }
+  .rec-card-body { padding: 1.2rem; }
+  .rec-card-top {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    margin-bottom: 0.5rem; gap: 8px;
+  }
+  .rec-card-title {
+    font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+    line-height: 1.35; letter-spacing: -0.3px;
+  }
+  .rec-access-badge {
+    font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+    padding: 3px 8px; border-radius: 4px; white-space: nowrap; flex-shrink: 0;
+  }
+  .rec-access-badge.available { background: var(--blue-50); color: var(--blue-600); border: 1px solid var(--blue-200); }
+  .rec-access-badge.expiring { background: #fffbeb; color: #d97706; border: 1px solid #fde68a; }
+  .rec-access-badge.locked { background: #f1f5f9; color: var(--text-light); border: 1px solid var(--border); }
+  .rec-card-desc {
+    font-size: 0.83rem; color: var(--text-muted); margin-bottom: 1rem;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .rec-card-meta {
+    display: flex; gap: 1rem; font-size: 0.75rem; color: var(--text-light);
+    padding-top: 0.8rem; border-top: 1px solid var(--border); flex-wrap: wrap;
+  }
+  .rec-card-meta span { display: flex; align-items: center; gap: 4px; }
+  .rec-card-meta svg { width: 13px; height: 13px; }
+  .rec-watch-btn {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    width: 100%; padding: 10px; margin-top: 1rem; border-radius: 8px;
+    font-family: var(--font-body); font-size: 0.85rem; font-weight: 600;
+    cursor: pointer; transition: all 0.2s; border: none;
+    background: var(--blue-600); color: var(--white);
+  }
+  .rec-watch-btn:hover { background: var(--blue-700); }
+  .rec-watch-btn svg { width: 16px; height: 16px; }
+  .rec-watch-btn.locked {
+    background: var(--surface); color: var(--text-light); border: 1px solid var(--border); cursor: not-allowed;
+  }
+  .rec-watch-btn.expiring { background: #f59e0b; color: var(--white); }
+  .rec-watch-btn.expiring:hover { background: #d97706; }
+
+  .rec-info-banner {
+    max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+  }
+  .rec-info-banner-inner {
+    display: flex; align-items: center; gap: 12px; padding: 14px 18px;
+    background: var(--blue-50); border: 1px solid var(--blue-200); border-radius: var(--radius);
+    font-size: 0.85rem; color: var(--blue-700);
+  }
+  .rec-info-banner-inner svg { width: 20px; height: 20px; flex-shrink: 0; color: var(--blue-500); }
+  .rec-info-banner-inner strong { font-weight: 700; }
+
+  /* ======================== MOBILE MENU ======================== */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 200;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--blue-600);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .nav-hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .nav-hamburger.active span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--white);
+    z-index: 99;
+    padding: 1.5rem;
+    flex-direction: column;
+    gap: 0;
+    overflow-y: auto;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    display: block;
+    padding: 14px 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+  .mobile-menu a:last-of-type { border-bottom: none; }
+  .mobile-menu a.active { color: var(--blue-600); font-weight: 700; }
+  .mobile-menu a:hover { color: var(--blue-600); }
+  .mobile-menu-token {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 1.5rem;
+    padding: 12px;
+    background: var(--blue-50);
+    border: 1px solid var(--blue-200);
+    border-radius: 10px;
+    color: var(--blue-600);
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .mobile-menu-token svg { width: 18px; height: 18px; }
+
+  /* ======================== RESPONSIVE — TABLET (max 1024px) ======================== */
+  @media (max-width: 1024px) {
+    .course-detail { grid-template-columns: 1fr; }
+    .cd-sidebar-card { position: static; }
+    .dash-grid { grid-template-columns: 1fr; }
+    .sub-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .sub-card { padding: 1.5rem 1.2rem; }
+    .sub-price { font-size: 2rem; }
+    .all-courses-grid { grid-template-columns: repeat(2, 1fr); }
+    .featured-grid { grid-template-columns: repeat(2, 1fr); }
+    .courses-sidebar { display: none; }
+  }
+
+  /* ======================== RESPONSIVE — MOBILE (max 768px) ======================== */
+  @media (max-width: 768px) {
+    /* Nav */
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav { padding: 0 1rem; }
+
+    /* Page Tabs */
+    /* Landing Page */
+    .landing-hero-inner { flex-direction: column; text-align: center; }
+    .landing-hero-text h1 { font-size: 1.8rem; }
+    .landing-hero-text > p { margin: 0 auto 1.5rem; }
+    .landing-hero-actions { justify-content: center; }
+    .landing-hero-trust { justify-content: center; }
+    .landing-hero-visual { flex: none; width: 100%; flex-direction: row; flex-wrap: wrap; justify-content: center; }
+    .landing-hero-card { flex: 1; min-width: 140px; }
+    .landing-services-grid { grid-template-columns: repeat(2, 1fr); }
+    .landing-how-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .landing-contact-inner { grid-template-columns: 1fr; }
+
+    /* Hero */
+    .hero { padding: 2.5rem 1.5rem 2rem; }
+    .hero h1 { font-size: 1.7rem; }
+    .hero p { font-size: 0.95rem; }
+    .hero-stats { gap: 1.5rem; }
+    .hero-stat-num { font-size: 1.5rem; }
+
+    /* Section headers */
+    .section-header { padding: 2rem 1rem 0.8rem; }
+    .section-header h2 { font-size: 1.4rem; }
+
+    /* Courses Grid */
+    .courses-grid { padding: 1rem 1rem 2rem; grid-template-columns: 1fr; gap: 1rem; }
+
+    /* Course Detail */
+    .course-detail { padding: 1rem; gap: 1.5rem; grid-template-columns: 1fr; }
+    .cd-breadcrumb { font-size: 0.75rem; }
+    .cd-main h1 { font-size: 1.5rem; }
+    .cd-curriculum-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .cd-sidebar-card { position: static; }
+
+    /* Subscriptions */
+    .sub-hero { padding: 2rem 1.5rem; }
+    .sub-hero h2 { font-size: 1.6rem; }
+    .sub-grid { grid-template-columns: 1fr; max-width: 400px; margin-top: -1.5rem; padding: 0 1rem; gap: 1rem; }
+    .sub-card { padding: 1.5rem 1.2rem; }
+
+    /* Live Sessions */
+    .live-header { padding: 2rem 1rem 0.5rem; flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .live-header h2 { font-size: 1.4rem; }
+    .live-balance { align-self: stretch; justify-content: center; }
+    .live-grid { padding: 1rem 1rem 2rem; grid-template-columns: 1fr; }
+
+    /* Dashboard */
+    .dash-grid { padding: 1rem; grid-template-columns: 1fr; gap: 1rem; }
+    .dash-welcome { flex-direction: column; text-align: center; gap: 1.5rem; padding: 1.5rem; }
+    .dash-welcome h2 { font-size: 1.3rem; }
+    .dash-welcome-stats { justify-content: center; }
+    .dash-course-item { flex-direction: row; }
+    .dash-course-thumb { width: 64px; height: 44px; }
+
+    /* Courses V2 */
+    .courses-sidebar { display: none; }
+    .featured-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+    .all-courses-grid { grid-template-columns: 1fr; }
+    .cc2-thumb { height: 130px; }
+
+    /* Footer */
+    .footer { padding: 1.5rem 1rem; }
+
+    /* Recordings */
+    .rec-header { padding: 2rem 1rem 0.5rem; }
+    .rec-header h2 { font-size: 1.4rem; }
+    .rec-filters { padding: 1rem 1rem 0; }
+    .rec-grid { padding: 1rem 1rem 2rem; grid-template-columns: 1fr; }
+    .rec-info-banner { padding: 0 1rem; }
+  }
+
+  /* ======================== RESPONSIVE — SMALL MOBILE (max 420px) ======================== */
+  @media (max-width: 420px) {
+    .hero h1 { font-size: 1.4rem; }
+    .hero p { font-size: 0.85rem; }
+    .hero-stats { flex-direction: column; gap: 0.8rem; }
+    .hero-stat-num { font-size: 1.3rem; }
+
+    .course-thumb { height: 140px; }
+    .course-title { font-size: 1rem; }
+
+    .cd-main h1 { font-size: 1.3rem; }
+    .cd-lesson { padding: 0.6rem 1rem 0.6rem 1.5rem; font-size: 0.8rem; }
+    .cd-module-title { padding: 0.8rem 1rem; font-size: 0.85rem; }
+
+    .sub-hero h2 { font-size: 1.3rem; }
+    .sub-price { font-size: 2rem; }
+    .sub-plan-name { font-size: 1.1rem; }
+
+    .live-card h3 { font-size: 0.95rem; }
+    .live-card-meta { font-size: 0.72rem; }
+
+    .dash-welcome-stat-num { font-size: 1.4rem; }
+    .dash-welcome-stats { gap: 1.2rem; }
+    .dash-course-thumb { width: 56px; height: 38px; }
+    .dash-course-info h4 { font-size: 0.82rem; }
+
+    .featured-grid { grid-template-columns: 1fr; }
+    .cc2-title { font-size: 0.92rem; }
+    .cc2-thumb { height: 120px; }
+    .landing-hero-text h1 { font-size: 1.5rem; }
+    .landing-hero-card { padding: 12px 14px; }
+    .landing-services-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION (Single Nav) -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" onclick="showPage('landing')">Learn<span>Hub</span></a>
+    <ul class="nav-links">
+      <li><a href="#" class="active" onclick="showPage('landing')">Home</a></li>
+      <li><a href="#" onclick="showPage('home')">Courses</a></li>
+      <li><a href="#" onclick="showPage('subscriptions')">Subscriptions</a></li>
+      <li><a href="#" onclick="showPage('live')">Live Sessions</a></li>
+      <li><a href="#" onclick="showPage('recordings')">Recordings</a></li>
+      <li><a href="#" onclick="showPage('dashboard')">Dashboard</a></li>
+      <li>
+        <div class="nav-token-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          3 Tokens
+        </div>
+      </li>
+      <li><div class="nav-avatar">G</div></li>
+    </ul>
+    <div class="nav-hamburger" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" class="active" onclick="showPage('landing');closeMobileMenu()">Home</a>
+  <a href="#" onclick="showPage('home');closeMobileMenu()">Courses</a>
+  <a href="#" onclick="showPage('subscriptions');closeMobileMenu()">Subscriptions</a>
+  <a href="#" onclick="showPage('live');closeMobileMenu()">Live Sessions</a>
+  <a href="#" onclick="showPage('recordings');closeMobileMenu()">Recordings</a>
+  <a href="#" onclick="showPage('dashboard');closeMobileMenu()">Dashboard</a>
+  <div class="mobile-menu-token">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+    3 Tokens Remaining
+  </div>
+</div>
+
+<!-- ================================================================ -->
+<!-- LANDING / HOME PAGE -->
+<!-- ================================================================ -->
+<div class="page-section active" id="page-landing">
+
+  <!-- Hero Section -->
+  <div class="landing-hero">
+    <div class="landing-hero-inner">
+      <div class="landing-hero-text">
+        <div class="landing-hero-badge">🎓 The Global Gateway to Lifelong Learning</div>
+        <h1>Join Our Learning<br>Community &<br>Start <span>Growing Today</span></h1>
+        <p>Book live sessions with expert tutors anytime, anywhere. Access self-paced courses and interactive learning experiences.</p>
+        <div class="landing-hero-actions">
+          <button class="landing-btn-primary" onclick="showPage('home')">Get Started</button>
+          <button class="landing-btn-secondary" onclick="showPage('subscriptions')">View Plans</button>
+        </div>
+        <div class="landing-hero-trust">
+          <span>⭐⭐⭐⭐⭐</span>
+          <span>4.8/5 stars from 1,200+ students</span>
+        </div>
+      </div>
+      <div class="landing-hero-visual">
+        <div class="landing-hero-card lhc-1">
+          <div class="lhc-icon">📚</div>
+          <div><strong>24 Courses</strong><br><span>Self-paced learning</span></div>
+        </div>
+        <div class="landing-hero-card lhc-2">
+          <div class="lhc-icon">🎥</div>
+          <div><strong>Live Sessions</strong><br><span>Google Meet classes</span></div>
+        </div>
+        <div class="landing-hero-card lhc-3">
+          <div class="lhc-icon">🏆</div>
+          <div><strong>Certificates</strong><br><span>Recognized credentials</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <div class="landing-services">
+    <div class="landing-services-inner">
+      <h2>Our Services</h2>
+      <p class="landing-services-sub">Flexible, expert-led learning that fits your life and your schedule.</p>
+      <div class="landing-services-grid">
+        <div class="landing-service-card">
+          <div class="ls-icon-wrap"><span>📅</span></div>
+          <h3>Easy Booking</h3>
+          <p>Effortless scheduling with built-in time zone support. Pick a slot, book, and join instantly.</p>
+        </div>
+        <div class="landing-service-card">
+          <div class="ls-icon-wrap"><span>🎬</span></div>
+          <h3>Live Classes</h3>
+          <p>Experience live, interactive Google Meet lessons led by professional tutors.</p>
+        </div>
+        <div class="landing-service-card">
+          <div class="ls-icon-wrap"><span>🔒</span></div>
+          <h3>Secure Payment</h3>
+          <p>Pay securely and manage your entire learning journey in one place.</p>
+        </div>
+        <div class="landing-service-card">
+          <div class="ls-icon-wrap"><span>🎞️</span></div>
+          <h3>Session Recordings</h3>
+          <p>Missed a live class? Watch recordings anytime on Vimeo Pro with domain-restricted playback.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- How It Works -->
+  <div class="landing-how">
+    <div class="landing-how-inner">
+      <h2>How It Works</h2>
+      <p class="landing-how-sub">Start learning in 3 simple steps.</p>
+      <div class="landing-how-grid">
+        <div class="landing-how-step">
+          <div class="lhs-num">1</div>
+          <h3>Browse & Enroll</h3>
+          <p>Explore our catalog and enroll in courses that match your goals. One-time purchase, lifetime access.</p>
+        </div>
+        <div class="landing-how-step">
+          <div class="lhs-num">2</div>
+          <h3>Subscribe for Live Access</h3>
+          <p>Choose a subscription plan and receive monthly tokens to book live Google Meet sessions.</p>
+        </div>
+        <div class="landing-how-step">
+          <div class="lhs-num">3</div>
+          <h3>Learn & Grow</h3>
+          <p>Attend live classes, watch self-paced videos, earn certificates, and track your progress.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <div class="landing-cta">
+    <div class="landing-cta-inner">
+      <h2>Ready to Start Learning?</h2>
+      <p>Join 1,200+ students already advancing their skills with our expert-led courses and live sessions.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <button class="landing-btn-primary" onclick="showPage('home')">Browse Courses</button>
+        <button class="landing-btn-white" onclick="showPage('subscriptions')">View Subscription Plans</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="landing-contact">
+    <div class="landing-contact-inner">
+      <div class="landing-contact-form">
+        <h2>Get in Touch</h2>
+        <p style="color:var(--text-muted);margin-bottom:1.5rem;">Questions? We're here to help you anytime.</p>
+        <div style="display:flex;flex-direction:column;gap:0.8rem;">
+          <input type="text" placeholder="Your Full Name" class="landing-input">
+          <input type="email" placeholder="Email Address *" class="landing-input">
+          <input type="text" placeholder="Preferred Time *" class="landing-input">
+          <button class="landing-btn-primary" style="width:100%;margin-top:0.5rem;">Book My Session</button>
+        </div>
+      </div>
+      <div class="landing-contact-info">
+        <h3>Help</h3>
+        <p>Questions? Reach out anytime, we're here.</p>
+        <div style="margin-top:1.5rem;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;font-size:0.9rem;color:var(--text-muted);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue-600)" stroke-width="2" style="width:18px;height:18px;flex-shrink:0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            support@learnhub.com
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:0.9rem;color:var(--text-muted);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue-600)" stroke-width="2" style="width:18px;height:18px;flex-shrink:0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +1 (800) 123-4567
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE: COURSES LISTING -->
+<div class="page-section" id="page-home">
+  
+
+  <!-- Promo Banner -->
+  <div style="background:#195AEC;color:#fff;text-align:center;padding:10px 1rem;font-size:0.85rem;font-weight:600;">
+    🎉 <strong>50% OFF EVERYTHING!</strong> Join the Learning Community Today. Limited Time Offer.
+    <span style="margin-left:1rem;opacity:0.8;font-size:0.8rem;">Offer ends in: 6d 20h 54m</span>
+  </div>
+
+  <!-- Courses Layout with Sidebar -->
+  <div style="max-width:1200px;margin:0 auto;padding:2rem;display:flex;gap:2rem;">
+
+    <!-- SIDEBAR FILTERS -->
+    <div class="courses-sidebar">
+      <h3 style="font-family:var(--font-display);font-size:1.1rem;margin-bottom:1rem;">Filters</h3>
+      <ul style="list-style:none;">
+        <li class="filter-item active">Pre-School</li>
+        <li class="filter-item">Elementary</li>
+        <li class="filter-item">Junior High</li>
+        <li class="filter-item">Senior High</li>
+        <li class="filter-item">University</li>
+        <li class="filter-item">Professional Development</li>
+        <li class="filter-item">Masterclass</li>
+        <li class="filter-item">Business English</li>
+        <li class="filter-item">ESL for Kids</li>
+        <li class="filter-item">ESL for High School</li>
+        <li class="filter-item">Languages</li>
+        <li class="filter-item">Special Programs</li>
+      </ul>
+      <button style="margin-top:1rem;display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:2px solid var(--blue-600);background:var(--white);color:var(--blue-600);border-radius:8px;font-family:var(--font-body);font-size:0.82rem;font-weight:600;cursor:pointer;">📞 Contact Research Dept.</button>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div style="flex:1;min-width:0;">
+      <!-- Search Bar -->
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem;">
+        <span style="font-size:0.85rem;color:var(--text-muted);">Showing <strong>10 results</strong></span>
+        <div style="position:relative;">
+          <input type="text" placeholder="Search courses..." style="padding:8px 14px 8px 36px;border:1px solid var(--border);border-radius:8px;font-size:0.85rem;font-family:var(--font-body);width:220px;outline:none;">
+          <svg style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--text-light);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+      </div>
+
+      <!-- FEATURED PROGRAMS -->
+      <h2 style="font-family:var(--font-display);font-size:1.5rem;margin-bottom:1rem;letter-spacing:-0.5px;">Featured Programs</h2>
+      <div class="featured-grid">
+        <div class="featured-card">
+          <div class="featured-thumb" style="background:linear-gradient(135deg,#195AEC,#3d73f0);"></div>
+          <h4>Advanced Corporate Leadership</h4>
+          <p style="font-size:0.75rem;color:var(--blue-600);">Category: Professional Development</p>
+          <button class="featured-enroll-btn">Enroll Now</button>
+        </div>
+        <div class="featured-card">
+          <div class="featured-thumb" style="background:linear-gradient(135deg,#1347c4,#6a93f4);"></div>
+          <h4>Executive Communication</h4>
+          <p style="font-size:0.75rem;color:var(--blue-600);">Category: Business English</p>
+          <button class="featured-enroll-btn">Enroll Now</button>
+        </div>
+        <div class="featured-card">
+          <div class="featured-thumb" style="background:linear-gradient(135deg,#0e2f7a,#3d73f0);"></div>
+          <h4>AI for Business Operations</h4>
+          <p style="font-size:0.75rem;color:var(--blue-600);">Category: Artificial Intelligence Skills</p>
+          <button class="featured-enroll-btn">Enroll Now</button>
+        </div>
+        <div class="featured-card">
+          <div class="featured-thumb" style="background:linear-gradient(135deg,#3d73f0,#97b4f7);"></div>
+          <h4>Advanced Academic Writing</h4>
+          <p style="font-size:0.75rem;color:var(--blue-600);">Category: ESL for High School</p>
+          <button class="featured-enroll-btn">Enroll Now</button>
+        </div>
+        <div class="featured-card">
+          <div class="featured-thumb" style="background:linear-gradient(135deg,#1347c4,#97b4f7);"></div>
+          <h4>University Preparation</h4>
+          <p style="font-size:0.75rem;color:var(--blue-600);">Category: University Level</p>
+          <button class="featured-enroll-btn">Enroll Now</button>
+        </div>
+      </div>
+
+      <!-- ALL COURSES -->
+      <h2 style="font-family:var(--font-display);font-size:1.5rem;margin:2rem 0 1rem;letter-spacing:-0.5px;">All Courses</h2>
+      <div class="all-courses-grid">
+
+        <!-- Course 1 -->
+        <div class="course-card-v2" onclick="showPage('course-detail')">
+          <div class="cc2-thumb" style="background:linear-gradient(135deg,#195AEC,#6a93f4);">
+            <span class="cc2-level beginner">Beginner</span>
+          </div>
+          <div class="cc2-body">
+            <div class="cc2-rating-row">
+              <span class="cc2-rating">⭐ 4.7 <span class="cc2-reviews">(152 reviews)</span></span>
+              <span class="cc2-price">$2,500</span>
+            </div>
+            <h4 class="cc2-title">Kooduz Kinder-Chat</h4>
+            <p class="cc2-desc">A gentle, play-based introduction to English through storytelling, songs...</p>
+            <div class="cc2-instructor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Kooduz Expert Team</div>
+            <button class="cc2-btn">View Details →</button>
+          </div>
+        </div>
+
+        <!-- Course 2 -->
+        <div class="course-card-v2">
+          <div class="cc2-thumb" style="background:linear-gradient(135deg,#3d73f0,#c4d5fb);">
+            <span class="cc2-level beginner">Beginner</span>
+          </div>
+          <div class="cc2-body">
+            <div class="cc2-rating-row">
+              <span class="cc2-rating">⭐ 5.0 <span class="cc2-reviews">(83 reviews)</span></span>
+              <span class="cc2-price">$1,500</span>
+            </div>
+            <h4 class="cc2-title">Tiny Talkers Circle</h4>
+            <p class="cc2-desc">Small group sessions where little ones learn to interact with peers in English...</p>
+            <div class="cc2-instructor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Kooduz Expert Team</div>
+            <button class="cc2-btn">View Details →</button>
+          </div>
+        </div>
+
+        <!-- Course 3 -->
+        <div class="course-card-v2">
+          <div class="cc2-thumb" style="background:linear-gradient(135deg,#1347c4,#6a93f4);">
+            <span class="cc2-level intermediate">Intermediate</span>
+          </div>
+          <div class="cc2-body">
+            <div class="cc2-rating-row">
+              <span class="cc2-rating">⭐ 4.2 <span class="cc2-reviews">(164 reviews)</span></span>
+              <span class="cc2-price">$3,000</span>
+            </div>
+            <h4 class="cc2-title">Primary Fluency Lab</h4>
+            <p class="cc2-desc">Structured 11 lessons focusing on grammar, reading comprehension...</p>
+            <div class="cc2-instructor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Kooduz Expert Team</div>
+            <button class="cc2-btn">View Details →</button>
+          </div>
+        </div>
+
+        <!-- Course 4 -->
+        <div class="course-card-v2">
+          <div class="cc2-thumb" style="background:linear-gradient(135deg,#0e2f7a,#3d73f0);">
+            <span class="cc2-level intermediate">Intermediate</span>
+          </div>
+          <div class="cc2-body">
+            <div class="cc2-rating-row">
+              <span class="cc2-rating">⭐ 4.2 <span class="cc2-reviews">(102 reviews)</span></span>
+              <span class="cc2-price">$1,800</span>
+            </div>
+            <h4 class="cc2-title">Discovery English Group</h4>
+            <p class="cc2-desc">Project-based group learning where students explore topics like geography...</p>
+            <div class="cc2-instructor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Kooduz Expert Team</div>
+            <button class="cc2-btn">View Details →</button>
+          </div>
+        </div>
+
+        <!-- Course 5 -->
+        <div class="course-card-v2">
+          <div class="cc2-thumb" style="background:linear-gradient(135deg,#195AEC,#97b4f7);">
+            <span class="cc2-level advanced">Advanced</span>
+          </div>
+          <div class="cc2-body">
+            <div class="cc2-rating-row">
+              <span class="cc2-rating">⭐ 4.5 <span class="cc2-reviews">(71 reviews)</span></span>
+              <span class="cc2-price">$3,500</span>
+            </div>
+            <h4 class="cc2-title">Teen Talk Pro</h4>
+            <p class="cc2-desc">Advanced conversation and debate practice for teens. Topics include...</p>
+            <div class="cc2-instructor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Kooduz Expert Team</div>
+            <button class="cc2-btn">View Details →</button>
+          </div>
+        </div>
+
+        <!-- Course 6 -->
+        <div class="course-card-v2">
+          <div class="cc2-thumb" style="background:linear-gradient(135deg,#1347c4,#3d73f0);">
+            <span class="cc2-level advanced">Advanced</span>
+          </div>
+          <div class="cc2-body">
+            <div class="cc2-rating-row">
+              <span class="cc2-rating">⭐ 4.7 <span class="cc2-reviews">(156 reviews)</span></span>
+              <span class="cc2-price">$3,800</span>
+            </div>
+            <h4 class="cc2-title">Exam Ready ESL</h4>
+            <p class="cc2-desc">Intensive preparation for major standardized tests. Strategies, mock...</p>
+            <div class="cc2-instructor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Kooduz Expert Team</div>
+            <button class="cc2-btn">View Details →</button>
+          </div>
+        </div>
+
+        <!-- Course 7 -->
+        <div class="course-card-v2">
+          <div class="cc2-thumb" style="background:linear-gradient(135deg,#0e2f7a,#195AEC);">
+            <span class="cc2-level advanced">Advanced</span>
+          </div>
+          <div class="cc2-body">
+            <div class="cc2-rating-row">
+              <span class="cc2-rating">⭐ 4.3 <span class="cc2-reviews">(107 reviews)</span></span>
+              <span class="cc2-price">$4,000</span>
+            </div>
+            <h4 class="cc2-title">Career Catalyst English</h4>
+            <p class="cc2-desc">Business English for career advancement. Presentations...</p>
+            <div class="cc2-instructor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Kooduz Expert Team</div>
+            <button class="cc2-btn">View Details →</button>
+          </div>
+        </div>
+
+        <!-- Course 8 -->
+        <div class="course-card-v2">
+          <div class="cc2-thumb" style="background:linear-gradient(135deg,#3d73f0,#6a93f4);">
+            <span class="cc2-level intermediate-advanced">Intermediate/Advanced</span>
+          </div>
+          <div class="cc2-body">
+            <div class="cc2-rating-row">
+              <span class="cc2-rating">⭐ 4.7 <span class="cc2-reviews">(54 reviews)</span></span>
+              <span class="cc2-price">$2,000</span>
+            </div>
+            <h4 class="cc2-title">The Networking Hub</h4>
+            <p class="cc2-desc">Group sessions simulating international business networking...</p>
+            <div class="cc2-instructor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Kooduz Expert Team</div>
+            <button class="cc2-btn">View Details →</button>
+          </div>
+        </div>
+
+        <!-- Course 9 -->
+        <div class="course-card-v2">
+          <div class="cc2-thumb" style="background:linear-gradient(135deg,#195AEC,#c4d5fb);">
+            <span class="cc2-level beginner-intermediate">Beginner/Intermediate</span>
+          </div>
+          <div class="cc2-body">
+            <div class="cc2-rating-row">
+              <span class="cc2-rating">⭐ 4.1 <span class="cc2-reviews">(194 reviews)</span></span>
+              <span class="cc2-price">$3,000</span>
+            </div>
+            <h4 class="cc2-title">Silver Voyager English</h4>
+            <p class="cc2-desc">English for travel and leisure. Learn practical phrases for hotels, airports...</p>
+            <div class="cc2-instructor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Kooduz Expert Team</div>
+            <button class="cc2-btn">View Details →</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pagination -->
+      <div style="display:flex;justify-content:center;gap:6px;margin-top:2rem;">
+        <span style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:var(--blue-600);color:var(--white);font-weight:700;font-size:0.85rem;cursor:pointer;">1</span>
+        <span style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:8px;border:1px solid var(--border);color:var(--text-muted);font-weight:600;font-size:0.85rem;cursor:pointer;">2</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 2: COURSE DETAIL -->
+<div class="page-section" id="page-course-detail">
+  
+  <div class="course-detail">
+    <div class="cd-breadcrumb">
+      <a href="#" onclick="showPage('home')">Courses</a> &rsaquo; Web Development &rsaquo; WordPress & WooCommerce Masterclass
+    </div>
+    <div class="cd-main">
+      <h1>Complete WordPress & WooCommerce Masterclass</h1>
+      <p class="cd-main-desc">Build professional websites and online stores from scratch. You'll learn WordPress setup, theme customization, Elementor page building, WooCommerce product management, payment integration, and SEO basics.</p>
+
+      <div class="cd-instructor">
+        <div class="cd-instructor-avatar">JD</div>
+        <div>
+          <div class="cd-instructor-name">John Davis</div>
+          <div class="cd-instructor-role">Senior Web Developer &bull; 8 years experience</div>
+        </div>
+      </div>
+
+      <div class="cd-curriculum">
+        <div class="cd-curriculum-header">Curriculum<span class="cd-curriculum-count">5 Modules &bull; 32 Lessons &bull; 12h total</span></div>
+        <div class="cd-module">
+          <div class="cd-module-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>Module 1: WordPress Fundamentals</div>
+          <div class="cd-lesson"><span class="cd-lesson-left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Installing WordPress</span><span class="cd-lesson-duration">15:30</span></div>
+          <div class="cd-lesson"><span class="cd-lesson-left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Dashboard Overview</span><span class="cd-lesson-duration">12:45</span></div>
+          <div class="cd-lesson"><span class="cd-lesson-left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Themes & Plugins</span><span class="cd-lesson-duration">20:00</span></div>
+          <div class="cd-lesson"><span class="cd-lesson-left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Quiz: WordPress Basics</span><span class="cd-lesson-duration">5 items</span></div>
+        </div>
+        <div class="cd-module">
+          <div class="cd-module-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>Module 2: Elementor Page Building</div>
+          <div class="cd-lesson"><span class="cd-lesson-left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Elementor Interface</span><span class="cd-lesson-duration">18:20</span></div>
+          <div class="cd-lesson"><span class="cd-lesson-left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Building a Homepage</span><span class="cd-lesson-duration">35:00</span></div>
+          <div class="cd-lesson"><span class="cd-lesson-left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Responsive Design</span><span class="cd-lesson-duration">22:10</span></div>
+        </div>
+        <div class="cd-module">
+          <div class="cd-module-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>Module 3: WooCommerce Setup</div>
+          <div class="cd-lesson"><span class="cd-lesson-left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Installing WooCommerce</span><span class="cd-lesson-duration">14:00</span></div>
+          <div class="cd-lesson"><span class="cd-lesson-left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Adding Products</span><span class="cd-lesson-duration">25:30</span></div>
+          <div class="cd-lesson"><span class="cd-lesson-left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Payment Gateways</span><span class="cd-lesson-duration">18:45</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cd-sidebar">
+      <div class="cd-sidebar-card">
+        <div class="cd-sidebar-thumb">
+          <div class="cd-play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        </div>
+        <div class="cd-sidebar-body">
+          <div class="cd-price">$29.99 <del>$59.99</del></div>
+          <button class="cd-enroll-btn">Enroll Now — $29.99</button>
+          <ul class="cd-features">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>12 hours on-demand video</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>32 lessons in 5 modules</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Downloadable resources</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Certificate of completion</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Lifetime access</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Mobile & desktop access</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 3: SUBSCRIPTIONS -->
+<div class="page-section" id="page-subscriptions">
+  
+  <div class="sub-hero">
+    <h2>Live Learning <span>Subscriptions</span></h2>
+    <p>Subscribe and receive tokens to book live Google Meet sessions with expert instructors.</p>
+  </div>
+
+  <div class="sub-grid">
+    <div class="sub-card">
+      <div class="sub-plan-name">Starter</div>
+      <div class="sub-price">$9.99<span>/mo</span></div>
+      <div class="sub-tokens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>2 Tokens / month</div>
+      <ul class="sub-features">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>2 live sessions per month</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Session recordings (7 days)</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Community access</li>
+      </ul>
+      <button class="sub-btn">Subscribe</button>
+    </div>
+
+    <div class="sub-card featured">
+      <div class="sub-popular">Most Popular</div>
+      <div class="sub-plan-name">Pro</div>
+      <div class="sub-price">$19.99<span>/mo</span></div>
+      <div class="sub-tokens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>5 Tokens / month</div>
+      <ul class="sub-features">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>5 live sessions per month</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Session recordings (30 days)</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Priority Q&A in sessions</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Private community group</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>10% discount on courses</li>
+      </ul>
+      <button class="sub-btn">Subscribe</button>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-plan-name">Premium</div>
+      <div class="sub-price">$34.99<span>/mo</span></div>
+      <div class="sub-tokens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>12 Tokens / month</div>
+      <ul class="sub-features">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>12 live sessions per month</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Unlimited recordings access</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>1-on-1 mentoring (1x/mo)</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>All Pro features included</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>20% discount on courses</li>
+      </ul>
+      <button class="sub-btn">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 4: LIVE SESSIONS -->
+<div class="page-section" id="page-live">
+  
+  <div class="live-header">
+    <div>
+      <h2>Upcoming Live Sessions</h2>
+      <p>Use your tokens to book live Google Meet sessions</p>
+    </div>
+    <div class="live-balance">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      Your Tokens: <strong>3</strong> remaining
+    </div>
+  </div>
+
+  <div class="live-grid">
+    <div class="live-card">
+      <div class="live-card-top">
+        <div class="live-date"><span class="live-date-month">May</span><span class="live-date-day">5</span></div>
+        <span class="live-status open">Open</span>
+      </div>
+      <h3>WordPress Security Best Practices</h3>
+      <p>Live walkthrough of essential security measures — from hardening to malware cleanup.</p>
+      <div class="live-card-meta">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>7:00 PM - 8:30 PM</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>12/20 slots</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Google Meet</span>
+      </div>
+      <button class="live-book-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Book Session — Use 1 Token</button>
+    </div>
+
+    <div class="live-card">
+      <div class="live-card-top">
+        <div class="live-date"><span class="live-date-month">May</span><span class="live-date-day">8</span></div>
+        <span class="live-status booked">Booked</span>
+      </div>
+      <h3>WooCommerce Payment Integration Workshop</h3>
+      <p>Hands-on setup of PayPal, Stripe, and other popular payment gateways for your store.</p>
+      <div class="live-card-meta">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>3:00 PM - 4:30 PM</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>18/20 slots</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Google Meet</span>
+      </div>
+      <button class="live-book-btn booked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Booked — Meet Link Ready</button>
+    </div>
+
+    <div class="live-card">
+      <div class="live-card-top">
+        <div class="live-date"><span class="live-date-month">May</span><span class="live-date-day">12</span></div>
+        <span class="live-status full">Full</span>
+      </div>
+      <h3>Laravel API Development for Beginners</h3>
+      <p>Build a REST API from scratch using Laravel — routes, controllers, and authentication.</p>
+      <div class="live-card-meta">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>7:00 PM - 9:00 PM</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>20/20 slots</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Google Meet</span>
+      </div>
+      <button class="live-book-btn disabled">Session Full — Join Waitlist</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 5: RECORDINGS -->
+<div class="page-section" id="page-recordings">
+  
+
+  <div class="rec-header">
+    <h2>Session Recordings</h2>
+    <p>Watch past live sessions on demand — hosted on Vimeo Pro with domain-restricted playback.</p>
+  </div>
+
+  <div class="rec-info-banner">
+    <div class="rec-info-banner-inner">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      <span>Recording access depends on your subscription plan: <strong>Starter</strong> — 7 days &nbsp;|&nbsp; <strong>Pro</strong> — 30 days &nbsp;|&nbsp; <strong>Premium</strong> — Unlimited access</span>
+    </div>
+  </div>
+
+  <div class="rec-filters">
+    <button class="rec-filter active">All Topics</button>
+    <button class="rec-filter">WordPress</button>
+    <button class="rec-filter">WooCommerce</button>
+    <button class="rec-filter">Laravel</button>
+    <button class="rec-filter">Marketing</button>
+    <button class="rec-filter">Freelancing</button>
+  </div>
+
+  <div class="rec-grid">
+    <!-- Recording 1: Available -->
+    <div class="rec-card">
+      <div class="rec-card-video">
+        <div class="rec-card-video-bg"></div>
+        <div class="rec-play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="rec-duration">1:28:45</span>
+        <span class="rec-vimeo-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.396 7.164c-.093 2.026-1.507 4.799-4.245 8.32C15.322 19.161 12.928 21 10.97 21c-1.214 0-2.24-1.119-3.079-3.359L6.22 11.975c-.56-2.24-1.16-3.36-1.8-3.36-.14 0-.628.294-1.465.882L2 8.335c.92-.808 1.828-1.616 2.72-2.424 1.226-1.058 2.146-1.615 2.76-1.671 1.45-.14 2.342.852 2.677 2.977.362 2.293.613 3.72.755 4.281.42 1.905.88 2.857 1.38 2.857.39 0 .976-.616 1.757-1.848.78-1.232 1.198-2.172 1.254-2.82.112-1.072-.308-1.607-1.26-1.607-.449 0-.91.103-1.386.308.92-3.016 2.683-4.481 5.288-4.399 1.932.056 2.843 1.31 2.451 3.175z"/></svg>Vimeo</span>
+      </div>
+      <div class="rec-card-body">
+        <div class="rec-card-top">
+          <div class="rec-card-title">WooCommerce Payment Integration Workshop</div>
+          <span class="rec-access-badge available">Available</span>
+        </div>
+        <div class="rec-card-desc">Hands-on setup of PayPal, Stripe, and other popular payment gateways for your WooCommerce store.</div>
+        <div class="rec-card-meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>May 8, 2026</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>John Davis</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>142 views</span>
+        </div>
+        <button class="rec-watch-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Watch Recording
+        </button>
+      </div>
+    </div>
+
+    <!-- Recording 2: Expiring Soon -->
+    <div class="rec-card">
+      <div class="rec-card-video">
+        <div class="rec-card-video-bg" style="background: linear-gradient(135deg, var(--blue-500), var(--blue-300));"></div>
+        <div class="rec-play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="rec-duration">1:52:10</span>
+        <span class="rec-vimeo-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.396 7.164c-.093 2.026-1.507 4.799-4.245 8.32C15.322 19.161 12.928 21 10.97 21c-1.214 0-2.24-1.119-3.079-3.359L6.22 11.975c-.56-2.24-1.16-3.36-1.8-3.36-.14 0-.628.294-1.465.882L2 8.335c.92-.808 1.828-1.616 2.72-2.424 1.226-1.058 2.146-1.615 2.76-1.671 1.45-.14 2.342.852 2.677 2.977.362 2.293.613 3.72.755 4.281.42 1.905.88 2.857 1.38 2.857.39 0 .976-.616 1.757-1.848.78-1.232 1.198-2.172 1.254-2.82.112-1.072-.308-1.607-1.26-1.607-.449 0-.91.103-1.386.308.92-3.016 2.683-4.481 5.288-4.399 1.932.056 2.843 1.31 2.451 3.175z"/></svg>Vimeo</span>
+      </div>
+      <div class="rec-card-body">
+        <div class="rec-card-top">
+          <div class="rec-card-title">WordPress Speed Optimization Deep Dive</div>
+          <span class="rec-access-badge expiring">Expires in 2 days</span>
+        </div>
+        <div class="rec-card-desc">Learn how to optimize WordPress performance — caching, image compression, lazy loading, and CDN setup.</div>
+        <div class="rec-card-meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Apr 16, 2026</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Sarah Miller</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>89 views</span>
+        </div>
+        <button class="rec-watch-btn expiring">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          Watch Now — Expires Soon
+        </button>
+      </div>
+    </div>
+
+    <!-- Recording 3: Locked -->
+    <div class="rec-card">
+      <div class="rec-card-video">
+        <div class="rec-card-video-bg" style="background: linear-gradient(135deg, #94a3b8, #cbd5e1); opacity: 0.6;"></div>
+        <div class="rec-play-btn" style="background: rgba(255,255,255,0.15); cursor: not-allowed;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <span class="rec-duration">2:05:30</span>
+        <span class="rec-vimeo-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.396 7.164c-.093 2.026-1.507 4.799-4.245 8.32C15.322 19.161 12.928 21 10.97 21c-1.214 0-2.24-1.119-3.079-3.359L6.22 11.975c-.56-2.24-1.16-3.36-1.8-3.36-.14 0-.628.294-1.465.882L2 8.335c.92-.808 1.828-1.616 2.72-2.424 1.226-1.058 2.146-1.615 2.76-1.671 1.45-.14 2.342.852 2.677 2.977.362 2.293.613 3.72.755 4.281.42 1.905.88 2.857 1.38 2.857.39 0 .976-.616 1.757-1.848.78-1.232 1.198-2.172 1.254-2.82.112-1.072-.308-1.607-1.26-1.607-.449 0-.91.103-1.386.308.92-3.016 2.683-4.481 5.288-4.399 1.932.056 2.843 1.31 2.451 3.175z"/></svg>Vimeo</span>
+      </div>
+      <div class="rec-card-body">
+        <div class="rec-card-top">
+          <div class="rec-card-title">Laravel API Development for Beginners</div>
+          <span class="rec-access-badge locked">Access Expired</span>
+        </div>
+        <div class="rec-card-desc">Build a REST API from scratch using Laravel — routes, controllers, and authentication.</div>
+        <div class="rec-card-meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Mar 28, 2026</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Mark Torres</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>215 views</span>
+        </div>
+        <button class="rec-watch-btn locked">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Upgrade to Premium for Unlimited Access
+        </button>
+      </div>
+    </div>
+
+    <!-- Recording 4: Available -->
+    <div class="rec-card">
+      <div class="rec-card-video">
+        <div class="rec-card-video-bg" style="background: linear-gradient(135deg, var(--blue-700), var(--blue-500));"></div>
+        <div class="rec-play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="rec-duration">1:15:20</span>
+        <span class="rec-vimeo-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.396 7.164c-.093 2.026-1.507 4.799-4.245 8.32C15.322 19.161 12.928 21 10.97 21c-1.214 0-2.24-1.119-3.079-3.359L6.22 11.975c-.56-2.24-1.16-3.36-1.8-3.36-.14 0-.628.294-1.465.882L2 8.335c.92-.808 1.828-1.616 2.72-2.424 1.226-1.058 2.146-1.615 2.76-1.671 1.45-.14 2.342.852 2.677 2.977.362 2.293.613 3.72.755 4.281.42 1.905.88 2.857 1.38 2.857.39 0 .976-.616 1.757-1.848.78-1.232 1.198-2.172 1.254-2.82.112-1.072-.308-1.607-1.26-1.607-.449 0-.91.103-1.386.308.92-3.016 2.683-4.481 5.288-4.399 1.932.056 2.843 1.31 2.451 3.175z"/></svg>Vimeo</span>
+      </div>
+      <div class="rec-card-body">
+        <div class="rec-card-top">
+          <div class="rec-card-title">Building a Landing Page with Elementor Pro</div>
+          <span class="rec-access-badge available">Available</span>
+        </div>
+        <div class="rec-card-desc">Step-by-step creation of a high-converting landing page using Elementor Pro widgets and templates.</div>
+        <div class="rec-card-meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>May 1, 2026</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>John Davis</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>67 views</span>
+        </div>
+        <button class="rec-watch-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Watch Recording
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 6: DASHBOARD -->
+<div class="page-section" id="page-dashboard">
+  
+  <div class="dash-grid">
+    <div class="dash-welcome">
+      <div><h2>Welcome back, Glenn!</h2><p>Continue your learning journey.</p></div>
+      <div class="dash-welcome-stats">
+        <div><div class="dash-welcome-stat-num">2</div><div class="dash-welcome-stat-label">Enrolled</div></div>
+        <div><div class="dash-welcome-stat-num">3</div><div class="dash-welcome-stat-label">Tokens</div></div>
+        <div><div class="dash-welcome-stat-num">1</div><div class="dash-welcome-stat-label">Upcoming</div></div>
+      </div>
+    </div>
+
+    <div class="dash-courses">
+      <h3>My Courses</h3>
+      <div class="dash-course-item">
+        <div class="dash-course-thumb" style="background: linear-gradient(135deg, #195AEC, #6a93f4);"></div>
+        <div class="dash-course-info">
+          <h4>WordPress & WooCommerce Masterclass</h4>
+          <div class="dash-progress-bar"><div class="dash-progress-fill" style="width:65%"></div></div>
+          <div class="dash-progress-text">65% complete — 21 of 32 lessons</div>
+        </div>
+      </div>
+      <div class="dash-course-item">
+        <div class="dash-course-thumb" style="background: linear-gradient(135deg, #3d73f0, #c4d5fb);"></div>
+        <div class="dash-course-info">
+          <h4>Getting Started as a Freelancer</h4>
+          <div class="dash-progress-bar"><div class="dash-progress-fill" style="width:30%"></div></div>
+          <div class="dash-progress-text">30% complete — 3 of 10 lessons</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-sidebar">
+      <h3>Subscription & Tokens</h3>
+      <div class="dash-sidebar-card">
+        <div class="dash-sub-status">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Pro Plan — Active
+        </div>
+        <div class="dash-token-display">
+          <div class="dash-token-circle">
+            <span class="dash-token-num">3</span>
+            <span class="dash-token-label">Tokens</span>
+          </div>
+          <div class="dash-token-info">3 of 5 tokens remaining<br>Renews on May 15, 2026</div>
+        </div>
+      </div>
+      <div class="dash-sidebar-card dash-upcoming">
+        <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;color:var(--blue-500)"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Upcoming Sessions</h4>
+        <div class="dash-upcoming-item">
+          <div class="dash-upcoming-date"><div class="dash-upcoming-date-d">8</div><div class="dash-upcoming-date-m">May</div></div>
+          <div class="dash-upcoming-info"><strong>WooCommerce Payment Workshop</strong><span>3:00 PM — Google Meet link ready</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">&copy; 2026 LearnHub — Online Learning Platform. All rights reserved.</div>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('page-' + id);
+    if (target) target.classList.add('active');
+    // Update nav active state
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    const navMap = { 'landing': 0, 'home': 1, 'subscriptions': 2, 'live': 3, 'recordings': 4, 'dashboard': 5, 'course-detail': 1 };
+    const navLinks = document.querySelectorAll('.nav-links a');
+    if (navLinks[navMap[id]]) navLinks[navMap[id]].classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.nav-hamburger');
+    menu.classList.toggle('open');
+    hamburger.classList.toggle('active');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  }
+
+  function closeMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.nav-hamburger');
+    menu.classList.remove('open');
+    hamburger.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+</script>
+</body>
+</html>
