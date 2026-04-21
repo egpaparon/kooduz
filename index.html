@@ -11,8 +11,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kooduz — Interactive Prototype</title>
 <style>
-:root {
-  color-scheme: light;
+:root{
+  color-scheme:light;
   --p:#195AEC;--pd:#1245B8;--pl:#EBF1FD;--pm:#4A7CF0;
   --td:#1A2340;--tm:#4A5568;--tl:#718096;
   --bd:#C4D4FA;--w:#FFFFFF;--gb:#F7F9FC;
@@ -21,22 +21,22 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Segoe UI',Arial,sans-serif;background:#F0F4FF;color:var(--td);font-size:14px}
-
-/* ── PROTO BANNER ── */
 .pb{background:var(--pd);color:#9FC4FF;text-align:center;padding:5px;font-size:10px;letter-spacing:1px;font-weight:700}
 
-/* ── NAV ── */
+/* NAV */
 nav{background:var(--w);border-bottom:2px solid var(--bd);padding:0 16px;display:flex;align-items:center;gap:2px;height:54px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(25,90,236,.08)}
 .nl{font-weight:800;font-size:18px;color:var(--p);margin-right:16px;cursor:pointer;white-space:nowrap;flex-shrink:0}
 .nl span{color:var(--pm)}
 .nv{padding:7px 10px;border-radius:6px;cursor:pointer;font-size:12px;font-weight:500;color:var(--tm);transition:all .2s;white-space:nowrap;flex-shrink:0}
 .nv:hover,.nv.act{background:var(--pl);color:var(--p);font-weight:600}
 .ns{flex:1;min-width:8px}
-.cart-btn{display:flex;align-items:center;gap:5px;background:var(--pl);color:var(--p);border:none;padding:6px 12px;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;flex-shrink:0;position:relative;margin-left:auto;}
+.cart-btn{display:flex;align-items:center;gap:5px;background:var(--pl);color:var(--p);border:none;padding:6px 12px;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;flex-shrink:0;position:relative;margin-left:auto;white-space:nowrap}
 .cart-cnt{background:var(--p);color:white;border-radius:50%;width:18px;height:18px;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;position:absolute;top:-5px;right:-5px}
 .tok-b{background:var(--pl);color:var(--p);padding:5px 10px;border-radius:20px;font-size:11px;font-weight:700;display:flex;align-items:center;gap:4px;flex-shrink:0;white-space:nowrap}
+
+/* BUTTONS */
 .btn{padding:8px 16px;border-radius:7px;border:none;cursor:pointer;font-size:13px;font-weight:600;transition:all .2s}
-.bp{background:var(--p);color:var(--w)}.bp:hover{background:var(--pd);transform:translateY(-1px);box-shadow:var(--shh)}
+.bp{background:var(--p);color:#fff}.bp:hover{background:var(--pd);transform:translateY(-1px)}
 .bo{background:transparent;color:var(--p);border:1.5px solid var(--p)}.bo:hover{background:var(--pl)}
 .bg{background:#E2E8F0;color:var(--tm);cursor:default}
 .bs{background:var(--ok);color:white}
@@ -44,25 +44,22 @@ nav{background:var(--w);border-bottom:2px solid var(--bd);padding:0 16px;display
 .bghost{background:rgba(255,255,255,.15);color:white;border:1.5px solid rgba(255,255,255,.4)}.bghost:hover{background:rgba(255,255,255,.25)}
 .sm{padding:6px 14px;font-size:12px}
 
-/* ── HAMBURGER (hidden by default, shown on mobile/tablet) ── */
+/* HAMBURGER */
 .ham{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;flex-shrink:0;margin-left:4px}
 .ham span{display:block;width:22px;height:2px;background:var(--p);border-radius:2px;transition:all .25s}
 .ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .ham.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 .ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-
-/* ── MOBILE DRAWER ── */
-/* Uses .di (drawer item) — NOT .nv — so the media query hiding .nv won't affect it */
 .nav-drawer{display:none;position:fixed;top:54px;left:0;right:0;background:var(--w);border-bottom:2px solid var(--bd);box-shadow:0 6px 20px rgba(25,90,236,.12);z-index:99;flex-direction:column;padding:8px 12px 14px}
 .nav-drawer.open{display:flex}
 .di{display:block;width:100%;padding:11px 14px;border-radius:8px;font-size:14px;font-weight:500;color:var(--tm);cursor:pointer;transition:background .15s;border:none;background:none;text-align:left}
 .di:hover,.di.act{background:var(--pl);color:var(--p);font-weight:600}
 .drawer-foot{display:flex;gap:10px;align-items:center;padding:10px 14px 2px;border-top:1px solid var(--bd);margin-top:4px}
 
-/* ── PAGES ── */
+/* PAGES */
 .pg{display:none;min-height:calc(100vh - 90px)}.pg.act{display:block}
 
-/* ── HERO ── */
+/* HERO */
 .hero{background:linear-gradient(135deg,var(--pd),var(--p) 50%,var(--pm));padding:48px 20px;text-align:center;color:white}
 .hero h1{font-size:clamp(22px,5vw,34px);font-weight:800;margin-bottom:10px;line-height:1.2}
 .hero h1 span{color:#9FC4FF}
@@ -72,20 +69,18 @@ nav{background:var(--w);border-bottom:2px solid var(--bd);padding:0 16px;display
 .hstat .num{font-size:clamp(20px,4vw,28px);font-weight:800}
 .hstat .lbl{font-size:11px;opacity:.7}
 
-/* ── SECTION ── */
+/* SECTION */
 .sec{padding:32px 16px;max-width:1100px;margin:0 auto}
 .stit{font-size:clamp(16px,3vw,22px);font-weight:700;margin-bottom:6px}
 .ssub{font-size:12px;color:var(--tm);margin-bottom:24px}
 
-/* ── SERVICE CARDS ── */
+/* HOME SERVICE CARDS */
 .sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
 .sc{background:var(--w);border:1.5px solid var(--bd);border-radius:var(--r);padding:20px 16px;text-align:center;transition:all .2s}
 .sc:hover{border-color:var(--p);box-shadow:var(--shh);transform:translateY(-2px)}
 .si{width:48px;height:48px;background:var(--pl);border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:20px}
 .sc h3{font-size:13px;font-weight:700;margin-bottom:5px}
 .sc p{font-size:11px;color:var(--tm);line-height:1.5}
-
-/* ── HOW ── */
 .how{background:var(--pl);padding:32px 20px}
 .steps{display:flex;gap:12px;max-width:780px;margin:0 auto;flex-wrap:wrap;justify-content:center;align-items:flex-start}
 .step{flex:1;min-width:160px;text-align:center}
@@ -93,13 +88,11 @@ nav{background:var(--w);border-bottom:2px solid var(--bd);padding:0 16px;display
 .step h3{font-size:13px;font-weight:700;margin-bottom:5px}
 .step p{font-size:11px;color:var(--tm)}
 .sa{color:var(--p);font-size:22px;padding-top:8px;flex-shrink:0}
-
-/* ── CTA BANNER ── */
 .cta{background:linear-gradient(135deg,var(--p),var(--pm));padding:32px 20px;text-align:center;color:white;margin:24px 16px;border-radius:14px}
 .cta h2{font-size:clamp(16px,3vw,22px);font-weight:800;margin-bottom:8px}
 .cta p{opacity:.85;margin-bottom:18px;font-size:13px}
 
-/* ── COURSES ── */
+/* COURSE LIST */
 .ctool{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
 .sb{flex:1;min-width:160px;padding:8px 12px;border:1.5px solid var(--bd);border-radius:7px;font-size:13px;outline:none}
 .sb:focus{border-color:var(--p)}
@@ -109,12 +102,14 @@ nav{background:var(--w);border-bottom:2px solid var(--bd);padding:0 16px;display
 .cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
 .cc{background:var(--w);border:1.5px solid var(--bd);border-radius:var(--r);overflow:hidden;transition:all .2s}
 .cc:hover{box-shadow:var(--shh);transform:translateY(-3px);border-color:var(--pm)}
-.ct{height:130px;background:linear-gradient(135deg,var(--pd),var(--pm));display:flex;align-items:center;justify-content:center;font-size:42px;position:relative}
+.ct{height:130px;background:linear-gradient(135deg,var(--pd),var(--pm));display:flex;align-items:center;justify-content:center;font-size:42px;position:relative;cursor:pointer}
+.ct:hover{opacity:.9}
 .lb{position:absolute;top:8px;right:8px;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:700}
 .lb-b{background:#D4EDDA;color:var(--ok)}.lb-i{background:#FFF3CD;color:var(--warn)}.lb-a{background:#F8D7DA;color:var(--err)}
 .cb{padding:14px}
 .ccat{font-size:10px;font-weight:700;color:var(--p);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
-.ctit{font-size:13px;font-weight:700;margin-bottom:5px;line-height:1.3}
+.ctit{font-size:13px;font-weight:700;margin-bottom:5px;line-height:1.3;cursor:pointer;color:var(--td)}
+.ctit:hover{color:var(--p)}
 .cinst{font-size:11px;color:var(--tm);margin-bottom:6px}
 .stars{color:#F5A623;font-size:11px}
 .cpr{font-size:15px;font-weight:800;color:var(--p)}
@@ -122,7 +117,82 @@ nav{background:var(--w);border-bottom:2px solid var(--bd);padding:0 16px;display
 .cf{display:flex;align-items:center;justify-content:space-between;margin-top:10px;gap:6px;flex-wrap:wrap}
 .badge{display:inline-block;padding:2px 7px;border-radius:20px;font-size:10px;font-weight:700;background:#FFF3CD;color:var(--warn)}
 
-/* ── PRICING ── */
+/* ══ COURSE DETAIL ══ */
+.cd-back{display:inline-flex;align-items:center;gap:6px;color:var(--p);font-size:13px;font-weight:600;cursor:pointer;margin-bottom:18px;padding:6px 12px;border-radius:7px;background:var(--pl);transition:background .15s}
+.cd-back:hover{background:var(--bd)}
+.cd-hero{background:linear-gradient(135deg,var(--pd),var(--p) 60%,var(--pm));color:white;border-radius:14px;padding:28px 32px;margin-bottom:24px;display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.cd-emoji{font-size:5rem;flex-shrink:0;filter:drop-shadow(0 4px 12px rgba(0,0,0,.25))}
+.cd-info{flex:1;min-width:220px}
+.cd-info h1{font-size:clamp(18px,3vw,26px);font-weight:800;margin-bottom:8px;line-height:1.3}
+.cd-info p{font-size:13px;opacity:.88;line-height:1.6;margin-bottom:12px}
+.cd-meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:12px;opacity:.9}
+.cd-meta span{display:flex;align-items:center;gap:4px}
+.cd-wrap{display:grid;grid-template-columns:1fr 300px;gap:22px;align-items:start}
+.cd-main{}
+.cd-aside{}
+
+/* price card */
+.price-card{background:var(--w);border:2px solid var(--bd);border-radius:14px;padding:22px;position:sticky;top:70px}
+.price-card .big-price{font-size:28px;font-weight:800;color:var(--p);margin-bottom:4px}
+.price-card .old-price{font-size:12px;color:var(--tl);text-decoration:line-through;margin-left:6px}
+.price-card .includes{margin:14px 0}
+.price-card .inc-row{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--tm);padding:4px 0}
+.price-card .inc-row span:first-child{font-size:16px;flex-shrink:0}
+
+/* learn section */
+.learn-box{background:var(--pl);border:1.5px solid var(--bd);border-radius:12px;padding:18px 20px;margin-bottom:18px}
+.learn-box h3{font-size:14px;font-weight:700;margin-bottom:12px}
+.learn-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.learn-item{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--td);line-height:1.4}
+.learn-item::before{content:'✓';color:var(--ok);font-weight:800;flex-shrink:0;margin-top:1px}
+
+/* curriculum */
+.cur-box{background:var(--w);border:1.5px solid var(--bd);border-radius:12px;overflow:hidden;margin-bottom:18px}
+.cur-head{padding:16px 20px;border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.cur-head h3{font-size:14px;font-weight:700}
+.cur-stats{font-size:11px;color:var(--tm)}
+.module{border-bottom:1px solid var(--bd)}
+.module:last-child{border-bottom:none}
+.mod-head{padding:12px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:var(--gb);user-select:none;gap:8px}
+.mod-head:hover{background:var(--pl)}
+.mod-title{font-size:12px;font-weight:700;flex:1}
+.mod-meta{font-size:11px;color:var(--tm);flex-shrink:0}
+.mod-arrow{font-size:11px;color:var(--tm);transition:transform .2s;flex-shrink:0}
+.mod-body{display:none}
+.mod-body.open{display:block}
+.lesson-row{padding:10px 20px;display:flex;align-items:center;gap:10px;border-top:1px solid var(--bd);cursor:pointer;transition:background .15s}
+.lesson-row:hover{background:var(--pl)}
+.lesson-row .li{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;color:var(--tm)}
+.lesson-row.done .li{background:var(--ok);border-color:var(--ok);color:white}
+.lesson-row.locked .li{background:#E2E8F0;color:var(--tl)}
+.lesson-title{font-size:12px;flex:1;color:var(--td)}
+.lesson-row.locked .lesson-title{color:var(--tl)}
+.lesson-dur{font-size:10px;color:var(--tm);flex-shrink:0}
+.lesson-lock{font-size:12px;flex-shrink:0;color:var(--tl)}
+
+/* instructor card */
+.inst-card{background:var(--w);border:1.5px solid var(--bd);border-radius:12px;padding:18px 20px;margin-bottom:18px;display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
+.inst-av{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--pd),var(--pm));display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.inst-info{flex:1;min-width:180px}
+.inst-info h3{font-size:14px;font-weight:700;margin-bottom:2px}
+.inst-info p{font-size:11px;color:var(--tm);line-height:1.6;margin-top:4px}
+
+/* LESSON PLAYER MODAL */
+.lp-wrap{background:white;border-radius:16px;width:100%;max-width:700px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.lp-topbar{background:var(--td);color:white;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.lp-topbar span{font-size:13px;font-weight:600;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lp-topbar button{background:rgba(255,255,255,.15);border:none;color:white;width:28px;height:28px;border-radius:6px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lp-screen{background:linear-gradient(135deg,#0F1B3C,#1A2340);height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;cursor:pointer;position:relative}
+.lp-screen .play-ring{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;font-size:26px;transition:transform .2s}
+.lp-screen:hover .play-ring{transform:scale(1.1);background:rgba(255,255,255,.25)}
+.lp-screen p{color:rgba(255,255,255,.7);font-size:12px}
+.lp-pbar{height:4px;background:#E2E8F0;position:relative}
+.lp-pfill{height:100%;background:var(--p);transition:width .3s}
+.lp-body{padding:16px 18px}
+.lp-footer{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-top:1px solid var(--bd);background:var(--gb)}
+.lp-footer .pg-info{font-size:12px;color:var(--tm);text-align:center;flex:1}
+
+/* PRICING */
 .pg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;max-width:860px;margin:0 auto}
 .pc{background:var(--w);border:2px solid var(--bd);border-radius:14px;padding:24px 20px;text-align:center;position:relative;transition:all .2s}
 .pc:hover{box-shadow:var(--shh)}
@@ -138,7 +208,7 @@ nav{background:var(--w);border-bottom:2px solid var(--bd);padding:0 16px;display
 .pf div{display:flex;gap:7px;font-size:12px;color:var(--tm);padding:3px 0}
 .ck{color:var(--ok);font-weight:700}
 
-/* ── SESSIONS ── */
+/* SESSIONS */
 .tbar{background:var(--pl);border:1.5px solid var(--bd);border-radius:var(--r);padding:12px 16px;margin-bottom:18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .ssg{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
 .scard{background:var(--w);border:1.5px solid var(--bd);border-radius:var(--r);padding:16px}
@@ -151,7 +221,7 @@ nav{background:var(--w);border-bottom:2px solid var(--bd);padding:0 16px;display
 .sl-o{background:#D4EDDA;color:var(--ok)}.sl-f{background:#FFF3CD;color:var(--warn)}.sl-x{background:#F8D7DA;color:var(--err)}.sl-b{background:var(--pl);color:var(--p)}
 .ml{display:block;margin-top:7px;background:#E8F5E9;color:var(--ok);padding:5px 9px;border-radius:5px;font-size:11px;font-weight:600;text-decoration:none}
 
-/* ── RECORDINGS ── */
+/* RECORDINGS */
 .rg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
 .rc{background:var(--w);border:1.5px solid var(--bd);border-radius:var(--r);overflow:hidden;transition:all .2s}
 .rc:hover{box-shadow:var(--shh)}
@@ -166,7 +236,7 @@ nav{background:var(--w);border-bottom:2px solid var(--bd);padding:0 16px;display
 .rmeta{font-size:11px;color:var(--tm)}
 .rf{display:flex;align-items:center;justify-content:space-between;margin-top:9px}
 
-/* ── DASHBOARD ── */
+/* DASHBOARD */
 .dg{display:grid;grid-template-columns:1fr 280px;gap:18px}
 .dw{background:linear-gradient(135deg,var(--pd),var(--p));color:white;border-radius:14px;padding:20px;margin-bottom:18px}
 .dw h2{font-size:clamp(16px,3vw,20px);font-weight:800;margin-bottom:5px}
@@ -198,7 +268,7 @@ nav{background:var(--w);border-bottom:2px solid var(--bd);padding:0 16px;display
 .sutm{font-size:10px;color:var(--tm)}
 .dvdr{border:none;border-top:1px solid var(--bd);margin:12px 0}
 
-/* ── CART ── */
+/* CART */
 .cart-wrap{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start}
 .cart-item{background:var(--w);border:1.5px solid var(--bd);border-radius:var(--r);padding:14px;display:flex;gap:12px;align-items:center;margin-bottom:10px}
 .ci-thumb{width:60px;height:60px;border-radius:8px;background:linear-gradient(135deg,var(--pd),var(--pm));display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
@@ -214,7 +284,7 @@ nav{background:var(--w);border-bottom:2px solid var(--bd);padding:0 16px;display
 .empty-cart{text-align:center;padding:60px 20px;color:var(--tm)}
 .empty-cart .icon{font-size:48px;margin-bottom:12px}
 
-/* ── CHECKOUT ── */
+/* CHECKOUT */
 .co-wrap{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start}
 .co-form{background:var(--w);border:1.5px solid var(--bd);border-radius:14px;padding:22px}
 .co-section{margin-bottom:22px}
@@ -232,7 +302,7 @@ input:focus,select:focus{border-color:var(--p)}
 .card-fields{background:var(--gb);border-radius:8px;padding:14px}
 .secure{font-size:11px;color:var(--tm);text-align:center;margin-top:10px}
 
-/* ── SUCCESS ── */
+/* SUCCESS */
 .success-wrap{max-width:500px;margin:60px auto;text-align:center;padding:20px}
 .success-icon{font-size:64px;margin-bottom:16px}
 .success-wrap h2{font-size:24px;font-weight:800;color:var(--p);margin-bottom:8px}
@@ -240,38 +310,35 @@ input:focus,select:focus{border-color:var(--p)}
 .order-details{background:var(--pl);border-radius:12px;padding:18px;text-align:left;margin-bottom:24px}
 .od-row{display:flex;justify-content:space-between;font-size:13px;padding:4px 0}
 
-/* ── TOAST ── */
+/* TOAST */
 .toast{position:fixed;bottom:20px;right:20px;background:var(--td);color:white;padding:11px 18px;border-radius:10px;font-size:12px;z-index:9999;transform:translateY(80px);opacity:0;transition:all .35s;max-width:280px}
 .toast.show{transform:translateY(0);opacity:1}
 .toast.ok{background:var(--ok)}.toast.warn{background:var(--warn)}.toast.er{background:var(--err)}
 
-/* ── MODAL ── */
-.mo{display:none;position:fixed;inset:0;background:rgba(26,35,64,.5);z-index:200;align-items:center;justify-content:center;padding:16px}
+/* MODAL */
+.mo{display:none;position:fixed;inset:0;background:rgba(26,35,64,.6);z-index:200;align-items:center;justify-content:center;padding:16px}
 .mo.open{display:flex}
 .md{background:white;border-radius:14px;padding:24px;max-width:400px;width:100%}
 .md h3{font-size:15px;font-weight:700;margin-bottom:8px}
 .md p{font-size:13px;color:var(--tm);margin-bottom:18px}
 .mdb{display:flex;gap:8px;justify-content:flex-end}
 
-/* ── FOOTER ── */
 footer{background:var(--td);color:rgba(255,255,255,.5);text-align:center;padding:16px;font-size:11px;margin-top:36px}
 footer span{color:var(--pm);font-weight:600}
 
-/* ══════════════════════════════════════
-   RESPONSIVE BREAKPOINTS
-   ══════════════════════════════════════ */
-
-/* Tablet + Mobile: hide desktop nav, show hamburger */
+/* RESPONSIVE */
 @media(max-width:900px){
   .nv{display:none !important}
   .ns{display:none}
   .tok-b{display:none}
   .ham{display:flex}
-  /* layout fixes */
   .dg{grid-template-columns:1fr}
   .cart-wrap{grid-template-columns:1fr}
   .co-wrap{grid-template-columns:1fr}
+  .cd-wrap{grid-template-columns:1fr}
   .order-summary{position:static}
+  .price-card{position:static}
+  .cd-hero{padding:22px 18px}
 }
 @media(max-width:640px){
   .cg{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
@@ -283,10 +350,9 @@ footer span{color:var(--pm);font-weight:600}
   .pay-opts{flex-direction:column}
   .steps{flex-direction:column;align-items:center}
   .sa{display:none}
-  .hstats{gap:14px}
-  .dsts{gap:8px}
-  .cta{margin:16px 12px}
-  .cart-item{flex-wrap:wrap}
+  .learn-grid{grid-template-columns:1fr}
+  .cd-emoji{font-size:3rem}
+  .lp-screen{height:180px}
 }
 @media(max-width:400px){
   .cg{grid-template-columns:1fr}
@@ -295,12 +361,10 @@ footer span{color:var(--pm);font-weight:600}
 </style>
 </head>
 <body>
+<div class="pb">⚡ INTERACTIVE PROTOTYPE — KOODUZ ONLINE LEARNING PLATFORM</div>
 
-<div class="pb">⚡ INTERACTIVE PROTOTYPE — KOODUZ ONLINE LEARNING PLATFORM — All flows are simulated</div>
-
-<nav id="mainNav">
+<nav>
   <div class="nl" onclick="nav('home')">Koo<span>duz</span></div>
-  <!-- Desktop links -->
   <div class="nv act" id="n-home" onclick="nav('home')">Home</div>
   <div class="nv" id="n-courses" onclick="nav('courses')">Courses</div>
   <div class="nv" id="n-subs" onclick="nav('subs')">Subscriptions</div>
@@ -308,15 +372,11 @@ footer span{color:var(--pm);font-weight:600}
   <div class="nv" id="n-recs" onclick="nav('recs')">Recordings</div>
   <div class="nv" id="n-dash" onclick="nav('dash')">Dashboard</div>
   <div class="ns"></div>
-  <div class="tok-b" id="nav-tok">🪙 <span id="nt">5</span> Tokens</div>
+  <div class="tok-b">🪙 <span id="nt">5</span> Tokens</div>
   <button class="cart-btn" onclick="nav('cart')">🛒 Cart<span class="cart-cnt" id="cart-cnt">0</span></button>
-  <!-- Hamburger button — only visible on mobile/tablet via CSS -->
-  <button class="ham" id="hamBtn" onclick="toggleDrawer()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="ham" id="hamBtn" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- Mobile/Tablet Drawer — .di class (separate from .nv so it won't be hidden by media query) -->
 <div class="nav-drawer" id="navDrawer">
   <button class="di act" id="nd-home"    onclick="goPage('home')">🏠 Home</button>
   <button class="di"     id="nd-courses" onclick="goPage('courses')">📚 Courses</button>
@@ -326,17 +386,15 @@ footer span{color:var(--pm);font-weight:600}
   <button class="di"     id="nd-dash"    onclick="goPage('dash')">📊 Dashboard</button>
   <div class="drawer-foot">
     <div class="tok-b">🪙 <span id="nt2">5</span> Tokens</div>
-    <button class="cart-btn" style="margin-left:auto" onclick="goPage('cart')">
-      🛒 Cart<span class="cart-cnt" id="cart-cnt2">0</span>
-    </button>
+    <button class="cart-btn" style="margin-left:auto" onclick="goPage('cart')">🛒 Cart<span class="cart-cnt" id="cart-cnt2">0</span></button>
   </div>
 </div>
 
-<!-- ═══════════ HOME ═══════════ -->
+<!-- HOME -->
 <div class="pg act" id="pg-home">
   <div class="hero">
     <h1>Learn Anytime, Anywhere<br>with <span>Kooduz</span></h1>
-    <p>Self-paced courses, live sessions with expert instructors, and session recordings — all in one platform built for every learner.</p>
+    <p>Self-paced courses, live sessions with expert instructors, and session recordings — all in one platform.</p>
     <div class="hbtns">
       <button class="btn bw" style="padding:10px 22px" onclick="nav('courses')">🎓 Browse Courses</button>
       <button class="btn bghost" style="padding:10px 22px" onclick="nav('subs')">View Plans</button>
@@ -352,16 +410,16 @@ footer span{color:var(--pm);font-weight:600}
     <h2 class="stit" style="text-align:center">Why Choose Kooduz?</h2>
     <p class="ssub" style="text-align:center">Everything you need to grow your skills.</p>
     <div class="sg">
-      <div class="sc"><div class="si">📅</div><h3>Easy Booking</h3><p>Book live sessions instantly with monthly tokens. No complicated scheduling.</p></div>
-      <div class="sc"><div class="si">🎥</div><h3>Live Classes</h3><p>Join Google Meet sessions with expert instructors. Interact in real time.</p></div>
-      <div class="sc"><div class="si">🔒</div><h3>Secure Payment</h3><p>Pay safely via Stripe, PayPal, or GCash. One-time and subscriptions supported.</p></div>
-      <div class="sc"><div class="si">🎬</div><h3>Session Recordings</h3><p>Missed a session? Watch the recording within your subscription tier.</p></div>
+      <div class="sc"><div class="si">📅</div><h3>Easy Booking</h3><p>Book live sessions with monthly tokens.</p></div>
+      <div class="sc"><div class="si">🎥</div><h3>Live Classes</h3><p>Join Google Meet sessions with expert instructors.</p></div>
+      <div class="sc"><div class="si">🔒</div><h3>Secure Payment</h3><p>Pay via Stripe, PayPal, or GCash.</p></div>
+      <div class="sc"><div class="si">🎬</div><h3>Recordings</h3><p>Missed a session? Watch the recording anytime.</p></div>
     </div>
   </div>
   <div class="how">
     <div class="sec" style="padding-top:0;padding-bottom:0">
       <h2 class="stit" style="text-align:center;margin-bottom:5px">How It Works</h2>
-      <p class="ssub" style="text-align:center">Get started in 3 easy steps.</p>
+      <p class="ssub" style="text-align:center">3 easy steps.</p>
       <div class="steps">
         <div class="step"><div class="sn">1</div><h3>Browse &amp; Enroll</h3><p>Explore courses and enroll with a one-time payment.</p></div>
         <div class="sa">→</div>
@@ -376,17 +434,17 @@ footer span{color:var(--pm);font-weight:600}
     <p>Join hundreds of students already growing their skills with Kooduz.</p>
     <div class="hbtns">
       <button class="btn bw" onclick="nav('courses')">Browse Courses</button>
-      <button class="btn bghost" onclick="nav('subs')">View Subscription Plans</button>
+      <button class="btn bghost" onclick="nav('subs')">View Plans</button>
     </div>
   </div>
   <footer><span>Kooduz</span> — Online Learning Platform &nbsp;|&nbsp; Interactive Prototype &nbsp;|&nbsp; © 2026</footer>
 </div>
 
-<!-- ═══════════ COURSES ═══════════ -->
+<!-- COURSES LIST -->
 <div class="pg" id="pg-courses">
   <div class="sec">
     <h2 class="stit">Courses</h2>
-    <p class="ssub">Browse our full course library. Add to cart and checkout when ready.</p>
+    <p class="ssub">Click any course to see details. Add to cart when ready.</p>
     <div class="ctool">
       <input class="sb" placeholder="🔍 Search courses..." oninput="fCourses(this.value)">
       <span style="font-size:12px;color:var(--tm)" id="ccnt">Showing 8 courses</span>
@@ -403,7 +461,19 @@ footer span{color:var(--pm);font-weight:600}
   </div>
 </div>
 
-<!-- ═══════════ SUBSCRIPTIONS ═══════════ -->
+<!-- COURSE DETAIL -->
+<div class="pg" id="pg-course">
+  <div class="sec">
+    <div class="cd-back" onclick="nav('courses')">← Back to Courses</div>
+    <div class="cd-hero" id="cd-hero"></div>
+    <div class="cd-wrap">
+      <div id="cd-main"></div>
+      <div id="cd-aside"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SUBSCRIPTIONS -->
 <div class="pg" id="pg-subs">
   <div class="hero" style="padding:36px 20px">
     <h1 style="font-size:clamp(18px,4vw,26px)">Unlock Live Sessions with <span>Tokens</span></h1>
@@ -436,7 +506,6 @@ footer span{color:var(--pm);font-weight:600}
           <div><span class="ck">✓</span>5 live session bookings</div>
           <div><span class="ck">✓</span>30-day recording access</div>
           <div><span class="ck">✓</span>Priority Q&amp;A</div>
-          <div><span class="ck">✓</span>Private group</div>
           <div><span class="ck">✓</span>10% course discount</div>
         </div>
         <button class="btn bp" style="width:100%" onclick="subCheckout('Pro',19.99,5)">Get Pro →</button>
@@ -451,34 +520,33 @@ footer span{color:var(--pm);font-weight:600}
           <div><span class="ck">✓</span>Unlimited recordings</div>
           <div><span class="ck">✓</span>1-on-1 mentoring (1x/mo)</div>
           <div><span class="ck">✓</span>All Pro features</div>
-          <div><span class="ck">✓</span>20% course discount</div>
         </div>
         <button class="btn bo" style="width:100%" onclick="subCheckout('Premium',34.99,12)">Get Premium →</button>
       </div>
     </div>
-    <p style="text-align:center;font-size:11px;color:var(--tm);margin-top:18px">💳 Stripe · PayPal · GCash &nbsp;|&nbsp; Cancel anytime &nbsp;|&nbsp; Secure checkout</p>
+    <p style="text-align:center;font-size:11px;color:var(--tm);margin-top:18px">💳 Stripe · PayPal · GCash &nbsp;|&nbsp; Cancel anytime</p>
   </div>
 </div>
 
-<!-- ═══════════ LIVE SESSIONS ═══════════ -->
+<!-- LIVE SESSIONS -->
 <div class="pg" id="pg-live">
   <div class="sec">
     <h2 class="stit">Live Sessions</h2>
     <p class="ssub">Book upcoming sessions with your tokens. Each booking uses 1 token.</p>
     <div class="tbar">
       <div><div style="font-size:11px;color:var(--tm)">Token Balance</div><div style="font-size:20px;font-weight:800;color:var(--p)" id="tok-disp">5</div></div>
-      <div style="font-size:11px;color:var(--tm)">Renews May 21, 2026 · Used this cycle: <strong id="t-used">0</strong></div>
+      <div style="font-size:11px;color:var(--tm)">Renews May 21, 2026 · Used: <strong id="t-used">0</strong></div>
       <div style="margin-left:auto"><button class="btn bp sm" onclick="nav('subs')">+ Get Tokens</button></div>
     </div>
     <div class="ssg" id="ssg"></div>
   </div>
 </div>
 
-<!-- ═══════════ RECORDINGS ═══════════ -->
+<!-- RECORDINGS -->
 <div class="pg" id="pg-recs">
   <div class="sec">
     <h2 class="stit">Session Recordings</h2>
-    <p class="ssub">Watch recordings of past live sessions based on your subscription tier.</p>
+    <p class="ssub">Watch recordings based on your subscription tier.</p>
     <div style="background:var(--pl);border:1.5px solid var(--bd);border-radius:var(--r);padding:10px 14px;margin-bottom:18px;font-size:12px;color:var(--tm)">
       ℹ️ <strong>Access by plan:</strong> Starter — 7 days · Pro — 30 days · Premium — Unlimited ·
       <a href="#" onclick="nav('subs');return false" style="color:var(--p);font-weight:600">Upgrade →</a>
@@ -495,7 +563,7 @@ footer span{color:var(--pm);font-weight:600}
   </div>
 </div>
 
-<!-- ═══════════ DASHBOARD ═══════════ -->
+<!-- DASHBOARD -->
 <div class="pg" id="pg-dash">
   <div class="sec">
     <div class="dw">
@@ -539,7 +607,7 @@ footer span{color:var(--pm);font-weight:600}
   </div>
 </div>
 
-<!-- ═══════════ CART ═══════════ -->
+<!-- CART -->
 <div class="pg" id="pg-cart">
   <div class="sec">
     <h2 class="stit">🛒 Shopping Cart</h2>
@@ -548,7 +616,7 @@ footer span{color:var(--pm);font-weight:600}
   </div>
 </div>
 
-<!-- ═══════════ CHECKOUT ═══════════ -->
+<!-- CHECKOUT -->
 <div class="pg" id="pg-checkout">
   <div class="sec">
     <h2 class="stit">Checkout</h2>
@@ -561,8 +629,8 @@ footer span{color:var(--pm);font-weight:600}
             <div><label>First Name</label><input type="text" placeholder="First name"></div>
             <div><label>Last Name</label><input type="text" placeholder="Last name"></div>
           </div>
-          <div class="fg full"><div><label>Email Address</label><input type="email" placeholder="your@email.com"></div></div>
-          <div class="fg full"><div><label>Phone Number</label><input type="tel" placeholder="+63 9XX XXX XXXX"></div></div>
+          <div class="fg full"><div><label>Email</label><input type="email" placeholder="your@email.com"></div></div>
+          <div class="fg full"><div><label>Phone</label><input type="tel" placeholder="+63 9XX XXX XXXX"></div></div>
         </div>
         <div class="co-section">
           <h3>💳 Payment Method</h3>
@@ -574,14 +642,14 @@ footer span{color:var(--pm);font-weight:600}
           <div id="pay-fields">
             <div class="card-fields">
               <div class="fg full" style="margin-bottom:10px"><label>Cardholder Name</label><input type="text" placeholder="Name on card"></div>
-              <div class="fg full" style="margin-bottom:10px"><label>Card Number</label><input type="text" placeholder="1234 5678 9012 3456" maxlength="19"></div>
+              <div class="fg full" style="margin-bottom:10px"><label>Card Number</label><input type="text" placeholder="1234 5678 9012 3456"></div>
               <div class="fg" style="margin-bottom:0">
-                <div><label>Expiry Date</label><input type="text" placeholder="MM / YY" maxlength="7"></div>
-                <div><label>CVV</label><input type="text" placeholder="123" maxlength="4"></div>
+                <div><label>Expiry</label><input type="text" placeholder="MM / YY"></div>
+                <div><label>CVV</label><input type="text" placeholder="123"></div>
               </div>
             </div>
           </div>
-          <p class="secure">🔒 Your payment info is encrypted and secure. Powered by Stripe.</p>
+          <p class="secure">🔒 Encrypted & secured by Stripe.</p>
         </div>
       </div>
       <div class="order-summary">
@@ -592,28 +660,27 @@ footer span{color:var(--pm);font-weight:600}
         <div class="os-row"><span>Processing fee</span><span>$0.00</span></div>
         <div class="os-total"><span>Total</span><span id="os-total">$0.00</span></div>
         <button class="btn bp" style="width:100%;margin-top:16px;padding:12px" onclick="placeOrder()">✅ Place Order</button>
-        <p style="font-size:11px;color:var(--tm);text-align:center;margin-top:8px">By placing your order you agree to our Terms of Service.</p>
-        <div style="display:flex;gap:8px;justify-content:center;margin-top:12px;font-size:20px">💳 🅿️ 📱</div>
+        <p style="font-size:11px;color:var(--tm);text-align:center;margin-top:8px">Secured by Stripe. Terms apply.</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ═══════════ SUCCESS ═══════════ -->
+<!-- SUCCESS -->
 <div class="pg" id="pg-success">
   <div class="success-wrap">
     <div class="success-icon">🎉</div>
     <h2>Order Confirmed!</h2>
-    <p id="success-msg">Thank you for your purchase! You'll receive a confirmation email shortly.</p>
+    <p id="success-msg">Thank you! Your courses are now available in the Dashboard.</p>
     <div class="order-details" id="success-details"></div>
     <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
       <button class="btn bp" onclick="nav('dash')">Go to Dashboard</button>
-      <button class="btn bo" onclick="nav('courses')">Browse More Courses</button>
+      <button class="btn bo" onclick="nav('courses')">Browse More</button>
     </div>
   </div>
 </div>
 
-<!-- MODAL -->
+<!-- CONFIRM MODAL -->
 <div class="mo" id="modal">
   <div class="md">
     <h3 id="m-title">Confirm</h3>
@@ -625,36 +692,146 @@ footer span{color:var(--pm);font-weight:600}
   </div>
 </div>
 
+<!-- LESSON PLAYER MODAL -->
+<div class="mo" id="lessonMo">
+  <div class="lp-wrap">
+    <div class="lp-topbar">
+      <span id="lp-title">Lesson Title</span>
+      <button onclick="closeLessonMo()">✕</button>
+    </div>
+    <div class="lp-screen" onclick="toast('▶ Video is playing…','ok')">
+      <div class="play-ring">▶</div>
+      <p id="lp-sub">Click to play · HD video content</p>
+    </div>
+    <div class="lp-pbar"><div class="lp-pfill" id="lp-pfill" style="width:0%"></div></div>
+    <div class="lp-body">
+      <div style="font-size:12px;color:var(--tm);margin-bottom:6px" id="lp-prog">Lesson 1 of 5 &nbsp;·&nbsp; Module 1</div>
+      <div style="font-size:13px;font-weight:600" id="lp-desc">Lesson description goes here.</div>
+    </div>
+    <div class="lp-footer">
+      <button class="btn bo sm" id="lp-prev" onclick="lpMove(-1)">← Prev</button>
+      <span class="pg-info" id="lp-counter">1 / 5</span>
+      <button class="btn bp sm" id="lp-next" onclick="lpMove(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
-// ─── STATE ─────────────────────────────────────
-const S = {
+// ════════════ STATE ════════════
+const S={
   tokens:5, tokensUsed:0,
   enrolled:['eng101','biz202','ielts301'],
   booked:[], plan:'Pro', planTokens:5,
   cart:[], checkoutMode:'courses', subPending:null
 };
 
-// ─── DATA ──────────────────────────────────────
+// ════════════ DATA ════════════
 const COURSES=[
-  {id:'eng101',emoji:'📚',cat:'ESL',title:'ESL for Beginners: Foundation Course',inst:'Ms. Rivera',lvl:'Beginner',stars:'★★★★★',rev:128,price:29.99,old:49.99,tag:'Bestseller'},
-  {id:'biz202',emoji:'💼',cat:'Business',title:'Business English for Professionals',inst:'Mr. Reyes',lvl:'Intermediate',stars:'★★★★☆',rev:87,price:39.99,tag:'Popular'},
-  {id:'ielts301',emoji:'🎯',cat:'University',title:'IELTS Preparation Masterclass',inst:'Ms. Santos',lvl:'Advanced',stars:'★★★★★',rev:203,price:59.99,tag:'Top Rated'},
-  {id:'kids101',emoji:'🎨',cat:'Kids',title:'ESL for Kids: Fun with English',inst:'Ms. Cruz',lvl:'Beginner',stars:'★★★★★',rev:156,price:24.99,tag:'New'},
-  {id:'lang401',emoji:'🌍',cat:'Languages',title:'Japanese for Beginners (N5)',inst:'Mr. Tanaka',lvl:'Beginner',stars:'★★★★☆',rev:64,price:34.99},
-  {id:'biz303',emoji:'📊',cat:'Business',title:'Advanced Business Presentations',inst:'Ms. Garcia',lvl:'Advanced',stars:'★★★★☆',rev:49,price:44.99},
-  {id:'esl501',emoji:'🗣️',cat:'ESL',title:'ESL for High School Students',inst:'Mr. Dela Cruz',lvl:'Intermediate',stars:'★★★★★',rev:92,price:29.99,tag:'New'},
-  {id:'pre101',emoji:'🌟',cat:'Kids',title:'Pre-School English Foundations',inst:'Ms. Lopez',lvl:'Beginner',stars:'★★★★★',rev:211,price:19.99,tag:'Bestseller'}
+  {id:'eng101',emoji:'📚',cat:'ESL',title:'ESL for Beginners: Foundation Course',inst:'Ms. Rivera',lvl:'Beginner',stars:'★★★★★',rev:128,price:29.99,old:49.99,tag:'Bestseller',
+   desc:'Build a solid English foundation with structured lessons covering grammar, vocabulary, speaking, and writing. Perfect for absolute beginners.',
+   instBio:'Ms. Rivera has 10+ years teaching ESL in the Philippines and abroad. Certified TESOL instructor.'},
+  {id:'biz202',emoji:'💼',cat:'Business',title:'Business English for Professionals',inst:'Mr. Reyes',lvl:'Intermediate',stars:'★★★★☆',rev:87,price:39.99,tag:'Popular',
+   desc:'Master professional communication — emails, reports, presentations, and meetings — with real-world business scenarios.',
+   instBio:'Mr. Reyes is a corporate trainer and business communication consultant with 12 years of experience.'},
+  {id:'ielts301',emoji:'🎯',cat:'University',title:'IELTS Preparation Masterclass',inst:'Ms. Santos',lvl:'Advanced',stars:'★★★★★',rev:203,price:59.99,tag:'Top Rated',
+   desc:'Comprehensive IELTS prep covering all four skills: Listening, Reading, Writing, and Speaking. Includes full mock tests.',
+   instBio:'Ms. Santos is an IELTS examiner with a track record of helping 500+ students achieve Band 7 and above.'},
+  {id:'kids101',emoji:'🎨',cat:'Kids',title:'ESL for Kids: Fun with English',inst:'Ms. Cruz',lvl:'Beginner',stars:'★★★★★',rev:156,price:24.99,tag:'New',
+   desc:'An interactive, play-based English program for children aged 5–12. Songs, games, stories, and animated exercises.',
+   instBio:'Ms. Cruz is a licensed elementary teacher specializing in early childhood education and ESL.'},
+  {id:'lang401',emoji:'🌍',cat:'Languages',title:'Japanese for Beginners (N5)',inst:'Mr. Tanaka',lvl:'Beginner',stars:'★★★★☆',rev:64,price:34.99,
+   desc:'Start your Japanese journey from zero — hiragana, katakana, basic kanji, and everyday conversation for JLPT N5.',
+   instBio:'Mr. Tanaka is a native Japanese speaker with 8 years of experience teaching Japanese to Asian learners.'},
+  {id:'biz303',emoji:'📊',cat:'Business',title:'Advanced Business Presentations',inst:'Ms. Garcia',lvl:'Advanced',stars:'★★★★☆',rev:49,price:44.99,
+   desc:'Deliver confident, persuasive presentations in English. Covers slide design, storytelling, Q&A handling, and delivery techniques.',
+   instBio:'Ms. Garcia is an executive coach and public speaking trainer who has worked with Fortune 500 teams.'},
+  {id:'esl501',emoji:'🗣️',cat:'ESL',title:'ESL for High School Students',inst:'Mr. Dela Cruz',lvl:'Intermediate',stars:'★★★★★',rev:92,price:29.99,tag:'New',
+   desc:'Tailored for teens — academic English, essay writing, reading comprehension, and oral communication skills for school success.',
+   instBio:'Mr. Dela Cruz is a high school English department head with expertise in teen learner motivation.'},
+  {id:'pre101',emoji:'🌟',cat:'Kids',title:'Pre-School English Foundations',inst:'Ms. Lopez',lvl:'Beginner',stars:'★★★★★',rev:211,price:19.99,tag:'Bestseller',
+   desc:'Gentle introduction to English for ages 3–5. Letters, numbers, colors, animals — all through songs and interactive stories.',
+   instBio:'Ms. Lopez is a Montessori-trained educator with 15 years of experience in early childhood programs.'}
 ];
 
+const CURRICULUM={
+  eng101:{hours:'12h',total:32,
+    learn:['Build strong grammar foundation','Master 500+ everyday vocabulary','Speak confidently in daily situations','Write simple clear sentences','Understand native speakers'],
+    modules:[
+      {t:'Module 1: Getting Started',items:[{l:'Course Overview & Goals',d:'4:30'},{l:'How to Use This Platform',d:'3:15'},{l:'Setting Your Learning Schedule',d:'5:00'}]},
+      {t:'Module 2: Basic Grammar',items:[{l:'Nouns & Pronouns',d:'12:20'},{l:'Verbs & Simple Tenses',d:'15:40'},{l:'Adjectives & Adverbs',d:'11:55'},{l:'Quiz: Grammar Basics',d:'10:00'}]},
+      {t:'Module 3: Vocabulary Building',items:[{l:'Common Everyday Words',d:'14:30'},{l:'Topic-Based Vocabulary',d:'16:20'},{l:'Word Formation',d:'10:15'},{l:'Vocabulary Exercises',d:'8:00'}]},
+      {t:'Module 4: Speaking & Listening',items:[{l:'Pronunciation Guide',d:'18:00'},{l:'Common Phrases',d:'12:30'},{l:'Listening Practice #1',d:'15:00'},{l:'Mock Conversation',d:'20:00'}]},
+      {t:'Module 5: Reading & Writing',items:[{l:'Simple Passages',d:'14:00'},{l:'Writing Short Texts',d:'16:45'},{l:'Final Assessment',d:'25:00'}]},
+    ]},
+  biz202:{hours:'15h',total:38,
+    learn:['Write professional emails','Structure reports & proposals','Deliver confident presentations','Lead and participate in meetings','Use formal business vocabulary'],
+    modules:[
+      {t:'Module 1: Communication Basics',items:[{l:'What is Business English?',d:'8:00'},{l:'Professional Tone & Style',d:'12:00'},{l:'Common Business Terms',d:'10:30'}]},
+      {t:'Module 2: Email Writing',items:[{l:'Email Structure',d:'14:00'},{l:'Formal vs Informal Emails',d:'12:20'},{l:'Request & Follow-up Emails',d:'15:00'},{l:'Practice: Write Your Own',d:'20:00'}]},
+      {t:'Module 3: Reports & Proposals',items:[{l:'Report Formats',d:'13:00'},{l:'Executive Summaries',d:'11:30'},{l:'Proposal Writing',d:'18:00'}]},
+      {t:'Module 4: Presentations',items:[{l:'Slide Design Principles',d:'10:00'},{l:'Presentation Language',d:'14:30'},{l:'Delivery Tips',d:'12:00'},{l:'Mock Presentation',d:'25:00'}]},
+      {t:'Module 5: Meetings & Negotiations',items:[{l:'Meeting Vocabulary',d:'10:00'},{l:'Chairing a Meeting',d:'14:00'},{l:'Negotiation Language',d:'16:00'},{l:'Role-play Practice',d:'20:00'}]},
+    ]},
+  ielts301:{hours:'20h',total:52,
+    learn:['Achieve Band 7+ in all sections','Master IELTS writing tasks 1 & 2','Improve listening accuracy','Handle speaking test with confidence','Learn time management strategies'],
+    modules:[
+      {t:'Module 1: IELTS Overview',items:[{l:'Understanding the Test',d:'10:00'},{l:'Scoring Explained',d:'8:30'},{l:'Study Plan & Strategy',d:'12:00'}]},
+      {t:'Module 2: Listening',items:[{l:'Listening Section Types',d:'14:00'},{l:'Practice Test 1',d:'30:00'},{l:'Practice Test 2',d:'30:00'},{l:'Common Mistakes',d:'10:00'}]},
+      {t:'Module 3: Reading',items:[{l:'Reading Strategies',d:'16:00'},{l:'Skimming & Scanning',d:'12:00'},{l:'Practice Test 1',d:'60:00'},{l:'Practice Test 2',d:'60:00'}]},
+      {t:'Module 4: Writing',items:[{l:'Task 1: Describing Charts',d:'18:00'},{l:'Task 2: Essay Structure',d:'20:00'},{l:'Sample Essays (Band 7)',d:'15:00'},{l:'Timed Writing Practice',d:'40:00'}]},
+      {t:'Module 5: Speaking',items:[{l:'Part 1: Introduction',d:'12:00'},{l:'Part 2: Long Turn',d:'14:00'},{l:'Part 3: Discussion',d:'16:00'},{l:'Mock Speaking Test',d:'20:00'}]},
+    ]},
+  kids101:{hours:'8h',total:24,
+    learn:['Learn ABCs & phonics','Count numbers 1–100','Name colors, shapes, animals','Sing 10+ English songs','Follow simple English instructions'],
+    modules:[
+      {t:'Module 1: Hello English!',items:[{l:'Hello & Goodbye',d:'6:00'},{l:'My Name Is…',d:'5:30'},{l:'Colors Around Me',d:'7:00'}]},
+      {t:'Module 2: ABCs & Phonics',items:[{l:'Letters A–M',d:'10:00'},{l:'Letters N–Z',d:'10:00'},{l:'Phonics Song',d:'5:00'},{l:'ABC Game',d:'8:00'}]},
+      {t:'Module 3: Numbers & Shapes',items:[{l:'Counting 1–10',d:'8:00'},{l:'Counting 11–20',d:'8:00'},{l:'Shapes Song',d:'5:00'}]},
+      {t:'Module 4: Animals & Nature',items:[{l:'Farm Animals',d:'9:00'},{l:'Wild Animals',d:'9:00'},{l:'Nature Vocabulary',d:'8:00'},{l:'Story: The Farm',d:'12:00'}]},
+    ]},
+  lang401:{hours:'14h',total:36,
+    learn:['Read & write Hiragana & Katakana','Learn 100+ basic Kanji','Hold simple everyday conversations','Understand basic Japanese grammar','Prepare for JLPT N5 exam'],
+    modules:[
+      {t:'Module 1: Writing Systems',items:[{l:'Hiragana: あ–こ',d:'15:00'},{l:'Hiragana: さ–ん',d:'15:00'},{l:'Katakana Overview',d:'20:00'}]},
+      {t:'Module 2: Basic Grammar',items:[{l:'は (wa) & が (ga)',d:'12:00'},{l:'Verb Forms (Present)',d:'14:00'},{l:'Adjectives: い & な',d:'11:00'},{l:'Grammar Quiz',d:'10:00'}]},
+      {t:'Module 3: Vocabulary',items:[{l:'Numbers & Time',d:'12:00'},{l:'Days & Months',d:'10:00'},{l:'Family & People',d:'12:00'},{l:'Food & Drinks',d:'11:00'}]},
+      {t:'Module 4: Conversation',items:[{l:'Greetings',d:'10:00'},{l:'Shopping & Ordering',d:'14:00'},{l:'Asking Directions',d:'12:00'},{l:'Mock Conversation',d:'20:00'}]},
+    ]},
+  biz303:{hours:'10h',total:28,
+    learn:['Structure any presentation clearly','Use persuasive language techniques','Handle Q&A confidently','Design compelling slides','Project executive presence'],
+    modules:[
+      {t:'Module 1: Presentation Fundamentals',items:[{l:'Types of Business Presentations',d:'8:00'},{l:'Knowing Your Audience',d:'10:00'},{l:'The Presentation Arc',d:'12:00'}]},
+      {t:'Module 2: Content & Structure',items:[{l:'Opening with Impact',d:'12:00'},{l:'Structuring Key Points',d:'14:00'},{l:'Closing Strongly',d:'10:00'}]},
+      {t:'Module 3: Visuals & Slides',items:[{l:'Slide Design Principles',d:'10:00'},{l:'Charts & Data Visualization',d:'12:00'},{l:'Avoiding Common Mistakes',d:'8:00'}]},
+      {t:'Module 4: Delivery',items:[{l:'Voice & Pacing',d:'14:00'},{l:'Body Language',d:'12:00'},{l:'Handling Q&A',d:'12:00'},{l:'Mock Presentation',d:'25:00'}]},
+    ]},
+  esl501:{hours:'11h',total:30,
+    learn:['Write academic essays & reports','Read and analyze English texts','Expand academic vocabulary','Improve oral communication','Prepare for English exams'],
+    modules:[
+      {t:'Module 1: Academic Foundations',items:[{l:'Academic vs Casual English',d:'10:00'},{l:'Reading Strategies',d:'12:00'},{l:'Note-taking Skills',d:'9:00'}]},
+      {t:'Module 2: Writing Skills',items:[{l:'Paragraph Structure',d:'12:00'},{l:'Essay Introduction & Thesis',d:'14:00'},{l:'Body Paragraphs',d:'13:00'},{l:'Conclusions',d:'10:00'}]},
+      {t:'Module 3: Speaking',items:[{l:'Oral Presentation Tips',d:'12:00'},{l:'Discussion & Debate',d:'14:00'},{l:'Mock Oral Exam',d:'20:00'}]},
+      {t:'Module 4: Exam Prep',items:[{l:'English Exam Formats',d:'10:00'},{l:'Time Management',d:'8:00'},{l:'Practice Paper',d:'45:00'}]},
+    ]},
+  pre101:{hours:'6h',total:18,
+    learn:['Recognize all 26 letters','Understand basic English words','Follow simple commands','Interact with simple English phrases','Build love for learning English'],
+    modules:[
+      {t:'Module 1: First Words',items:[{l:'Hello & Goodbye',d:'5:00'},{l:'My Family',d:'6:00'},{l:'My Body',d:'7:00'}]},
+      {t:'Module 2: Letters & Sounds',items:[{l:'Letters A–F',d:'8:00'},{l:'Letters G–M',d:'8:00'},{l:'Letters N–Z',d:'8:00'},{l:'Alphabet Song',d:'4:00'}]},
+      {t:'Module 3: Numbers & Colors',items:[{l:'1–5',d:'6:00'},{l:'6–10',d:'6:00'},{l:'My Colors',d:'7:00'}]},
+      {t:'Module 4: Fun Lessons',items:[{l:'Animals I Love',d:'8:00'},{l:'My Food',d:'7:00'},{l:'Storytime: The Little Bear',d:'10:00'}]},
+    ]},
+};
+
 const SESSIONS=[
-  {id:'s1',title:'Business Email Writing',inst:'Mr. Reyes',day:'25',mo:'MAY',time:'10:00–11:00 AM',slots:18,cap:20,state:'open'},
-  {id:'s2',title:'IELTS Speaking Practice',inst:'Ms. Santos',day:'28',mo:'MAY',time:'2:00–3:00 PM',slots:5,cap:20,state:'open'},
-  {id:'s3',title:'Conversational English: Daily Topics',inst:'Ms. Rivera',day:'30',mo:'MAY',time:'9:00–10:00 AM',slots:0,cap:20,state:'full'},
-  {id:'s4',title:'Advanced Grammar Masterclass',inst:'Mr. Dela Cruz',day:'2',mo:'JUN',time:'3:00–4:30 PM',slots:12,cap:20,state:'open'},
-  {id:'s5',title:'ESL Kids Fun Session',inst:'Ms. Cruz',day:'5',mo:'JUN',time:'10:00–11:00 AM',slots:8,cap:20,state:'open'},
-  {id:'s6',title:'Business Negotiations in English',inst:'Ms. Garcia',day:'7',mo:'JUN',time:'1:00–2:30 PM',slots:15,cap:20,state:'open'}
+  {id:'s1',title:'Business Email Writing',inst:'Mr. Reyes',day:'25',mo:'MAY',time:'10:00–11:00 AM',slots:18,state:'open'},
+  {id:'s2',title:'IELTS Speaking Practice',inst:'Ms. Santos',day:'28',mo:'MAY',time:'2:00–3:00 PM',slots:5,state:'open'},
+  {id:'s3',title:'Conversational English',inst:'Ms. Rivera',day:'30',mo:'MAY',time:'9:00–10:00 AM',slots:0,state:'full'},
+  {id:'s4',title:'Advanced Grammar Masterclass',inst:'Mr. Dela Cruz',day:'2',mo:'JUN',time:'3:00–4:30 PM',slots:12,state:'open'},
+  {id:'s5',title:'ESL Kids Fun Session',inst:'Ms. Cruz',day:'5',mo:'JUN',time:'10:00–11:00 AM',slots:8,state:'open'},
+  {id:'s6',title:'Business Negotiations',inst:'Ms. Garcia',day:'7',mo:'JUN',time:'1:00–2:30 PM',slots:15,state:'open'}
 ];
 
 const RECS=[
@@ -670,40 +847,34 @@ const RECS=[
 
 const PROG={eng101:72,biz202:45,ielts301:18};
 
-// ─── HAMBURGER ─────────────────────────────────
+// ════════════ HAMBURGER ════════════
 function toggleDrawer(){
-  const d=document.getElementById('navDrawer');
-  const b=document.getElementById('hamBtn');
-  const open=d.classList.toggle('open');
-  b.classList.toggle('open',open);
+  const d=document.getElementById('navDrawer'),b=document.getElementById('hamBtn');
+  b.classList.toggle('open',d.classList.toggle('open'));
 }
 function closeDrawer(){
   document.getElementById('navDrawer').classList.remove('open');
   document.getElementById('hamBtn').classList.remove('open');
 }
-// Close on outside click
-document.addEventListener('click',function(e){
-  const d=document.getElementById('navDrawer');
-  const b=document.getElementById('hamBtn');
+document.addEventListener('click',e=>{
+  const d=document.getElementById('navDrawer'),b=document.getElementById('hamBtn');
   if(d.classList.contains('open')&&!d.contains(e.target)&&!b.contains(e.target)) closeDrawer();
 });
-// goPage: used by drawer buttons — navigate then close drawer
-function goPage(id){ nav(id); closeDrawer(); }
+function goPage(id){nav(id);closeDrawer();}
 
-// Sync drawer active state
+// ════════════ NAVIGATION ════════════
 function syncDrawer(id){
   ['home','courses','subs','live','recs','dash'].forEach(p=>{
     const el=document.getElementById('nd-'+p);
-    if(el) el.classList.toggle('act',p===id);
+    if(el) el.classList.toggle('act',p===id||( p==='courses'&&id==='course'));
   });
 }
-
-// ─── NAVIGATION ────────────────────────────────
 function nav(id){
   document.querySelectorAll('.pg').forEach(p=>p.classList.remove('act'));
   document.querySelectorAll('.nv').forEach(l=>l.classList.remove('act'));
-  document.getElementById('pg-'+id).classList.add('act');
-  const n=document.getElementById('n-'+id);
+  const pg=document.getElementById('pg-'+id);
+  if(pg) pg.classList.add('act');
+  const n=document.getElementById('n-'+id)||(id==='course'?document.getElementById('n-courses'):null);
   if(n) n.classList.add('act');
   syncDrawer(id);
   window.scrollTo(0,0);
@@ -711,23 +882,184 @@ function nav(id){
   if(id==='cart') renderCart();
 }
 
-// ─── COURSES ───────────────────────────────────
+// ════════════ OPEN COURSE DETAIL ════════════
+function openCourse(id){
+  const c=COURSES.find(x=>x.id===id);
+  const cur=CURRICULUM[id];
+  const enrolled=S.enrolled.includes(id);
+  const inCart=S.cart.some(x=>x.id===id&&x.type==='course');
+
+  // Hero
+  document.getElementById('cd-hero').innerHTML=`
+    <div class="cd-emoji">${c.emoji}</div>
+    <div class="cd-info">
+      <h1>${c.title}</h1>
+      <p>${c.desc}</p>
+      <div class="cd-meta">
+        <span>📂 ${c.cat}</span>
+        <span>📶 ${c.lvl}</span>
+        <span style="color:#FFD700">${c.stars}</span>
+        <span>(${c.rev} reviews)</span>
+        <span>⏱ ${cur.hours}</span>
+        <span>📖 ${cur.total} lessons</span>
+      </div>
+      <div style="margin-top:12px;font-size:12px;opacity:.85">👤 Instructor: <strong>${c.inst}</strong></div>
+    </div>`;
+
+  // Aside (price card)
+  const btnHtml = enrolled
+    ? `<button class="btn bs" style="width:100%;padding:13px;font-size:14px" onclick="openFirstLesson('${id}')">▶ Continue Learning</button><p style="text-align:center;font-size:11px;color:var(--ok);margin-top:8px">✓ You are enrolled in this course</p>`
+    : inCart
+      ? `<button class="btn bo" style="width:100%;padding:13px;font-size:14px" onclick="nav('cart')">🛒 View Cart</button>`
+      : `<button class="btn bp" style="width:100%;padding:13px;font-size:14px" onclick="addCart('${id}')">Add to Cart — $${c.price.toFixed(2)}</button>
+         <button class="btn bo" style="width:100%;padding:10px;margin-top:8px;font-size:13px" onclick="buyNow('${id}')">Buy Now</button>`;
+
+  document.getElementById('cd-aside').innerHTML=`
+    <div class="price-card">
+      <div>
+        <span class="big-price">$${c.price.toFixed(2)}</span>
+        ${c.old?`<span class="old-price">$${c.old.toFixed(2)}</span>`:''}
+      </div>
+      <div class="includes">
+        <div class="inc-row"><span>⏱</span><span>${cur.hours} of on-demand video</span></div>
+        <div class="inc-row"><span>📖</span><span>${cur.total} lessons across ${cur.modules.length} modules</span></div>
+        <div class="inc-row"><span>📱</span><span>Access on mobile & desktop</span></div>
+        <div class="inc-row"><span>🏆</span><span>Certificate of completion</span></div>
+        <div class="inc-row"><span>♾️</span><span>Full lifetime access</span></div>
+      </div>
+      <hr class="dvdr">
+      ${btnHtml}
+    </div>`;
+
+  // Main content
+  const learnHtml=cur.learn.map(l=>`<div class="learn-item">${l}</div>`).join('');
+  const totalLessons = cur.modules.reduce((a,m)=>a+m.items.length,0);
+  let lessonsRendered=0;
+  const modulesHtml=cur.modules.map((m,mi)=>{
+    const items=m.items.map((item,li)=>{
+      const globalIdx=lessonsRendered+li;
+      const isDone=enrolled&&PROG[id]&&(globalIdx/totalLessons*100)<PROG[id];
+      const isLocked=!enrolled&&li>0&&mi>0;
+      let icon=isLocked?'🔒':(isDone?'✓':'▶');
+      let cls=isLocked?'locked':(isDone?'done':'');
+      const clickFn=enrolled?`openLesson('${id}',${mi},${li})`:(isLocked?`toast('Enroll to unlock this lesson','warn')`:`openLesson('${id}',${mi},${li})`);
+      return `<div class="lesson-row ${cls}" onclick="${clickFn}">
+        <div class="li">${icon}</div>
+        <div class="lesson-title">${item.l}</div>
+        <div class="lesson-dur">${item.d}</div>
+        ${isLocked?'<span class="lesson-lock">🔒</span>':''}
+      </div>`;
+    }).join('');
+    lessonsRendered+=m.items.length;
+    return `<div class="module">
+      <div class="mod-head" onclick="toggleMod(this)">
+        <span class="mod-title">${m.t}</span>
+        <span class="mod-meta">${m.items.length} lessons</span>
+        <span class="mod-arrow">▼</span>
+      </div>
+      <div class="mod-body${mi===0?' open':''}">${items}</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('cd-main').innerHTML=`
+    <div class="learn-box">
+      <h3>📌 What You'll Learn</h3>
+      <div class="learn-grid">${learnHtml}</div>
+    </div>
+    <div class="cur-box">
+      <div class="cur-head">
+        <h3>📋 Course Curriculum</h3>
+        <span class="cur-stats">${cur.modules.length} modules · ${cur.total} lessons · ${cur.hours}</span>
+      </div>
+      ${modulesHtml}
+    </div>
+    <div class="inst-card">
+      <div class="inst-av">👤</div>
+      <div class="inst-info">
+        <h3>${c.inst}</h3>
+        <div style="font-size:11px;color:var(--p);font-weight:600">${c.cat} Instructor &nbsp;·&nbsp; ${c.stars}</div>
+        <p>${c.instBio}</p>
+      </div>
+    </div>`;
+
+  nav('course');
+}
+
+// Module accordion toggle
+function toggleMod(el){
+  const body=el.nextElementSibling;
+  const arrow=el.querySelector('.mod-arrow');
+  body.classList.toggle('open');
+  arrow.style.transform=body.classList.contains('open')?'rotate(180deg)':'rotate(0)';
+}
+
+// ════════════ LESSON PLAYER ════════════
+let lpState={courseId:'',modules:[],mi:0,li:0};
+
+function openLesson(courseId,mi,li){
+  const cur=CURRICULUM[courseId];
+  lpState={courseId,modules:cur.modules,mi,li};
+  renderLessonPlayer();
+  document.getElementById('lessonMo').classList.add('open');
+}
+
+function openFirstLesson(id){ openLesson(id,0,0); }
+
+function renderLessonPlayer(){
+  const {modules,mi,li}=lpState;
+  const mod=modules[mi];
+  const lesson=mod.items[li];
+  const totalLessons=modules.reduce((a,m)=>a+m.items.length,0);
+  let globalIdx=0;
+  for(let i=0;i<mi;i++) globalIdx+=modules[i].items.length;
+  globalIdx+=li;
+  const pct=Math.round((globalIdx/totalLessons)*100);
+
+  document.getElementById('lp-title').textContent=lesson.l;
+  document.getElementById('lp-sub').textContent=`${mod.t}`;
+  document.getElementById('lp-prog').textContent=`Lesson ${li+1} of ${mod.items.length} · ${mod.t}`;
+  document.getElementById('lp-desc').textContent=`Duration: ${lesson.d} · Click the video above to play`;
+  document.getElementById('lp-counter').textContent=`${globalIdx+1} / ${totalLessons}`;
+  document.getElementById('lp-pfill').style.width=pct+'%';
+
+  const isFirst=mi===0&&li===0;
+  const lastMod=modules[modules.length-1];
+  const isLast=mi===modules.length-1&&li===lastMod.items.length-1;
+  document.getElementById('lp-prev').disabled=isFirst;
+  document.getElementById('lp-next').textContent=isLast?'✓ Finish':'Next →';
+}
+
+function lpMove(dir){
+  const {modules,mi,li}=lpState;
+  let nmi=mi,nli=li+dir;
+  if(nli<0){ if(nmi===0) return; nmi--; nli=modules[nmi].items.length-1; }
+  else if(nli>=modules[nmi].items.length){ nmi++; if(nmi>=modules.length){closeLessonMo();toast('🎉 Course section complete!','ok');return;} nli=0; }
+  lpState.mi=nmi; lpState.li=nli;
+  renderLessonPlayer();
+}
+
+function closeLessonMo(){ document.getElementById('lessonMo').classList.remove('open'); }
+
+// ════════════ COURSE LIST ════════════
 function renderCourses(list){
   document.getElementById('ccnt').textContent='Showing '+list.length+' courses';
   document.getElementById('cg').innerHTML=list.map(c=>{
     const enrolled=S.enrolled.includes(c.id);
     const inCart=S.cart.some(x=>x.id===c.id&&x.type==='course');
     let btn;
-    if(enrolled) btn=`<button class="btn bs sm">✓ Enrolled</button>`;
+    if(enrolled) btn=`<button class="btn bs sm" onclick="openCourse('${c.id}')">▶ Continue</button>`;
     else if(inCart) btn=`<button class="btn bo sm" onclick="nav('cart')">🛒 In Cart</button>`;
     else btn=`<button class="btn bp sm" onclick="addCart('${c.id}')">Add to Cart</button>`;
     return `<div class="cc">
-      <div class="ct"><span>${c.emoji}</span><span class="lb ${c.lvl==='Beginner'?'lb-b':c.lvl==='Intermediate'?'lb-i':'lb-a'}">${c.lvl}</span></div>
+      <div class="ct" onclick="openCourse('${c.id}')">
+        <span>${c.emoji}</span>
+        <span class="lb ${c.lvl==='Beginner'?'lb-b':c.lvl==='Intermediate'?'lb-i':'lb-a'}">${c.lvl}</span>
+      </div>
       <div class="cb">
         <div style="display:flex;gap:6px;align-items:center;margin-bottom:4px">
           <span class="ccat">${c.cat}</span>${c.tag?`<span class="badge">${c.tag}</span>`:''}
         </div>
-        <div class="ctit">${c.title}</div>
+        <div class="ctit" onclick="openCourse('${c.id}')">${c.title}</div>
         <div class="cinst">👤 ${c.inst}</div>
         <div><span class="stars">${c.stars}</span> <span style="font-size:11px;color:var(--tm)">(${c.rev})</span></div>
         <div class="cf">
@@ -739,16 +1071,14 @@ function renderCourses(list){
   }).join('');
 }
 
-function fCourses(q){
-  renderCourses(COURSES.filter(c=>c.title.toLowerCase().includes(q.toLowerCase())||c.cat.toLowerCase().includes(q.toLowerCase())));
-}
+function fCourses(q){renderCourses(COURSES.filter(c=>c.title.toLowerCase().includes(q.toLowerCase())||c.cat.toLowerCase().includes(q.toLowerCase())));}
 function fPill(el,cat){
   document.querySelectorAll('#fpills .pill').forEach(p=>p.classList.remove('act'));
   el.classList.add('act');
   renderCourses(cat==='All'?COURSES:COURSES.filter(c=>c.cat.includes(cat)));
 }
 
-// ─── CART ──────────────────────────────────────
+// ════════════ CART ════════════
 function addCart(id){
   const c=COURSES.find(x=>x.id===id);
   if(!c||S.cart.some(x=>x.id===id&&x.type==='course')) return;
@@ -756,21 +1086,18 @@ function addCart(id){
   updCartBadge(); renderCourses(COURSES);
   toast('Added to cart: '+c.title,'ok');
 }
-function removeCart(id){
-  S.cart=S.cart.filter(x=>x.id!==id);
-  updCartBadge(); renderCourses(COURSES); renderCart();
-}
+function buyNow(id){addCart(id);goCheckout('courses');}
+function removeCart(id){S.cart=S.cart.filter(x=>x.id!==id);updCartBadge();renderCourses(COURSES);renderCart();}
 function updCartBadge(){
   const n=S.cart.length;
   document.getElementById('cart-cnt').textContent=n;
   document.getElementById('cart-cnt2').textContent=n;
 }
 function renderCart(){
-  const el=document.getElementById('cart-content');
-  const sub=document.getElementById('cart-sub');
+  const el=document.getElementById('cart-content'),sub=document.getElementById('cart-sub');
   if(S.cart.length===0){
     sub.textContent='Your cart is empty.';
-    el.innerHTML=`<div class="empty-cart"><div class="icon">🛒</div><p style="font-size:15px;font-weight:700;margin-bottom:8px">Your cart is empty</p><p style="font-size:12px;margin-bottom:20px">Browse our courses and add them to your cart.</p><button class="btn bp" onclick="nav('courses')">Browse Courses</button></div>`;
+    el.innerHTML=`<div class="empty-cart"><div class="icon">🛒</div><p style="font-size:15px;font-weight:700;margin-bottom:8px">Your cart is empty</p><p style="font-size:12px;margin-bottom:20px">Browse our courses and add them here.</p><button class="btn bp" onclick="nav('courses')">Browse Courses</button></div>`;
     return;
   }
   sub.textContent='Review your items before checkout.';
@@ -784,7 +1111,7 @@ function renderCart(){
     </div>`).join('')}</div>
     <div class="order-summary">
       <div class="os-title">Order Summary</div>
-      ${S.cart.map(x=>`<div class="os-row"><span>${x.title.substring(0,28)}…</span><span>$${x.price.toFixed(2)}</span></div>`).join('')}
+      ${S.cart.map(x=>`<div class="os-row"><span>${x.title.substring(0,26)}…</span><span>$${x.price.toFixed(2)}</span></div>`).join('')}
       <hr class="dvdr">
       <div class="os-row"><span>Subtotal</span><span>$${total.toFixed(2)}</span></div>
       <div class="os-row"><span>Processing fee</span><span>$0.00</span></div>
@@ -795,8 +1122,8 @@ function renderCart(){
   </div>`;
 }
 
-// ─── CHECKOUT ──────────────────────────────────
-function goCheckout(mode){ S.checkoutMode=mode; updCheckoutSummary(); nav('checkout'); }
+// ════════════ CHECKOUT ════════════
+function goCheckout(mode){S.checkoutMode=mode;updCheckoutSummary();nav('checkout');}
 function subCheckout(plan,price,tokens){
   S.subPending={plan,price,tokens};
   S.cart=[{id:'sub-'+plan,title:'Kooduz '+plan+' Plan',price,type:'subscription',emoji:'⭐'}];
@@ -808,27 +1135,26 @@ function updCheckoutSummary(){
   document.getElementById('os-sub').textContent='$'+total.toFixed(2);
   document.getElementById('os-total').textContent='$'+total.toFixed(2);
 }
-function selPay(method){
-  ['card','paypal','gcash'].forEach(m=>document.getElementById('po-'+m).classList.toggle('sel',m===method));
+function selPay(m){
+  ['card','paypal','gcash'].forEach(x=>document.getElementById('po-'+x).classList.toggle('sel',x===m));
   const pf=document.getElementById('pay-fields');
-  if(method==='card') pf.innerHTML=`<div class="card-fields"><div class="fg full" style="margin-bottom:10px"><label>Cardholder Name</label><input type="text" placeholder="Name on card"></div><div class="fg full" style="margin-bottom:10px"><label>Card Number</label><input type="text" placeholder="1234 5678 9012 3456" maxlength="19"></div><div class="fg" style="margin-bottom:0"><div><label>Expiry Date</label><input type="text" placeholder="MM / YY" maxlength="7"></div><div><label>CVV</label><input type="text" placeholder="123" maxlength="4"></div></div></div><p class="secure">🔒 Encrypted & secured by Stripe.</p>`;
-  else if(method==='paypal') pf.innerHTML=`<div class="card-fields" style="text-align:center;padding:20px"><div style="font-size:32px;margin-bottom:8px">🅿️</div><p style="color:var(--tm);font-size:13px">You'll be redirected to PayPal to complete your payment securely.</p></div>`;
-  else pf.innerHTML=`<div class="card-fields"><label>GCash Mobile Number</label><input type="tel" placeholder="09XX XXX XXXX"><p class="secure" style="margin-top:8px">📱 A GCash OTP will be sent to your number.</p></div>`;
+  if(m==='card') pf.innerHTML=`<div class="card-fields"><div class="fg full" style="margin-bottom:10px"><label>Cardholder Name</label><input type="text" placeholder="Name on card"></div><div class="fg full" style="margin-bottom:10px"><label>Card Number</label><input type="text" placeholder="1234 5678 9012 3456"></div><div class="fg" style="margin-bottom:0"><div><label>Expiry</label><input type="text" placeholder="MM / YY"></div><div><label>CVV</label><input type="text" placeholder="123"></div></div></div><p class="secure">🔒 Secured by Stripe.</p>`;
+  else if(m==='paypal') pf.innerHTML=`<div class="card-fields" style="text-align:center;padding:20px"><div style="font-size:32px;margin-bottom:8px">🅿️</div><p style="color:var(--tm);font-size:13px">You'll be redirected to PayPal.</p></div>`;
+  else pf.innerHTML=`<div class="card-fields"><label>GCash Number</label><input type="tel" placeholder="09XX XXX XXXX"><p class="secure" style="margin-top:8px">📱 OTP will be sent to your number.</p></div>`;
 }
 function placeOrder(){
   const orderNum='KDZ-'+Math.floor(Math.random()*90000+10000);
   const total=S.cart.reduce((a,x)=>a+x.price,0);
   const isSub=S.checkoutMode==='subscription';
   if(isSub&&S.subPending){
-    S.plan=S.subPending.plan; S.planTokens=S.subPending.tokens;
-    S.tokens=S.subPending.tokens; S.tokensUsed=0;
+    S.plan=S.subPending.plan; S.planTokens=S.subPending.tokens; S.tokens=S.subPending.tokens; S.tokensUsed=0;
     ['nt','nt2'].forEach(id=>document.getElementById(id).textContent=S.tokens);
     document.getElementById('tok-disp').textContent=S.tokens;
   } else {
     S.cart.filter(x=>x.type==='course').forEach(x=>{if(!S.enrolled.includes(x.id))S.enrolled.push(x.id);});
   }
   document.getElementById('success-msg').textContent=isSub
-    ?`You're now subscribed to the ${S.plan} plan! You have ${S.tokens} tokens ready to use.`
+    ?`You're now on the ${S.plan} plan! You have ${S.tokens} tokens ready to use.`
     :'Your course(s) are now available in your Dashboard. Happy learning!';
   document.getElementById('success-details').innerHTML=`
     <div class="od-row"><span>Order Number</span><strong>${orderNum}</strong></div>
@@ -838,65 +1164,46 @@ function placeOrder(){
   S.cart=[]; S.subPending=null; updCartBadge(); renderCourses(COURSES); nav('success');
 }
 
-// ─── SESSIONS ──────────────────────────────────
+// ════════════ SESSIONS ════════════
 function renderSessions(){
   document.getElementById('ssg').innerHTML=SESSIONS.map(s=>{
-    const booked=S.booked.includes(s.id), full=s.state==='full', few=s.slots<=5;
+    const booked=S.booked.includes(s.id),full=s.state==='full',few=s.slots<=5;
     let slot,btn;
     if(booked){slot=`<span class="slot sl-b">✓ Booked</span>`;btn=`<a class="ml">🎥 Join Google Meet</a>`;}
-    else if(full){slot=`<span class="slot sl-x">Session Full</span>`;btn=`<button class="btn bg sm" style="width:100%;margin-top:8px" disabled>Join Waitlist</button>`;}
-    else{
-      slot=`<span class="slot ${few?'sl-f':'sl-o'}">${s.slots} slots left</span>`;
-      btn=S.tokens>0
-        ?`<button class="btn bp sm" style="width:100%;margin-top:8px" onclick="bookSess('${s.id}','${s.title}')">🎫 Book — 1 Token</button>`
-        :`<button class="btn" style="width:100%;margin-top:8px;background:var(--warn);color:white" onclick="nav('subs')">Subscribe to Book</button>`;
-    }
-    return `<div class="scard" id="ss-${s.id}">
-      <div class="sdate"><div class="day">${s.day}</div><div class="mo">${s.mo}</div></div>
-      <div class="stit2">${s.title}</div>
-      <div class="smeta"><span>👤 ${s.inst}</span><span>🕐 ${s.time}</span></div>
-      ${slot}${btn}
-    </div>`;
+    else if(full){slot=`<span class="slot sl-x">Session Full</span>`;btn=`<button class="btn bg sm" style="width:100%;margin-top:8px" disabled>Waitlist</button>`;}
+    else{slot=`<span class="slot ${few?'sl-f':'sl-o'}">${s.slots} slots left</span>`;
+      btn=S.tokens>0?`<button class="btn bp sm" style="width:100%;margin-top:8px" onclick="bookSess('${s.id}','${s.title}')">🎫 Book — 1 Token</button>`:`<button class="btn" style="width:100%;margin-top:8px;background:var(--warn);color:white" onclick="nav('subs')">Get Tokens</button>`;}
+    return `<div class="scard" id="ss-${s.id}"><div class="sdate"><div class="day">${s.day}</div><div class="mo">${s.mo}</div></div><div class="stit2">${s.title}</div><div class="smeta">👤 ${s.inst} · 🕐 ${s.time}</div>${slot}${btn}</div>`;
   }).join('');
 }
 function bookSess(id,title){
-  if(S.tokens<1){toast('No tokens left. Please subscribe.','er');return;}
+  if(S.tokens<1){toast('No tokens. Please subscribe.','er');return;}
   showModal('Confirm Booking',`Use <strong>1 token</strong> to book "<strong>${title}</strong>"?`,()=>{
     S.tokens--;S.tokensUsed++;S.booked.push(id);
     ['nt','nt2'].forEach(el=>document.getElementById(el).textContent=S.tokens);
     document.getElementById('tok-disp').textContent=S.tokens;
     document.getElementById('t-used').textContent=S.tokensUsed;
-    renderSessions(); toast('🎉 Session booked! Google Meet link is now visible.','ok');
+    renderSessions(); toast('🎉 Session booked!','ok');
   });
 }
 
-// ─── RECORDINGS ────────────────────────────────
+// ════════════ RECORDINGS ════════════
 function renderRecs(list){
-  const tier={Starter:1,Pro:2,Premium:3}, req={All:0,Pro:2,Premium:3}, ut=tier[S.plan]||0;
+  const tier={Starter:1,Pro:2,Premium:3},req={All:0,Pro:2,Premium:3},ut=tier[S.plan]||0;
   document.getElementById('rg').innerHTML=list.map(r=>{
     const ok=ut>=req[r.access];
     const acls=r.access==='All'?'ra-all':r.access==='Pro'?'ra-pro':'ra-prem';
-    const albl=r.access==='All'?'All Plans':r.access+' +';
-    return `<div class="rc">
-      <div class="rth">
-        ${ok?`<div class="pbtn" onclick="toast('▶ Playing: ${r.title}','ok')">▶</div>`:`<div class="lko">🔒</div>`}
-        <span class="rdur">${r.dur}</span><span class="rac ${acls}">${albl}</span>
-      </div>
-      <div class="rb">
-        <div class="rtit">${r.title}</div>
-        <div class="rmeta">👤 ${r.inst} · 📅 ${r.date} · 👁 ${r.views}</div>
-        <div class="rf">${ok?`<button class="btn bp sm" onclick="toast('▶ Playing: ${r.title}','ok')">▶ Watch</button>`:`<button class="btn sm" style="background:var(--warn);color:white" onclick="nav('subs')">🔒 Upgrade</button>`}</div>
-      </div>
-    </div>`;
+    return `<div class="rc"><div class="rth">${ok?`<div class="pbtn" onclick="toast('▶ Playing: ${r.title}','ok')">▶</div>`:`<div class="lko">🔒</div>`}<span class="rdur">${r.dur}</span><span class="rac ${acls}">${r.access==='All'?'All Plans':r.access+' +'}</span></div>
+      <div class="rb"><div class="rtit">${r.title}</div><div class="rmeta">👤 ${r.inst} · 📅 ${r.date} · 👁 ${r.views}</div>
+      <div class="rf">${ok?`<button class="btn bp sm" onclick="toast('▶ Playing: ${r.title}','ok')">▶ Watch</button>`:`<button class="btn sm" style="background:var(--warn);color:white" onclick="nav('subs')">🔒 Upgrade</button>`}</div></div></div>`;
   }).join('');
 }
 function fRec(el,topic){
   document.querySelectorAll('#rpills .pill').forEach(p=>p.classList.remove('act'));
-  el.classList.add('act');
-  renderRecs(topic==='All'?RECS:RECS.filter(r=>r.topic===topic));
+  el.classList.add('act'); renderRecs(topic==='All'?RECS:RECS.filter(r=>r.topic===topic));
 }
 
-// ─── DASHBOARD ─────────────────────────────────
+// ════════════ DASHBOARD ════════════
 function updDash(){
   document.getElementById('d-enr').textContent=S.enrolled.length;
   document.getElementById('d-tok').textContent=S.tokens;
@@ -910,28 +1217,19 @@ function updDash(){
       <div class="ei"><div class="etit">${c.title}</div><div class="esub">👤 ${c.inst}</div>
       <div class="pbar"><div class="pfill" style="width:${p}%"></div></div>
       <div class="plbl"><span>${p}% complete</span><span>${p===100?'✓ Done':'In progress'}</span></div></div>
-      <button class="btn bp sm">Continue</button>
+      <button class="btn bp sm" onclick="openCourse('${c.id}')">Continue</button>
     </div>`;}).join('')
-    :`<p style="color:var(--tm);font-size:13px">No courses yet. <a href="#" onclick="nav('courses');return false" style="color:var(--p)">Browse courses →</a></p>`;
+    :`<p style="color:var(--tm);font-size:13px">No courses yet. <a href="#" onclick="nav('courses');return false" style="color:var(--p)">Browse →</a></p>`;
 }
 
-// ─── HELPERS ───────────────────────────────────
+// ════════════ HELPERS ════════════
 let mCb=null;
-function showModal(title,body,cb){
-  document.getElementById('m-title').textContent=title;
-  document.getElementById('m-body').innerHTML=body;
-  mCb=cb; document.getElementById('modal').classList.add('open');
-  document.getElementById('m-confirm').onclick=()=>{closeModal();if(mCb)mCb();};
-}
-function closeModal(){ document.getElementById('modal').classList.remove('open'); }
+function showModal(title,body,cb){document.getElementById('m-title').textContent=title;document.getElementById('m-body').innerHTML=body;mCb=cb;document.getElementById('modal').classList.add('open');document.getElementById('m-confirm').onclick=()=>{closeModal();if(mCb)mCb();};}
+function closeModal(){document.getElementById('modal').classList.remove('open');}
 let tt;
-function toast(msg,type=''){
-  const el=document.getElementById('toast');
-  el.textContent=msg; el.className='toast show '+type;
-  clearTimeout(tt); tt=setTimeout(()=>el.classList.remove('show'),3000);
-}
+function toast(msg,type=''){const el=document.getElementById('toast');el.textContent=msg;el.className='toast show '+type;clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('show'),3000);}
 
-// ─── INIT ──────────────────────────────────────
+// ════════════ INIT ════════════
 renderCourses(COURSES);
 renderSessions();
 renderRecs(RECS);
