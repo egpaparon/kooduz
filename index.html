@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<script type="application/json" id="cowork-artifact-meta">
+<!DOCTYPE html><script type="application/json" id="cowork-artifact-meta">
 {
   "name": "Kooduz Platform Mockup",
   "schemaVersion": 1,
@@ -14,756 +13,930 @@
 <style>
 :root {
   color-scheme: light;
-  --primary: #195AEC;
-  --primary-dark: #1245B8;
-  --primary-light: #EBF1FD;
-  --primary-mid: #4A7CF0;
-  --text-dark: #1A2340;
-  --text-mid: #4A5568;
-  --text-light: #718096;
-  --border: #C4D4FA;
-  --white: #FFFFFF;
-  --gray-bg: #F7F9FC;
-  --success: #1A7A3C;
-  --warning: #C47A00;
-  --danger: #C0392B;
-  --radius: 10px;
-  --shadow: 0 2px 12px rgba(25,90,236,0.10);
-  --shadow-hover: 0 6px 24px rgba(25,90,236,0.18);
+  --p:#195AEC;--pd:#1245B8;--pl:#EBF1FD;--pm:#4A7CF0;
+  --td:#1A2340;--tm:#4A5568;--tl:#718096;
+  --bd:#C4D4FA;--w:#FFFFFF;--gb:#F7F9FC;
+  --ok:#1A7A3C;--warn:#C47A00;--err:#C0392B;
+  --r:10px;--sh:0 2px 12px rgba(25,90,236,.10);--shh:0 6px 24px rgba(25,90,236,.18);
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Segoe UI', Arial, sans-serif; background: #F0F4FF; color: var(--text-dark); font-size: 14px; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#F0F4FF;color:var(--td);font-size:14px}
 
-/* PROTOTYPE BANNER */
-.proto-banner { background: var(--primary-dark); color: #9FC4FF; text-align: center; padding: 6px; font-size: 11px; letter-spacing: 1px; font-weight: 600; }
+/* ── PROTO BANNER ── */
+.pb{background:var(--pd);color:#9FC4FF;text-align:center;padding:5px;font-size:10px;letter-spacing:1px;font-weight:700}
 
-/* NAV */
-nav { background: var(--white); border-bottom: 2px solid var(--border); padding: 0 24px; display: flex; align-items: center; gap: 4px; height: 56px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(25,90,236,0.08); }
-.nav-logo { font-weight: 800; font-size: 20px; color: var(--primary); margin-right: 24px; cursor: pointer; letter-spacing: -0.5px; }
-.nav-logo span { color: var(--primary-mid); }
-.nav-link { padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--text-mid); transition: all 0.2s; white-space: nowrap; }
-.nav-link:hover { background: var(--primary-light); color: var(--primary); }
-.nav-link.active { background: var(--primary-light); color: var(--primary); font-weight: 600; }
-.nav-spacer { flex: 1; }
-.nav-token-badge { background: var(--primary-light); color: var(--primary); padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; display: flex; align-items: center; gap: 5px; margin-right: 8px; }
-.nav-token-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); }
-.btn { padding: 8px 18px; border-radius: 7px; border: none; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.2s; }
-.btn-primary { background: var(--primary); color: var(--white); }
-.btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); box-shadow: var(--shadow-hover); }
-.btn-outline { background: transparent; color: var(--primary); border: 1.5px solid var(--primary); }
-.btn-outline:hover { background: var(--primary-light); }
-.btn-sm { padding: 6px 14px; font-size: 12px; }
-.btn-success { background: var(--success); color: white; }
-.btn-warning { background: var(--warning); color: white; }
-.btn-gray { background: #E2E8F0; color: var(--text-mid); cursor: default; }
+/* ── NAV ── */
+nav{background:var(--w);border-bottom:2px solid var(--bd);padding:0 16px;display:flex;align-items:center;gap:2px;height:54px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(25,90,236,.08)}
+.nl{font-weight:800;font-size:18px;color:var(--p);margin-right:16px;cursor:pointer;white-space:nowrap;flex-shrink:0}
+.nl span{color:var(--pm)}
+.nv{padding:7px 10px;border-radius:6px;cursor:pointer;font-size:12px;font-weight:500;color:var(--tm);transition:all .2s;white-space:nowrap;flex-shrink:0}
+.nv:hover,.nv.act{background:var(--pl);color:var(--p);font-weight:600}
+.ns{flex:1;min-width:8px}
+.cart-btn{display:flex;align-items:center;gap:5px;background:var(--pl);color:var(--p);border:none;padding:6px 12px;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;flex-shrink:0;position:relative;margin-left:auto;}
+.cart-cnt{background:var(--p);color:white;border-radius:50%;width:18px;height:18px;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;position:absolute;top:-5px;right:-5px}
+.tok-b{background:var(--pl);color:var(--p);padding:5px 10px;border-radius:20px;font-size:11px;font-weight:700;display:flex;align-items:center;gap:4px;flex-shrink:0;white-space:nowrap}
+.btn{padding:8px 16px;border-radius:7px;border:none;cursor:pointer;font-size:13px;font-weight:600;transition:all .2s}
+.bp{background:var(--p);color:var(--w)}.bp:hover{background:var(--pd);transform:translateY(-1px);box-shadow:var(--shh)}
+.bo{background:transparent;color:var(--p);border:1.5px solid var(--p)}.bo:hover{background:var(--pl)}
+.bg{background:#E2E8F0;color:var(--tm);cursor:default}
+.bs{background:var(--ok);color:white}
+.bw{background:white;color:var(--p);font-weight:700}
+.bghost{background:rgba(255,255,255,.15);color:white;border:1.5px solid rgba(255,255,255,.4)}.bghost:hover{background:rgba(255,255,255,.25)}
+.sm{padding:6px 14px;font-size:12px}
 
-/* PAGE */
-.page { display: none; min-height: calc(100vh - 90px); }
-.page.active { display: block; }
+/* ── HAMBURGER (hidden by default, shown on mobile/tablet) ── */
+.ham{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;flex-shrink:0;margin-left:4px}
+.ham span{display:block;width:22px;height:2px;background:var(--p);border-radius:2px;transition:all .25s}
+.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* HERO */
-.hero { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-mid) 100%); padding: 60px 32px; text-align: center; color: white; }
-.hero h1 { font-size: 34px; font-weight: 800; margin-bottom: 12px; line-height: 1.2; }
-.hero h1 span { color: #9FC4FF; }
-.hero p { font-size: 16px; opacity: 0.85; margin-bottom: 28px; max-width: 520px; margin-left: auto; margin-right: auto; }
-.hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-.btn-white { background: white; color: var(--primary); font-weight: 700; }
-.btn-white:hover { background: #EBF1FD; }
-.btn-ghost { background: rgba(255,255,255,0.15); color: white; border: 1.5px solid rgba(255,255,255,0.4); }
-.btn-ghost:hover { background: rgba(255,255,255,0.25); }
-.hero-stats { display: flex; gap: 32px; justify-content: center; margin-top: 36px; flex-wrap: wrap; }
-.hero-stat { text-align: center; }
-.hero-stat .num { font-size: 28px; font-weight: 800; }
-.hero-stat .lbl { font-size: 12px; opacity: 0.7; }
+/* ── MOBILE DRAWER ── */
+/* Uses .di (drawer item) — NOT .nv — so the media query hiding .nv won't affect it */
+.nav-drawer{display:none;position:fixed;top:54px;left:0;right:0;background:var(--w);border-bottom:2px solid var(--bd);box-shadow:0 6px 20px rgba(25,90,236,.12);z-index:99;flex-direction:column;padding:8px 12px 14px}
+.nav-drawer.open{display:flex}
+.di{display:block;width:100%;padding:11px 14px;border-radius:8px;font-size:14px;font-weight:500;color:var(--tm);cursor:pointer;transition:background .15s;border:none;background:none;text-align:left}
+.di:hover,.di.act{background:var(--pl);color:var(--p);font-weight:600}
+.drawer-foot{display:flex;gap:10px;align-items:center;padding:10px 14px 2px;border-top:1px solid var(--bd);margin-top:4px}
 
-/* SECTION */
-.section { padding: 40px 32px; max-width: 1100px; margin: 0 auto; }
-.section-title { font-size: 22px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; }
-.section-sub { font-size: 13px; color: var(--text-mid); margin-bottom: 28px; }
+/* ── PAGES ── */
+.pg{display:none;min-height:calc(100vh - 90px)}.pg.act{display:block}
 
-/* SERVICES */
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
-.service-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 24px 20px; text-align: center; transition: all 0.2s; }
-.service-card:hover { border-color: var(--primary); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
-.service-icon { width: 52px; height: 52px; background: var(--primary-light); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-size: 22px; }
-.service-card h3 { font-size: 14px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; }
-.service-card p { font-size: 12px; color: var(--text-mid); line-height: 1.5; }
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,var(--pd),var(--p) 50%,var(--pm));padding:48px 20px;text-align:center;color:white}
+.hero h1{font-size:clamp(22px,5vw,34px);font-weight:800;margin-bottom:10px;line-height:1.2}
+.hero h1 span{color:#9FC4FF}
+.hero p{font-size:clamp(13px,2vw,15px);opacity:.85;margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto}
+.hbtns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hstats{display:flex;gap:20px;justify-content:center;margin-top:28px;flex-wrap:wrap}
+.hstat .num{font-size:clamp(20px,4vw,28px);font-weight:800}
+.hstat .lbl{font-size:11px;opacity:.7}
 
-/* HOW IT WORKS */
-.how-bg { background: var(--primary-light); padding: 40px 32px; }
-.steps { display: flex; gap: 16px; max-width: 800px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
-.step { flex: 1; min-width: 200px; text-align: center; }
-.step-num { width: 44px; height: 44px; border-radius: 50%; background: var(--primary); color: white; font-weight: 800; font-size: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
-.step h3 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
-.step p { font-size: 12px; color: var(--text-mid); }
-.step-arrow { display: flex; align-items: center; color: var(--primary); font-size: 24px; padding-top: 10px; }
+/* ── SECTION ── */
+.sec{padding:32px 16px;max-width:1100px;margin:0 auto}
+.stit{font-size:clamp(16px,3vw,22px);font-weight:700;margin-bottom:6px}
+.ssub{font-size:12px;color:var(--tm);margin-bottom:24px}
 
-/* CTA BANNER */
-.cta-banner { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-mid) 100%); padding: 36px 32px; text-align: center; color: white; margin: 32px; border-radius: 16px; }
-.cta-banner h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
-.cta-banner p { opacity: 0.85; margin-bottom: 20px; }
+/* ── SERVICE CARDS ── */
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.sc{background:var(--w);border:1.5px solid var(--bd);border-radius:var(--r);padding:20px 16px;text-align:center;transition:all .2s}
+.sc:hover{border-color:var(--p);box-shadow:var(--shh);transform:translateY(-2px)}
+.si{width:48px;height:48px;background:var(--pl);border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:20px}
+.sc h3{font-size:13px;font-weight:700;margin-bottom:5px}
+.sc p{font-size:11px;color:var(--tm);line-height:1.5}
 
-/* COURSES */
-.course-toolbar { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 20px; }
-.search-box { flex: 1; min-width: 200px; padding: 8px 14px; border: 1.5px solid var(--border); border-radius: 7px; font-size: 13px; outline: none; }
-.search-box:focus { border-color: var(--primary); }
-.filter-pills { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
-.pill { padding: 5px 14px; border-radius: 20px; border: 1.5px solid var(--border); font-size: 12px; cursor: pointer; transition: all 0.2s; background: white; color: var(--text-mid); }
-.pill:hover, .pill.active { background: var(--primary); color: white; border-color: var(--primary); }
-.courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-.course-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: all 0.2s; }
-.course-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); border-color: var(--primary-mid); }
-.course-thumb { height: 140px; background: linear-gradient(135deg, var(--primary-dark), var(--primary-mid)); display: flex; align-items: center; justify-content: center; font-size: 36px; position: relative; }
-.level-badge { position: absolute; top: 10px; right: 10px; padding: 3px 9px; border-radius: 20px; font-size: 10px; font-weight: 700; }
-.level-beginner { background: #D4EDDA; color: var(--success); }
-.level-intermediate { background: #FFF3CD; color: var(--warning); }
-.level-advanced { background: #F8D7DA; color: var(--danger); }
-.course-body { padding: 16px; }
-.course-cat { font-size: 10px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; }
-.course-title { font-size: 14px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; line-height: 1.3; }
-.course-instructor { font-size: 11px; color: var(--text-mid); margin-bottom: 8px; }
-.stars { color: #F5A623; font-size: 11px; }
-.course-price { font-size: 16px; font-weight: 800; color: var(--primary); }
-.course-price-old { font-size: 11px; color: var(--text-light); text-decoration: line-through; margin-left: 4px; }
-.course-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; }
+/* ── HOW ── */
+.how{background:var(--pl);padding:32px 20px}
+.steps{display:flex;gap:12px;max-width:780px;margin:0 auto;flex-wrap:wrap;justify-content:center;align-items:flex-start}
+.step{flex:1;min-width:160px;text-align:center}
+.sn{width:40px;height:40px;border-radius:50%;background:var(--p);color:white;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+.step h3{font-size:13px;font-weight:700;margin-bottom:5px}
+.step p{font-size:11px;color:var(--tm)}
+.sa{color:var(--p);font-size:22px;padding-top:8px;flex-shrink:0}
 
-/* SUBSCRIPTIONS */
-.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
-.pricing-card { background: var(--white); border: 2px solid var(--border); border-radius: 14px; padding: 28px 24px; text-align: center; position: relative; transition: all 0.2s; }
-.pricing-card:hover { box-shadow: var(--shadow-hover); }
-.pricing-card.popular { border-color: var(--primary); box-shadow: 0 8px 30px rgba(25,90,236,0.18); transform: translateY(-4px); }
-.popular-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; padding: 3px 16px; border-radius: 20px; font-size: 11px; font-weight: 700; white-space: nowrap; }
-.plan-name { font-size: 18px; font-weight: 800; margin-bottom: 4px; }
-.plan-price { font-size: 32px; font-weight: 800; color: var(--primary); margin: 12px 0 4px; }
-.plan-price span { font-size: 14px; font-weight: 400; color: var(--text-mid); }
-.token-highlight { background: var(--primary-light); border-radius: 8px; padding: 10px; margin: 14px 0; }
-.token-highlight .t-num { font-size: 24px; font-weight: 800; color: var(--primary); }
-.token-highlight .t-lbl { font-size: 11px; color: var(--text-mid); }
-.plan-features { text-align: left; margin: 16px 0; }
-.plan-feature { display: flex; gap: 8px; align-items: flex-start; font-size: 12px; color: var(--text-mid); padding: 4px 0; }
-.check { color: var(--success); font-weight: 700; margin-top: 1px; }
+/* ── CTA BANNER ── */
+.cta{background:linear-gradient(135deg,var(--p),var(--pm));padding:32px 20px;text-align:center;color:white;margin:24px 16px;border-radius:14px}
+.cta h2{font-size:clamp(16px,3vw,22px);font-weight:800;margin-bottom:8px}
+.cta p{opacity:.85;margin-bottom:18px;font-size:13px}
 
-/* LIVE SESSIONS */
-.token-bar { background: var(--primary-light); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 14px 20px; margin-bottom: 20px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-.token-bar .label { font-size: 13px; color: var(--text-mid); }
-.token-bar .val { font-size: 22px; font-weight: 800; color: var(--primary); }
-.sessions-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
-.session-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 18px; transition: all 0.2s; }
-.session-card:hover { box-shadow: var(--shadow); }
-.session-date { display: inline-flex; flex-direction: column; align-items: center; background: var(--primary); color: white; border-radius: 8px; padding: 6px 10px; margin-bottom: 10px; min-width: 48px; }
-.session-date .day { font-size: 20px; font-weight: 800; line-height: 1; }
-.session-date .month { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
-.session-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-.session-meta { font-size: 11px; color: var(--text-mid); margin-bottom: 10px; line-height: 1.8; }
-.session-meta span { display: block; }
-.slot-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; padding: 3px 8px; border-radius: 12px; font-weight: 600; }
-.slot-open { background: #D4EDDA; color: var(--success); }
-.slot-few { background: #FFF3CD; color: var(--warning); }
-.slot-full { background: #F8D7DA; color: var(--danger); }
-.slot-booked { background: var(--primary-light); color: var(--primary); }
-.meet-link { display: block; margin-top: 8px; background: #E8F5E9; color: var(--success); padding: 6px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; text-decoration: none; }
+/* ── COURSES ── */
+.ctool{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.sb{flex:1;min-width:160px;padding:8px 12px;border:1.5px solid var(--bd);border-radius:7px;font-size:13px;outline:none}
+.sb:focus{border-color:var(--p)}
+.fps{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.pill{padding:5px 12px;border-radius:20px;border:1.5px solid var(--bd);font-size:11px;cursor:pointer;transition:all .2s;background:white;color:var(--tm)}
+.pill:hover,.pill.act{background:var(--p);color:white;border-color:var(--p)}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.cc{background:var(--w);border:1.5px solid var(--bd);border-radius:var(--r);overflow:hidden;transition:all .2s}
+.cc:hover{box-shadow:var(--shh);transform:translateY(-3px);border-color:var(--pm)}
+.ct{height:130px;background:linear-gradient(135deg,var(--pd),var(--pm));display:flex;align-items:center;justify-content:center;font-size:42px;position:relative}
+.lb{position:absolute;top:8px;right:8px;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:700}
+.lb-b{background:#D4EDDA;color:var(--ok)}.lb-i{background:#FFF3CD;color:var(--warn)}.lb-a{background:#F8D7DA;color:var(--err)}
+.cb{padding:14px}
+.ccat{font-size:10px;font-weight:700;color:var(--p);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.ctit{font-size:13px;font-weight:700;margin-bottom:5px;line-height:1.3}
+.cinst{font-size:11px;color:var(--tm);margin-bottom:6px}
+.stars{color:#F5A623;font-size:11px}
+.cpr{font-size:15px;font-weight:800;color:var(--p)}
+.cpr-old{font-size:10px;color:var(--tl);text-decoration:line-through;margin-left:3px}
+.cf{display:flex;align-items:center;justify-content:space-between;margin-top:10px;gap:6px;flex-wrap:wrap}
+.badge{display:inline-block;padding:2px 7px;border-radius:20px;font-size:10px;font-weight:700;background:#FFF3CD;color:var(--warn)}
 
-/* RECORDINGS */
-.topic-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
-.recordings-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-.rec-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: all 0.2s; }
-.rec-card:hover { box-shadow: var(--shadow-hover); }
-.rec-thumb { height: 130px; background: linear-gradient(135deg, #1A2340, var(--primary-dark)); display: flex; align-items: center; justify-content: center; position: relative; }
-.play-btn { width: 44px; height: 44px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; cursor: pointer; transition: all 0.2s; }
-.play-btn:hover { transform: scale(1.1); background: white; }
-.rec-duration { position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; }
-.rec-access { position: absolute; top: 8px; left: 8px; padding: 3px 8px; border-radius: 12px; font-size: 10px; font-weight: 700; }
-.access-all { background: #D4EDDA; color: var(--success); }
-.access-pro { background: var(--primary-light); color: var(--primary); }
-.access-premium { background: #FFF3CD; color: var(--warning); }
-.access-locked { background: #F8D7DA; color: var(--danger); }
-.rec-body { padding: 14px; }
-.rec-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
-.rec-meta { font-size: 11px; color: var(--text-mid); }
-.rec-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
-.lock-overlay { position: absolute; inset: 0; background: rgba(26,35,64,0.6); display: flex; align-items: center; justify-content: center; }
-.lock-icon { font-size: 28px; }
+/* ── PRICING ── */
+.pg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;max-width:860px;margin:0 auto}
+.pc{background:var(--w);border:2px solid var(--bd);border-radius:14px;padding:24px 20px;text-align:center;position:relative;transition:all .2s}
+.pc:hover{box-shadow:var(--shh)}
+.pc.pop{border-color:var(--p);box-shadow:0 8px 30px rgba(25,90,236,.18);transform:translateY(-4px)}
+.pt{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--p);color:white;padding:3px 14px;border-radius:20px;font-size:10px;font-weight:700;white-space:nowrap}
+.pn{font-size:17px;font-weight:800;margin-bottom:4px}
+.pp{font-size:30px;font-weight:800;color:var(--p);margin:10px 0 4px}
+.pp span{font-size:13px;font-weight:400;color:var(--tm)}
+.th{background:var(--pl);border-radius:8px;padding:9px;margin:12px 0}
+.th .tn{font-size:22px;font-weight:800;color:var(--p)}
+.th .tl{font-size:10px;color:var(--tm)}
+.pf{text-align:left;margin:14px 0}
+.pf div{display:flex;gap:7px;font-size:12px;color:var(--tm);padding:3px 0}
+.ck{color:var(--ok);font-weight:700}
 
-/* DASHBOARD */
-.dash-grid { display: grid; grid-template-columns: 1fr 300px; gap: 20px; }
-@media (max-width: 700px) { .dash-grid { grid-template-columns: 1fr; } }
-.dash-welcome { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: white; border-radius: 14px; padding: 24px; margin-bottom: 20px; }
-.dash-welcome h2 { font-size: 20px; font-weight: 800; margin-bottom: 6px; }
-.dash-welcome p { opacity: 0.8; font-size: 13px; margin-bottom: 16px; }
-.dash-stats { display: flex; gap: 16px; flex-wrap: wrap; }
-.dash-stat { background: rgba(255,255,255,0.15); border-radius: 8px; padding: 10px 16px; text-align: center; }
-.dash-stat .num { font-size: 22px; font-weight: 800; }
-.dash-stat .lbl { font-size: 10px; opacity: 0.8; }
-.enroll-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 14px; margin-bottom: 12px; display: flex; gap: 14px; align-items: center; }
-.enroll-thumb { width: 56px; height: 56px; border-radius: 8px; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
-.enroll-info { flex: 1; }
-.enroll-title { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
-.enroll-sub { font-size: 11px; color: var(--text-mid); margin-bottom: 7px; }
-.progress-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
-.progress-fill { height: 100%; background: var(--primary); border-radius: 3px; transition: width 1s ease; }
-.progress-label { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-light); margin-top: 3px; }
-.sidebar-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 18px; margin-bottom: 16px; }
-.sidebar-title { font-size: 13px; font-weight: 700; margin-bottom: 14px; color: var(--text-dark); }
-.token-circle-wrap { display: flex; flex-direction: column; align-items: center; }
-.token-circle { width: 90px; height: 90px; border-radius: 50%; background: var(--primary-light); border: 4px solid var(--primary); display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 10px; }
-.token-circle .big { font-size: 26px; font-weight: 800; color: var(--primary); line-height: 1; }
-.token-circle .small { font-size: 10px; color: var(--primary-mid); }
-.renewal-note { font-size: 11px; color: var(--text-mid); text-align: center; }
-.session-upcoming { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid var(--border); }
-.session-upcoming:last-child { border-bottom: none; }
-.upcom-date { background: var(--primary); color: white; border-radius: 6px; padding: 4px 8px; text-align: center; font-size: 10px; font-weight: 700; min-width: 38px; }
-.upcom-info { flex: 1; }
-.upcom-title { font-size: 12px; font-weight: 600; }
-.upcom-time { font-size: 10px; color: var(--text-mid); }
+/* ── SESSIONS ── */
+.tbar{background:var(--pl);border:1.5px solid var(--bd);border-radius:var(--r);padding:12px 16px;margin-bottom:18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.ssg{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.scard{background:var(--w);border:1.5px solid var(--bd);border-radius:var(--r);padding:16px}
+.sdate{display:inline-flex;flex-direction:column;align-items:center;background:var(--p);color:white;border-radius:7px;padding:5px 9px;margin-bottom:8px;min-width:44px}
+.sdate .day{font-size:18px;font-weight:800;line-height:1}
+.sdate .mo{font-size:9px;text-transform:uppercase;letter-spacing:.5px}
+.stit2{font-size:13px;font-weight:700;margin-bottom:4px}
+.smeta{font-size:11px;color:var(--tm);margin-bottom:8px;line-height:1.8}
+.slot{display:inline-flex;align-items:center;gap:3px;font-size:11px;padding:3px 8px;border-radius:12px;font-weight:600}
+.sl-o{background:#D4EDDA;color:var(--ok)}.sl-f{background:#FFF3CD;color:var(--warn)}.sl-x{background:#F8D7DA;color:var(--err)}.sl-b{background:var(--pl);color:var(--p)}
+.ml{display:block;margin-top:7px;background:#E8F5E9;color:var(--ok);padding:5px 9px;border-radius:5px;font-size:11px;font-weight:600;text-decoration:none}
 
-/* TOAST */
-.toast { position: fixed; bottom: 24px; right: 24px; background: var(--text-dark); color: white; padding: 12px 20px; border-radius: 10px; font-size: 13px; z-index: 9999; transform: translateY(80px); opacity: 0; transition: all 0.35s; max-width: 300px; }
-.toast.show { transform: translateY(0); opacity: 1; }
-.toast.success { background: var(--success); }
-.toast.warning { background: var(--warning); }
-.toast.error { background: var(--danger); }
+/* ── RECORDINGS ── */
+.rg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.rc{background:var(--w);border:1.5px solid var(--bd);border-radius:var(--r);overflow:hidden;transition:all .2s}
+.rc:hover{box-shadow:var(--shh)}
+.rth{height:120px;background:linear-gradient(135deg,#1A2340,var(--pd));display:flex;align-items:center;justify-content:center;position:relative}
+.pbtn{width:40px;height:40px;background:rgba(255,255,255,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer}
+.rdur{position:absolute;bottom:6px;right:6px;background:rgba(0,0,0,.7);color:white;font-size:10px;padding:2px 5px;border-radius:3px}
+.rac{position:absolute;top:7px;left:7px;padding:2px 7px;border-radius:12px;font-size:10px;font-weight:700}
+.ra-all{background:#D4EDDA;color:var(--ok)}.ra-pro{background:var(--pl);color:var(--p)}.ra-prem{background:#FFF3CD;color:var(--warn)}
+.lko{position:absolute;inset:0;background:rgba(26,35,64,.6);display:flex;align-items:center;justify-content:center;font-size:26px}
+.rb{padding:12px}
+.rtit{font-size:13px;font-weight:700;margin-bottom:3px}
+.rmeta{font-size:11px;color:var(--tm)}
+.rf{display:flex;align-items:center;justify-content:space-between;margin-top:9px}
 
-/* MODAL */
-.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(26,35,64,0.5); z-index: 200; align-items: center; justify-content: center; }
-.modal-overlay.open { display: flex; }
-.modal { background: white; border-radius: 14px; padding: 28px; max-width: 420px; width: 90%; }
-.modal h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-.modal p { font-size: 13px; color: var(--text-mid); margin-bottom: 20px; }
-.modal-btns { display: flex; gap: 10px; justify-content: flex-end; }
+/* ── DASHBOARD ── */
+.dg{display:grid;grid-template-columns:1fr 280px;gap:18px}
+.dw{background:linear-gradient(135deg,var(--pd),var(--p));color:white;border-radius:14px;padding:20px;margin-bottom:18px}
+.dw h2{font-size:clamp(16px,3vw,20px);font-weight:800;margin-bottom:5px}
+.dw p{opacity:.8;font-size:12px;margin-bottom:14px}
+.dsts{display:flex;gap:12px;flex-wrap:wrap}
+.dst{background:rgba(255,255,255,.15);border-radius:7px;padding:9px 14px;text-align:center}
+.dst .n{font-size:clamp(18px,3vw,22px);font-weight:800}
+.dst .l{font-size:10px;opacity:.8}
+.ec{background:var(--w);border:1.5px solid var(--bd);border-radius:var(--r);padding:12px;margin-bottom:10px;display:flex;gap:12px;align-items:center}
+.eth{width:50px;height:50px;border-radius:8px;background:linear-gradient(135deg,var(--pd),var(--p));display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.ei{flex:1}
+.etit{font-size:12px;font-weight:700;margin-bottom:2px}
+.esub{font-size:10px;color:var(--tm);margin-bottom:6px}
+.pbar{height:5px;background:var(--bd);border-radius:3px;overflow:hidden}
+.pfill{height:100%;background:var(--p);border-radius:3px}
+.plbl{display:flex;justify-content:space-between;font-size:10px;color:var(--tl);margin-top:2px}
+.sbc{background:var(--w);border:1.5px solid var(--bd);border-radius:var(--r);padding:16px;margin-bottom:14px}
+.sbt{font-size:13px;font-weight:700;margin-bottom:12px}
+.tcir{display:flex;flex-direction:column;align-items:center}
+.tcircle{width:82px;height:82px;border-radius:50%;background:var(--pl);border:4px solid var(--p);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 8px}
+.tcircle .big{font-size:24px;font-weight:800;color:var(--p);line-height:1}
+.tcircle .sm2{font-size:10px;color:var(--pm)}
+.rnote{font-size:11px;color:var(--tm);text-align:center}
+.sup{display:flex;gap:9px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--bd)}
+.sup:last-child{border-bottom:none}
+.sud{background:var(--p);color:white;border-radius:6px;padding:4px 7px;text-align:center;font-size:10px;font-weight:700;min-width:35px}
+.sui{flex:1}
+.suti{font-size:12px;font-weight:600}
+.sutm{font-size:10px;color:var(--tm)}
+.dvdr{border:none;border-top:1px solid var(--bd);margin:12px 0}
 
-/* FOOTER */
-footer { background: var(--text-dark); color: rgba(255,255,255,0.6); text-align: center; padding: 20px; font-size: 11px; margin-top: 40px; }
-footer span { color: var(--primary-mid); font-weight: 600; }
+/* ── CART ── */
+.cart-wrap{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start}
+.cart-item{background:var(--w);border:1.5px solid var(--bd);border-radius:var(--r);padding:14px;display:flex;gap:12px;align-items:center;margin-bottom:10px}
+.ci-thumb{width:60px;height:60px;border-radius:8px;background:linear-gradient(135deg,var(--pd),var(--pm));display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.ci-info{flex:1}
+.ci-title{font-size:13px;font-weight:700;margin-bottom:3px}
+.ci-sub{font-size:11px;color:var(--tm)}
+.ci-price{font-size:15px;font-weight:800;color:var(--p);white-space:nowrap}
+.rm-btn{background:none;border:none;color:var(--err);cursor:pointer;font-size:16px;padding:4px}
+.order-summary{background:var(--w);border:2px solid var(--bd);border-radius:14px;padding:20px;position:sticky;top:70px}
+.os-title{font-size:15px;font-weight:700;margin-bottom:16px}
+.os-row{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;color:var(--tm)}
+.os-total{display:flex;justify-content:space-between;font-size:16px;font-weight:800;padding-top:12px;border-top:2px solid var(--bd);color:var(--td);margin-top:6px}
+.empty-cart{text-align:center;padding:60px 20px;color:var(--tm)}
+.empty-cart .icon{font-size:48px;margin-bottom:12px}
 
-/* MISC */
-.badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 10px; font-weight: 700; }
-.badge-new { background: #FFF3CD; color: var(--warning); }
-.tag-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
-.divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+/* ── CHECKOUT ── */
+.co-wrap{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start}
+.co-form{background:var(--w);border:1.5px solid var(--bd);border-radius:14px;padding:22px}
+.co-section{margin-bottom:22px}
+.co-section h3{font-size:14px;font-weight:700;margin-bottom:14px;color:var(--td);padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.fg.full{grid-template-columns:1fr}
+label{display:block;font-size:11px;font-weight:600;color:var(--tm);margin-bottom:4px}
+input[type=text],input[type=email],input[type=tel],select{width:100%;padding:9px 12px;border:1.5px solid var(--bd);border-radius:7px;font-size:13px;outline:none;background:white}
+input:focus,select:focus{border-color:var(--p)}
+.pay-opts{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.pay-opt{flex:1;min-width:100px;border:2px solid var(--bd);border-radius:9px;padding:10px;text-align:center;cursor:pointer;transition:all .2s;background:white}
+.pay-opt.sel{border-color:var(--p);background:var(--pl)}
+.pay-opt .pi{font-size:22px;margin-bottom:3px}
+.pay-opt .pn2{font-size:11px;font-weight:700;color:var(--td)}
+.card-fields{background:var(--gb);border-radius:8px;padding:14px}
+.secure{font-size:11px;color:var(--tm);text-align:center;margin-top:10px}
+
+/* ── SUCCESS ── */
+.success-wrap{max-width:500px;margin:60px auto;text-align:center;padding:20px}
+.success-icon{font-size:64px;margin-bottom:16px}
+.success-wrap h2{font-size:24px;font-weight:800;color:var(--p);margin-bottom:8px}
+.success-wrap p{color:var(--tm);margin-bottom:20px}
+.order-details{background:var(--pl);border-radius:12px;padding:18px;text-align:left;margin-bottom:24px}
+.od-row{display:flex;justify-content:space-between;font-size:13px;padding:4px 0}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:20px;right:20px;background:var(--td);color:white;padding:11px 18px;border-radius:10px;font-size:12px;z-index:9999;transform:translateY(80px);opacity:0;transition:all .35s;max-width:280px}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.ok{background:var(--ok)}.toast.warn{background:var(--warn)}.toast.er{background:var(--err)}
+
+/* ── MODAL ── */
+.mo{display:none;position:fixed;inset:0;background:rgba(26,35,64,.5);z-index:200;align-items:center;justify-content:center;padding:16px}
+.mo.open{display:flex}
+.md{background:white;border-radius:14px;padding:24px;max-width:400px;width:100%}
+.md h3{font-size:15px;font-weight:700;margin-bottom:8px}
+.md p{font-size:13px;color:var(--tm);margin-bottom:18px}
+.mdb{display:flex;gap:8px;justify-content:flex-end}
+
+/* ── FOOTER ── */
+footer{background:var(--td);color:rgba(255,255,255,.5);text-align:center;padding:16px;font-size:11px;margin-top:36px}
+footer span{color:var(--pm);font-weight:600}
+
+/* ══════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   ══════════════════════════════════════ */
+
+/* Tablet + Mobile: hide desktop nav, show hamburger */
+@media(max-width:900px){
+  .nv{display:none !important}
+  .ns{display:none}
+  .tok-b{display:none}
+  .ham{display:flex}
+  /* layout fixes */
+  .dg{grid-template-columns:1fr}
+  .cart-wrap{grid-template-columns:1fr}
+  .co-wrap{grid-template-columns:1fr}
+  .order-summary{position:static}
+}
+@media(max-width:640px){
+  .cg{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+  .ssg{grid-template-columns:1fr}
+  .rg{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+  .pg-grid{grid-template-columns:1fr}
+  .pc.pop{transform:none}
+  .fg{grid-template-columns:1fr}
+  .pay-opts{flex-direction:column}
+  .steps{flex-direction:column;align-items:center}
+  .sa{display:none}
+  .hstats{gap:14px}
+  .dsts{gap:8px}
+  .cta{margin:16px 12px}
+  .cart-item{flex-wrap:wrap}
+}
+@media(max-width:400px){
+  .cg{grid-template-columns:1fr}
+  .rg{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
 
-<!-- Prototype Banner -->
-<div class="proto-banner">⚡ INTERACTIVE PROTOTYPE — KOODUZ ONLINE LEARNING PLATFORM</div>
+<div class="pb">⚡ INTERACTIVE PROTOTYPE — KOODUZ ONLINE LEARNING PLATFORM — All flows are simulated</div>
 
-<!-- Navigation -->
-<nav>
-  <div class="nav-logo" onclick="showPage('home')">Koo<span>duz</span></div>
-  <div class="nav-link active" id="nav-home" onclick="showPage('home')">Home</div>
-  <div class="nav-link" id="nav-courses" onclick="showPage('courses')">Courses</div>
-  <div class="nav-link" id="nav-subs" onclick="showPage('subs')">Subscriptions</div>
-  <div class="nav-link" id="nav-live" onclick="showPage('live')">Live Sessions</div>
-  <div class="nav-link" id="nav-recs" onclick="showPage('recs')">Recordings</div>
-  <div class="nav-link" id="nav-dash" onclick="showPage('dash')">Dashboard</div>
-  <div class="nav-spacer"></div>
-  <div class="nav-token-badge" id="nav-tokens"><span class="dot"></span><span id="nav-tok-count">5</span> Tokens</div>
-  <button class="btn btn-primary btn-sm" onclick="showPage('dash')">My Account</button>
+<nav id="mainNav">
+  <div class="nl" onclick="nav('home')">Koo<span>duz</span></div>
+  <!-- Desktop links -->
+  <div class="nv act" id="n-home" onclick="nav('home')">Home</div>
+  <div class="nv" id="n-courses" onclick="nav('courses')">Courses</div>
+  <div class="nv" id="n-subs" onclick="nav('subs')">Subscriptions</div>
+  <div class="nv" id="n-live" onclick="nav('live')">Live Sessions</div>
+  <div class="nv" id="n-recs" onclick="nav('recs')">Recordings</div>
+  <div class="nv" id="n-dash" onclick="nav('dash')">Dashboard</div>
+  <div class="ns"></div>
+  <div class="tok-b" id="nav-tok">🪙 <span id="nt">5</span> Tokens</div>
+  <button class="cart-btn" onclick="nav('cart')">🛒 Cart<span class="cart-cnt" id="cart-cnt">0</span></button>
+  <!-- Hamburger button — only visible on mobile/tablet via CSS -->
+  <button class="ham" id="hamBtn" onclick="toggleDrawer()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<!-- ═══════════════════════ HOME PAGE ═══════════════════════ -->
-<div class="page active" id="page-home">
+<!-- Mobile/Tablet Drawer — .di class (separate from .nv so it won't be hidden by media query) -->
+<div class="nav-drawer" id="navDrawer">
+  <button class="di act" id="nd-home"    onclick="goPage('home')">🏠 Home</button>
+  <button class="di"     id="nd-courses" onclick="goPage('courses')">📚 Courses</button>
+  <button class="di"     id="nd-subs"    onclick="goPage('subs')">💳 Subscriptions</button>
+  <button class="di"     id="nd-live"    onclick="goPage('live')">🎙 Live Sessions</button>
+  <button class="di"     id="nd-recs"    onclick="goPage('recs')">🎬 Recordings</button>
+  <button class="di"     id="nd-dash"    onclick="goPage('dash')">📊 Dashboard</button>
+  <div class="drawer-foot">
+    <div class="tok-b">🪙 <span id="nt2">5</span> Tokens</div>
+    <button class="cart-btn" style="margin-left:auto" onclick="goPage('cart')">
+      🛒 Cart<span class="cart-cnt" id="cart-cnt2">0</span>
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════ HOME ═══════════ -->
+<div class="pg act" id="pg-home">
   <div class="hero">
     <h1>Learn Anytime, Anywhere<br>with <span>Kooduz</span></h1>
-    <p>Self-paced courses, live sessions with expert instructors, and session recordings — all in one platform.</p>
-    <div class="hero-btns">
-      <button class="btn btn-white btn-sm" style="padding:10px 24px;font-size:14px" onclick="showPage('courses')">🎓 Browse Courses</button>
-      <button class="btn btn-ghost btn-sm" style="padding:10px 24px;font-size:14px" onclick="showPage('subs')">View Plans</button>
+    <p>Self-paced courses, live sessions with expert instructors, and session recordings — all in one platform built for every learner.</p>
+    <div class="hbtns">
+      <button class="btn bw" style="padding:10px 22px" onclick="nav('courses')">🎓 Browse Courses</button>
+      <button class="btn bghost" style="padding:10px 22px" onclick="nav('subs')">View Plans</button>
     </div>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="num">500+</div><div class="lbl">Students</div></div>
-      <div class="hero-stat"><div class="num">80+</div><div class="lbl">Courses</div></div>
-      <div class="hero-stat"><div class="num">30+</div><div class="lbl">Instructors</div></div>
-      <div class="hero-stat"><div class="num">4.9 ★</div><div class="lbl">Avg Rating</div></div>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2 class="section-title" style="text-align:center">Why Choose Kooduz?</h2>
-    <p class="section-sub" style="text-align:center">Everything you need to grow your skills in one place.</p>
-    <div class="services-grid">
-      <div class="service-card"><div class="service-icon">📅</div><h3>Easy Booking</h3><p>Book live sessions instantly using your monthly tokens. No complicated scheduling.</p></div>
-      <div class="service-card"><div class="service-icon">🎥</div><h3>Live Classes</h3><p>Join Google Meet sessions with expert instructors. Interact in real time.</p></div>
-      <div class="service-card"><div class="service-icon">🔒</div><h3>Secure Payment</h3><p>Pay safely via Stripe or PayPal. Subscriptions and one-time purchases supported.</p></div>
-      <div class="service-card"><div class="service-icon">🎬</div><h3>Session Recordings</h3><p>Missed a session? Watch the recording anytime within your subscription tier.</p></div>
+    <div class="hstats">
+      <div class="hstat"><div class="num">500+</div><div class="lbl">Students</div></div>
+      <div class="hstat"><div class="num">80+</div><div class="lbl">Courses</div></div>
+      <div class="hstat"><div class="num">30+</div><div class="lbl">Instructors</div></div>
+      <div class="hstat"><div class="num">4.9★</div><div class="lbl">Rating</div></div>
     </div>
   </div>
-
-  <div class="how-bg">
-    <div class="section" style="padding-top:0;padding-bottom:0">
-      <h2 class="section-title" style="text-align:center;margin-bottom:6px">How It Works</h2>
-      <p class="section-sub" style="text-align:center">Get started in 3 simple steps.</p>
+  <div class="sec">
+    <h2 class="stit" style="text-align:center">Why Choose Kooduz?</h2>
+    <p class="ssub" style="text-align:center">Everything you need to grow your skills.</p>
+    <div class="sg">
+      <div class="sc"><div class="si">📅</div><h3>Easy Booking</h3><p>Book live sessions instantly with monthly tokens. No complicated scheduling.</p></div>
+      <div class="sc"><div class="si">🎥</div><h3>Live Classes</h3><p>Join Google Meet sessions with expert instructors. Interact in real time.</p></div>
+      <div class="sc"><div class="si">🔒</div><h3>Secure Payment</h3><p>Pay safely via Stripe, PayPal, or GCash. One-time and subscriptions supported.</p></div>
+      <div class="sc"><div class="si">🎬</div><h3>Session Recordings</h3><p>Missed a session? Watch the recording within your subscription tier.</p></div>
+    </div>
+  </div>
+  <div class="how">
+    <div class="sec" style="padding-top:0;padding-bottom:0">
+      <h2 class="stit" style="text-align:center;margin-bottom:5px">How It Works</h2>
+      <p class="ssub" style="text-align:center">Get started in 3 easy steps.</p>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><h3>Browse & Enroll</h3><p>Explore our course library and enroll in self-paced courses with one-time payment.</p></div>
-        <div class="step-arrow">→</div>
-        <div class="step"><div class="step-num">2</div><h3>Subscribe</h3><p>Choose a monthly plan to receive tokens for booking live sessions with instructors.</p></div>
-        <div class="step-arrow">→</div>
-        <div class="step"><div class="step-num">3</div><h3>Learn & Grow</h3><p>Complete courses, attend live sessions, and access recordings to accelerate learning.</p></div>
+        <div class="step"><div class="sn">1</div><h3>Browse &amp; Enroll</h3><p>Explore courses and enroll with a one-time payment.</p></div>
+        <div class="sa">→</div>
+        <div class="step"><div class="sn">2</div><h3>Subscribe</h3><p>Get a monthly plan and receive tokens for live sessions.</p></div>
+        <div class="sa">→</div>
+        <div class="step"><div class="sn">3</div><h3>Learn &amp; Grow</h3><p>Complete courses, attend sessions, access recordings.</p></div>
       </div>
     </div>
   </div>
-
-  <div style="padding:0 32px">
-    <div class="cta-banner">
-      <h2>Ready to Start Learning?</h2>
-      <p>Join hundreds of students already growing their skills with Kooduz.</p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <button class="btn btn-white" onclick="showPage('courses')">Browse Courses</button>
-        <button class="btn btn-ghost" onclick="showPage('subs')">View Subscription Plans</button>
-      </div>
+  <div class="cta">
+    <h2>Ready to Start Learning?</h2>
+    <p>Join hundreds of students already growing their skills with Kooduz.</p>
+    <div class="hbtns">
+      <button class="btn bw" onclick="nav('courses')">Browse Courses</button>
+      <button class="btn bghost" onclick="nav('subs')">View Subscription Plans</button>
     </div>
   </div>
-
-  <footer><span>Kooduz</span> — Online Learning Platform &nbsp;|&nbsp; Prototype View &nbsp;|&nbsp; © 2026</footer>
+  <footer><span>Kooduz</span> — Online Learning Platform &nbsp;|&nbsp; Interactive Prototype &nbsp;|&nbsp; © 2026</footer>
 </div>
 
-<!-- ═══════════════════════ COURSES PAGE ═══════════════════════ -->
-<div class="page" id="page-courses">
-  <div class="section">
-    <h2 class="section-title">Courses</h2>
-    <p class="section-sub">Browse our full library of courses across all subjects and levels.</p>
-
-    <div class="course-toolbar">
-      <input class="search-box" placeholder="🔍  Search courses..." oninput="filterCourses(this.value)">
-      <span style="font-size:12px;color:var(--text-mid)" id="course-count">Showing 8 courses</span>
+<!-- ═══════════ COURSES ═══════════ -->
+<div class="pg" id="pg-courses">
+  <div class="sec">
+    <h2 class="stit">Courses</h2>
+    <p class="ssub">Browse our full course library. Add to cart and checkout when ready.</p>
+    <div class="ctool">
+      <input class="sb" placeholder="🔍 Search courses..." oninput="fCourses(this.value)">
+      <span style="font-size:12px;color:var(--tm)" id="ccnt">Showing 8 courses</span>
     </div>
-    <div class="filter-pills" id="filter-pills">
-      <div class="pill active" onclick="filterByPill(this,'All')">All</div>
-      <div class="pill" onclick="filterByPill(this,'ESL')">ESL</div>
-      <div class="pill" onclick="filterByPill(this,'Business')">Business English</div>
-      <div class="pill" onclick="filterByPill(this,'Languages')">Languages</div>
-      <div class="pill" onclick="filterByPill(this,'University')">University</div>
-      <div class="pill" onclick="filterByPill(this,'Kids')">Kids</div>
+    <div class="fps" id="fpills">
+      <div class="pill act" onclick="fPill(this,'All')">All</div>
+      <div class="pill" onclick="fPill(this,'ESL')">ESL</div>
+      <div class="pill" onclick="fPill(this,'Business')">Business English</div>
+      <div class="pill" onclick="fPill(this,'Languages')">Languages</div>
+      <div class="pill" onclick="fPill(this,'University')">University</div>
+      <div class="pill" onclick="fPill(this,'Kids')">Kids</div>
     </div>
-
-    <div class="courses-grid" id="courses-grid"></div>
+    <div class="cg" id="cg"></div>
   </div>
 </div>
 
-<!-- ═══════════════════════ SUBSCRIPTIONS PAGE ═══════════════════════ -->
-<div class="page" id="page-subs">
-  <div class="hero" style="padding:40px 32px">
-    <h1 style="font-size:26px">Unlock Live Sessions with <span>Tokens</span></h1>
-    <p>Subscribe to a monthly plan and receive tokens to book live Google Meet sessions with expert instructors.</p>
+<!-- ═══════════ SUBSCRIPTIONS ═══════════ -->
+<div class="pg" id="pg-subs">
+  <div class="hero" style="padding:36px 20px">
+    <h1 style="font-size:clamp(18px,4vw,26px)">Unlock Live Sessions with <span>Tokens</span></h1>
+    <p>Subscribe monthly and get tokens to book live Google Meet sessions with expert instructors.</p>
   </div>
-  <div class="section">
-    <h2 class="section-title" style="text-align:center">Choose Your Plan</h2>
-    <p class="section-sub" style="text-align:center">All plans include access to self-paced courses and the student dashboard.</p>
-
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <div class="plan-name">Starter</div>
-        <div style="font-size:12px;color:var(--text-mid)">Perfect for beginners</div>
-        <div class="plan-price">$9.99<span>/month</span></div>
-        <div class="token-highlight"><div class="t-num">2</div><div class="t-lbl">tokens per month</div></div>
-        <div class="plan-features">
-          <div class="plan-feature"><span class="check">✓</span>2 live session bookings/month</div>
-          <div class="plan-feature"><span class="check">✓</span>7-day recording access</div>
-          <div class="plan-feature"><span class="check">✓</span>Community access</div>
-          <div class="plan-feature"><span class="check">✓</span>Student dashboard</div>
+  <div class="sec">
+    <h2 class="stit" style="text-align:center">Choose Your Plan</h2>
+    <p class="ssub" style="text-align:center">All plans include the student dashboard and course access.</p>
+    <div class="pg-grid">
+      <div class="pc">
+        <div class="pn">Starter</div>
+        <div style="font-size:11px;color:var(--tm)">Perfect for beginners</div>
+        <div class="pp">$9.99<span>/month</span></div>
+        <div class="th"><div class="tn">2</div><div class="tl">tokens / month</div></div>
+        <div class="pf">
+          <div><span class="ck">✓</span>2 live session bookings</div>
+          <div><span class="ck">✓</span>7-day recording access</div>
+          <div><span class="ck">✓</span>Community access</div>
+          <div><span class="ck">✓</span>Student dashboard</div>
         </div>
-        <button class="btn btn-outline" style="width:100%" onclick="subscribePlan('Starter')">Get Starter</button>
+        <button class="btn bo" style="width:100%" onclick="subCheckout('Starter',9.99,2)">Get Starter →</button>
       </div>
-
-      <div class="pricing-card popular">
-        <div class="popular-tag">⭐ Most Popular</div>
-        <div class="plan-name" style="color:var(--primary)">Pro</div>
-        <div style="font-size:12px;color:var(--text-mid)">Best for regular learners</div>
-        <div class="plan-price">$19.99<span>/month</span></div>
-        <div class="token-highlight"><div class="t-num" style="font-size:28px">5</div><div class="t-lbl">tokens per month</div></div>
-        <div class="plan-features">
-          <div class="plan-feature"><span class="check">✓</span>5 live session bookings/month</div>
-          <div class="plan-feature"><span class="check">✓</span>30-day recording access</div>
-          <div class="plan-feature"><span class="check">✓</span>Priority Q&A with instructors</div>
-          <div class="plan-feature"><span class="check">✓</span>Private community group</div>
-          <div class="plan-feature"><span class="check">✓</span>10% course discount</div>
+      <div class="pc pop">
+        <div class="pt">⭐ Most Popular</div>
+        <div class="pn" style="color:var(--p)">Pro</div>
+        <div style="font-size:11px;color:var(--tm)">Best for regular learners</div>
+        <div class="pp">$19.99<span>/month</span></div>
+        <div class="th"><div class="tn" style="font-size:26px">5</div><div class="tl">tokens / month</div></div>
+        <div class="pf">
+          <div><span class="ck">✓</span>5 live session bookings</div>
+          <div><span class="ck">✓</span>30-day recording access</div>
+          <div><span class="ck">✓</span>Priority Q&amp;A</div>
+          <div><span class="ck">✓</span>Private group</div>
+          <div><span class="ck">✓</span>10% course discount</div>
         </div>
-        <button class="btn btn-primary" style="width:100%" onclick="subscribePlan('Pro')">Get Pro</button>
+        <button class="btn bp" style="width:100%" onclick="subCheckout('Pro',19.99,5)">Get Pro →</button>
       </div>
-
-      <div class="pricing-card">
-        <div class="plan-name">Premium</div>
-        <div style="font-size:12px;color:var(--text-mid)">For power learners</div>
-        <div class="plan-price">$34.99<span>/month</span></div>
-        <div class="token-highlight"><div class="t-num">12</div><div class="t-lbl">tokens per month</div></div>
-        <div class="plan-features">
-          <div class="plan-feature"><span class="check">✓</span>12 live session bookings/month</div>
-          <div class="plan-feature"><span class="check">✓</span>Unlimited recording access</div>
-          <div class="plan-feature"><span class="check">✓</span>1-on-1 mentoring (1x/month)</div>
-          <div class="plan-feature"><span class="check">✓</span>All Pro features included</div>
-          <div class="plan-feature"><span class="check">✓</span>20% course discount</div>
+      <div class="pc">
+        <div class="pn">Premium</div>
+        <div style="font-size:11px;color:var(--tm)">For power learners</div>
+        <div class="pp">$34.99<span>/month</span></div>
+        <div class="th"><div class="tn">12</div><div class="tl">tokens / month</div></div>
+        <div class="pf">
+          <div><span class="ck">✓</span>12 live session bookings</div>
+          <div><span class="ck">✓</span>Unlimited recordings</div>
+          <div><span class="ck">✓</span>1-on-1 mentoring (1x/mo)</div>
+          <div><span class="ck">✓</span>All Pro features</div>
+          <div><span class="ck">✓</span>20% course discount</div>
         </div>
-        <button class="btn btn-outline" style="width:100%" onclick="subscribePlan('Premium')">Get Premium</button>
+        <button class="btn bo" style="width:100%" onclick="subCheckout('Premium',34.99,12)">Get Premium →</button>
       </div>
     </div>
-
-    <p style="text-align:center;font-size:11px;color:var(--text-mid);margin-top:20px">💳 Powered by Stripe &amp; PayPal &nbsp;|&nbsp; Cancel anytime &nbsp;|&nbsp; Secure checkout</p>
+    <p style="text-align:center;font-size:11px;color:var(--tm);margin-top:18px">💳 Stripe · PayPal · GCash &nbsp;|&nbsp; Cancel anytime &nbsp;|&nbsp; Secure checkout</p>
   </div>
 </div>
 
-<!-- ═══════════════════════ LIVE SESSIONS PAGE ═══════════════════════ -->
-<div class="page" id="page-live">
-  <div class="section">
-    <h2 class="section-title">Live Sessions</h2>
-    <p class="section-sub">Book upcoming sessions with your tokens. Each booking uses 1 token.</p>
-
-    <div class="token-bar">
-      <div><div class="label">Your Token Balance</div><div class="val" id="token-display">5</div></div>
-      <div style="font-size:12px;color:var(--text-mid)">Renews on May 21, 2026 &nbsp;|&nbsp; Tokens used this cycle: <strong id="tokens-used">0</strong></div>
-      <div style="margin-left:auto"><button class="btn btn-primary btn-sm" onclick="showPage('subs')">+ Get More Tokens</button></div>
+<!-- ═══════════ LIVE SESSIONS ═══════════ -->
+<div class="pg" id="pg-live">
+  <div class="sec">
+    <h2 class="stit">Live Sessions</h2>
+    <p class="ssub">Book upcoming sessions with your tokens. Each booking uses 1 token.</p>
+    <div class="tbar">
+      <div><div style="font-size:11px;color:var(--tm)">Token Balance</div><div style="font-size:20px;font-weight:800;color:var(--p)" id="tok-disp">5</div></div>
+      <div style="font-size:11px;color:var(--tm)">Renews May 21, 2026 · Used this cycle: <strong id="t-used">0</strong></div>
+      <div style="margin-left:auto"><button class="btn bp sm" onclick="nav('subs')">+ Get Tokens</button></div>
     </div>
-
-    <div class="sessions-grid" id="sessions-grid"></div>
+    <div class="ssg" id="ssg"></div>
   </div>
 </div>
 
-<!-- ═══════════════════════ RECORDINGS PAGE ═══════════════════════ -->
-<div class="page" id="page-recs">
-  <div class="section">
-    <h2 class="section-title">Session Recordings</h2>
-    <p class="section-sub">Watch recordings of past live sessions. Access depends on your subscription tier.</p>
-
-    <div style="background:var(--primary-light);border:1.5px solid var(--border);border-radius:var(--radius);padding:12px 16px;margin-bottom:20px;font-size:12px;color:var(--text-mid)">
-      ℹ️ &nbsp;<strong>Access by plan:</strong> &nbsp;Starter — 7 days &nbsp;|&nbsp; Pro — 30 days &nbsp;|&nbsp; Premium — Unlimited &nbsp;|&nbsp; <a href="#" onclick="showPage('subs');return false" style="color:var(--primary);font-weight:600">Upgrade your plan →</a>
+<!-- ═══════════ RECORDINGS ═══════════ -->
+<div class="pg" id="pg-recs">
+  <div class="sec">
+    <h2 class="stit">Session Recordings</h2>
+    <p class="ssub">Watch recordings of past live sessions based on your subscription tier.</p>
+    <div style="background:var(--pl);border:1.5px solid var(--bd);border-radius:var(--r);padding:10px 14px;margin-bottom:18px;font-size:12px;color:var(--tm)">
+      ℹ️ <strong>Access by plan:</strong> Starter — 7 days · Pro — 30 days · Premium — Unlimited ·
+      <a href="#" onclick="nav('subs');return false" style="color:var(--p);font-weight:600">Upgrade →</a>
     </div>
-
-    <div class="topic-filters">
-      <div class="pill active" onclick="filterRec(this,'All')">All Topics</div>
-      <div class="pill" onclick="filterRec(this,'Grammar')">Grammar</div>
-      <div class="pill" onclick="filterRec(this,'Speaking')">Speaking</div>
-      <div class="pill" onclick="filterRec(this,'Business')">Business English</div>
-      <div class="pill" onclick="filterRec(this,'Writing')">Writing</div>
-      <div class="pill" onclick="filterRec(this,'IELTS')">IELTS Prep</div>
+    <div class="fps" id="rpills">
+      <div class="pill act" onclick="fRec(this,'All')">All Topics</div>
+      <div class="pill" onclick="fRec(this,'Grammar')">Grammar</div>
+      <div class="pill" onclick="fRec(this,'Speaking')">Speaking</div>
+      <div class="pill" onclick="fRec(this,'Business')">Business English</div>
+      <div class="pill" onclick="fRec(this,'Writing')">Writing</div>
+      <div class="pill" onclick="fRec(this,'IELTS')">IELTS Prep</div>
     </div>
-
-    <div class="recordings-grid" id="recordings-grid"></div>
+    <div class="rg" id="rg"></div>
   </div>
 </div>
 
-<!-- ═══════════════════════ DASHBOARD PAGE ═══════════════════════ -->
-<div class="page" id="page-dash">
-  <div class="section">
-    <div class="dash-welcome">
+<!-- ═══════════ DASHBOARD ═══════════ -->
+<div class="pg" id="pg-dash">
+  <div class="sec">
+    <div class="dw">
       <h2>Welcome back, Glenn! 👋</h2>
       <p>You're making great progress. Keep it up!</p>
-      <div class="dash-stats">
-        <div class="dash-stat"><div class="num" id="dash-enrolled">3</div><div class="lbl">Enrolled Courses</div></div>
-        <div class="dash-stat"><div class="num" id="dash-tokens-left">5</div><div class="lbl">Tokens Left</div></div>
-        <div class="dash-stat"><div class="num">2</div><div class="lbl">Upcoming Sessions</div></div>
-        <div class="dash-stat"><div class="num">1</div><div class="lbl">Certificates</div></div>
+      <div class="dsts">
+        <div class="dst"><div class="n" id="d-enr">3</div><div class="l">Enrolled</div></div>
+        <div class="dst"><div class="n" id="d-tok">5</div><div class="l">Tokens Left</div></div>
+        <div class="dst"><div class="n">2</div><div class="l">Upcoming</div></div>
+        <div class="dst"><div class="n">1</div><div class="l">Certificates</div></div>
       </div>
     </div>
-
-    <div class="dash-grid">
+    <div class="dg">
       <div>
-        <h3 style="font-size:15px;font-weight:700;margin-bottom:14px">My Courses</h3>
-        <div id="dash-courses"></div>
-        <button class="btn btn-outline btn-sm" style="margin-top:8px" onclick="showPage('courses')">+ Browse More Courses</button>
+        <h3 style="font-size:14px;font-weight:700;margin-bottom:12px">My Courses</h3>
+        <div id="dcourses"></div>
+        <button class="btn bo sm" style="margin-top:8px" onclick="nav('courses')">+ Browse More</button>
       </div>
       <div>
-        <div class="sidebar-card">
-          <div class="sidebar-title">🔵 Subscription Status</div>
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-            <span style="background:var(--primary);color:white;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700">PRO</span>
-            <span style="font-size:12px;color:var(--text-mid)">Active — renews May 21</span>
+        <div class="sbc">
+          <div class="sbt">🔵 Subscription</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+            <span style="background:var(--p);color:white;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700" id="d-plan">PRO</span>
+            <span style="font-size:12px;color:var(--tm)">Active — renews May 21</span>
           </div>
-          <div class="token-circle-wrap">
-            <div class="token-circle"><div class="big" id="token-circle-num">5</div><div class="small">tokens</div></div>
-            <div class="renewal-note">of 5 remaining this cycle<br><span style="color:var(--primary);font-weight:600">Renews in 30 days</span></div>
+          <div class="tcir">
+            <div class="tcircle"><div class="big" id="tc-num">5</div><div class="sm2">tokens</div></div>
+            <div class="rnote">of <span id="tc-of">5</span> remaining<br><span style="color:var(--p);font-weight:600">Renews in 30 days</span></div>
           </div>
-          <hr class="divider" style="margin:14px 0">
-          <button class="btn btn-primary btn-sm" style="width:100%" onclick="showPage('subs')">Upgrade to Premium</button>
+          <hr class="dvdr">
+          <button class="btn bp sm" style="width:100%" onclick="nav('subs')">Upgrade to Premium</button>
         </div>
-
-        <div class="sidebar-card">
-          <div class="sidebar-title">📅 Upcoming Sessions</div>
-          <div class="session-upcoming">
-            <div class="upcom-date">MAY<br>25</div>
-            <div class="upcom-info"><div class="upcom-title">Advanced Business Writing</div><div class="upcom-time">10:00 AM – 11:00 AM &nbsp;|&nbsp; Ms. Rivera</div></div>
-          </div>
-          <div class="session-upcoming">
-            <div class="upcom-date">MAY<br>28</div>
-            <div class="upcom-info"><div class="upcom-title">IELTS Speaking Practice</div><div class="upcom-time">2:00 PM – 3:00 PM &nbsp;|&nbsp; Mr. Santos</div></div>
-          </div>
-          <a href="#" onclick="showPage('live');return false" style="display:block;text-align:center;font-size:12px;color:var(--primary);font-weight:600;margin-top:10px">View all sessions →</a>
+        <div class="sbc">
+          <div class="sbt">📅 Upcoming Sessions</div>
+          <div class="sup"><div class="sud">MAY<br>25</div><div class="sui"><div class="suti">Business Writing Workshop</div><div class="sutm">10:00 AM · Ms. Rivera</div></div></div>
+          <div class="sup"><div class="sud">MAY<br>28</div><div class="sui"><div class="suti">IELTS Speaking Practice</div><div class="sutm">2:00 PM · Mr. Santos</div></div></div>
+          <a href="#" onclick="nav('live');return false" style="display:block;text-align:center;font-size:12px;color:var(--p);font-weight:600;margin-top:10px">View all →</a>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ CART ═══════════ -->
+<div class="pg" id="pg-cart">
+  <div class="sec">
+    <h2 class="stit">🛒 Shopping Cart</h2>
+    <p class="ssub" id="cart-sub">Review your items before checkout.</p>
+    <div id="cart-content"></div>
+  </div>
+</div>
+
+<!-- ═══════════ CHECKOUT ═══════════ -->
+<div class="pg" id="pg-checkout">
+  <div class="sec">
+    <h2 class="stit">Checkout</h2>
+    <p class="ssub">Complete your order securely.</p>
+    <div class="co-wrap">
+      <div class="co-form">
+        <div class="co-section">
+          <h3>📋 Contact Information</h3>
+          <div class="fg">
+            <div><label>First Name</label><input type="text" placeholder="First name"></div>
+            <div><label>Last Name</label><input type="text" placeholder="Last name"></div>
+          </div>
+          <div class="fg full"><div><label>Email Address</label><input type="email" placeholder="your@email.com"></div></div>
+          <div class="fg full"><div><label>Phone Number</label><input type="tel" placeholder="+63 9XX XXX XXXX"></div></div>
+        </div>
+        <div class="co-section">
+          <h3>💳 Payment Method</h3>
+          <div class="pay-opts">
+            <div class="pay-opt sel" id="po-card" onclick="selPay('card')"><div class="pi">💳</div><div class="pn2">Credit Card</div></div>
+            <div class="pay-opt" id="po-paypal" onclick="selPay('paypal')"><div class="pi">🅿️</div><div class="pn2">PayPal</div></div>
+            <div class="pay-opt" id="po-gcash" onclick="selPay('gcash')"><div class="pi">📱</div><div class="pn2">GCash</div></div>
+          </div>
+          <div id="pay-fields">
+            <div class="card-fields">
+              <div class="fg full" style="margin-bottom:10px"><label>Cardholder Name</label><input type="text" placeholder="Name on card"></div>
+              <div class="fg full" style="margin-bottom:10px"><label>Card Number</label><input type="text" placeholder="1234 5678 9012 3456" maxlength="19"></div>
+              <div class="fg" style="margin-bottom:0">
+                <div><label>Expiry Date</label><input type="text" placeholder="MM / YY" maxlength="7"></div>
+                <div><label>CVV</label><input type="text" placeholder="123" maxlength="4"></div>
+              </div>
+            </div>
+          </div>
+          <p class="secure">🔒 Your payment info is encrypted and secure. Powered by Stripe.</p>
+        </div>
+      </div>
+      <div class="order-summary">
+        <div class="os-title">Order Summary</div>
+        <div id="os-items"></div>
+        <hr class="dvdr">
+        <div class="os-row"><span>Subtotal</span><span id="os-sub">$0.00</span></div>
+        <div class="os-row"><span>Processing fee</span><span>$0.00</span></div>
+        <div class="os-total"><span>Total</span><span id="os-total">$0.00</span></div>
+        <button class="btn bp" style="width:100%;margin-top:16px;padding:12px" onclick="placeOrder()">✅ Place Order</button>
+        <p style="font-size:11px;color:var(--tm);text-align:center;margin-top:8px">By placing your order you agree to our Terms of Service.</p>
+        <div style="display:flex;gap:8px;justify-content:center;margin-top:12px;font-size:20px">💳 🅿️ 📱</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ SUCCESS ═══════════ -->
+<div class="pg" id="pg-success">
+  <div class="success-wrap">
+    <div class="success-icon">🎉</div>
+    <h2>Order Confirmed!</h2>
+    <p id="success-msg">Thank you for your purchase! You'll receive a confirmation email shortly.</p>
+    <div class="order-details" id="success-details"></div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+      <button class="btn bp" onclick="nav('dash')">Go to Dashboard</button>
+      <button class="btn bo" onclick="nav('courses')">Browse More Courses</button>
     </div>
   </div>
 </div>
 
 <!-- MODAL -->
-<div class="modal-overlay" id="modal">
-  <div class="modal">
-    <h3 id="modal-title">Confirm Booking</h3>
-    <p id="modal-body">Use 1 token to book this session?</p>
-    <div class="modal-btns">
-      <button class="btn btn-outline btn-sm" onclick="closeModal()">Cancel</button>
-      <button class="btn btn-primary btn-sm" id="modal-confirm">Confirm</button>
+<div class="mo" id="modal">
+  <div class="md">
+    <h3 id="m-title">Confirm</h3>
+    <p id="m-body">Are you sure?</p>
+    <div class="mdb">
+      <button class="btn bo sm" onclick="closeModal()">Cancel</button>
+      <button class="btn bp sm" id="m-confirm">Confirm</button>
     </div>
   </div>
 </div>
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <script>
-// ─── STATE ────────────────────────────────────────────────────────────────────
-let state = {
-  tokens: 5,
-  tokensUsed: 0,
-  enrolled: ['eng101','biz202','ielts301'],
-  bookedSessions: [],
-  activePlan: 'Pro'
+// ─── STATE ─────────────────────────────────────
+const S = {
+  tokens:5, tokensUsed:0,
+  enrolled:['eng101','biz202','ielts301'],
+  booked:[], plan:'Pro', planTokens:5,
+  cart:[], checkoutMode:'courses', subPending:null
 };
 
-// ─── DATA ─────────────────────────────────────────────────────────────────────
-const courses = [
-  { id:'eng101', emoji:'📚', cat:'ESL', title:'ESL for Beginners: Foundation Course', instructor:'Ms. Rivera', level:'Beginner', stars:'★★★★★', reviews:128, price:29.99, oldPrice:49.99, tag:'Bestseller' },
-  { id:'biz202', emoji:'💼', cat:'Business', title:'Business English for Professionals', instructor:'Mr. Reyes', level:'Intermediate', stars:'★★★★☆', reviews:87, price:39.99, tag:'Popular' },
-  { id:'ielts301', emoji:'🎯', cat:'University', title:'IELTS Preparation Masterclass', instructor:'Ms. Santos', level:'Advanced', stars:'★★★★★', reviews:203, price:59.99, tag:'Top Rated' },
-  { id:'kids101', emoji:'🎨', cat:'Kids', title:'ESL for Kids: Fun with English', instructor:'Ms. Cruz', level:'Beginner', stars:'★★★★★', reviews:156, price:24.99, tag:'New' },
-  { id:'lang401', emoji:'🌍', cat:'Languages', title:'Japanese for Beginners (N5)', instructor:'Mr. Tanaka', level:'Beginner', stars:'★★★★☆', reviews:64, price:34.99 },
-  { id:'biz303', emoji:'📊', cat:'Business', title:'Advanced Business Presentations', instructor:'Ms. Garcia', level:'Advanced', stars:'★★★★☆', reviews:49, price:44.99 },
-  { id:'esl501', emoji:'🗣️', cat:'ESL', title:'ESL for High School Students', instructor:'Mr. Dela Cruz', level:'Intermediate', stars:'★★★★★', reviews:92, price:29.99, tag:'New' },
-  { id:'pre101', emoji:'🌟', cat:'Kids', title:'Pre-School English Foundations', instructor:'Ms. Lopez', level:'Beginner', stars:'★★★★★', reviews:211, price:19.99, tag:'Bestseller' },
+// ─── DATA ──────────────────────────────────────
+const COURSES=[
+  {id:'eng101',emoji:'📚',cat:'ESL',title:'ESL for Beginners: Foundation Course',inst:'Ms. Rivera',lvl:'Beginner',stars:'★★★★★',rev:128,price:29.99,old:49.99,tag:'Bestseller'},
+  {id:'biz202',emoji:'💼',cat:'Business',title:'Business English for Professionals',inst:'Mr. Reyes',lvl:'Intermediate',stars:'★★★★☆',rev:87,price:39.99,tag:'Popular'},
+  {id:'ielts301',emoji:'🎯',cat:'University',title:'IELTS Preparation Masterclass',inst:'Ms. Santos',lvl:'Advanced',stars:'★★★★★',rev:203,price:59.99,tag:'Top Rated'},
+  {id:'kids101',emoji:'🎨',cat:'Kids',title:'ESL for Kids: Fun with English',inst:'Ms. Cruz',lvl:'Beginner',stars:'★★★★★',rev:156,price:24.99,tag:'New'},
+  {id:'lang401',emoji:'🌍',cat:'Languages',title:'Japanese for Beginners (N5)',inst:'Mr. Tanaka',lvl:'Beginner',stars:'★★★★☆',rev:64,price:34.99},
+  {id:'biz303',emoji:'📊',cat:'Business',title:'Advanced Business Presentations',inst:'Ms. Garcia',lvl:'Advanced',stars:'★★★★☆',rev:49,price:44.99},
+  {id:'esl501',emoji:'🗣️',cat:'ESL',title:'ESL for High School Students',inst:'Mr. Dela Cruz',lvl:'Intermediate',stars:'★★★★★',rev:92,price:29.99,tag:'New'},
+  {id:'pre101',emoji:'🌟',cat:'Kids',title:'Pre-School English Foundations',inst:'Ms. Lopez',lvl:'Beginner',stars:'★★★★★',rev:211,price:19.99,tag:'Bestseller'}
 ];
 
-const sessions = [
-  { id:'s1', title:'Business Email Writing Workshop', instructor:'Mr. Reyes', date:'25', month:'MAY', time:'10:00 AM – 11:00 AM', slots:18, cap:20, topic:'Business English', state:'open' },
-  { id:'s2', title:'IELTS Speaking Practice Session', instructor:'Ms. Santos', date:'28', month:'MAY', time:'2:00 PM – 3:00 PM', slots:5, cap:20, topic:'IELTS', state:'open' },
-  { id:'s3', title:'Conversational English: Daily Topics', instructor:'Ms. Rivera', date:'30', month:'MAY', time:'9:00 AM – 10:00 AM', slots:0, cap:20, topic:'ESL', state:'full' },
-  { id:'s4', title:'Advanced Grammar Masterclass', instructor:'Mr. Dela Cruz', date:'2', month:'JUN', time:'3:00 PM – 4:30 PM', slots:12, cap:20, topic:'Grammar', state:'open' },
-  { id:'s5', title:'ESL Kids Fun Session', instructor:'Ms. Cruz', date:'5', month:'JUN', time:'10:00 AM – 11:00 AM', slots:8, cap:20, topic:'ESL for Kids', state:'open' },
-  { id:'s6', title:'Business Negotiations in English', instructor:'Ms. Garcia', date:'7', month:'JUN', time:'1:00 PM – 2:30 PM', slots:15, cap:20, topic:'Business English', state:'open' },
+const SESSIONS=[
+  {id:'s1',title:'Business Email Writing',inst:'Mr. Reyes',day:'25',mo:'MAY',time:'10:00–11:00 AM',slots:18,cap:20,state:'open'},
+  {id:'s2',title:'IELTS Speaking Practice',inst:'Ms. Santos',day:'28',mo:'MAY',time:'2:00–3:00 PM',slots:5,cap:20,state:'open'},
+  {id:'s3',title:'Conversational English: Daily Topics',inst:'Ms. Rivera',day:'30',mo:'MAY',time:'9:00–10:00 AM',slots:0,cap:20,state:'full'},
+  {id:'s4',title:'Advanced Grammar Masterclass',inst:'Mr. Dela Cruz',day:'2',mo:'JUN',time:'3:00–4:30 PM',slots:12,cap:20,state:'open'},
+  {id:'s5',title:'ESL Kids Fun Session',inst:'Ms. Cruz',day:'5',mo:'JUN',time:'10:00–11:00 AM',slots:8,cap:20,state:'open'},
+  {id:'s6',title:'Business Negotiations in English',inst:'Ms. Garcia',day:'7',mo:'JUN',time:'1:00–2:30 PM',slots:15,cap:20,state:'open'}
 ];
 
-const recordings = [
-  { id:'r1', title:'Business Email Essentials – Session 3', instructor:'Mr. Reyes', duration:'58:24', date:'Apr 28', topic:'Business', access:'All', views:142 },
-  { id:'r2', title:'IELTS Writing Task 2 Strategies', instructor:'Ms. Santos', duration:'1:12:05', date:'May 1', topic:'IELTS', access:'Pro', views:89 },
-  { id:'r3', title:'Everyday Conversation Practice', instructor:'Ms. Rivera', duration:'45:30', date:'May 5', topic:'Speaking', access:'All', views:211 },
-  { id:'r4', title:'Advanced Grammar: Conditionals', instructor:'Mr. Dela Cruz', duration:'1:05:18', date:'May 8', topic:'Grammar', access:'Pro', views:67 },
-  { id:'r5', title:'1-on-1 Mentoring: Career English', instructor:'Ms. Garcia', duration:'50:00', date:'May 10', topic:'Business', access:'Premium', views:34 },
-  { id:'r6', title:'Phonics for Young Learners', instructor:'Ms. Cruz', duration:'38:45', date:'May 12', topic:'Speaking', access:'All', views:178 },
-  { id:'r7', title:'IELTS Speaking Band 7+ Tips', instructor:'Ms. Santos', duration:'1:18:30', date:'May 14', topic:'IELTS', access:'Pro', views:112 },
-  { id:'r8', title:'Professional Email Writing Deep Dive', instructor:'Mr. Reyes', duration:'1:02:00', date:'May 15', topic:'Writing', access:'Premium', views:28 },
+const RECS=[
+  {id:'r1',title:'Business Email Essentials – Session 3',inst:'Mr. Reyes',dur:'58:24',date:'Apr 28',topic:'Business',access:'All',views:142},
+  {id:'r2',title:'IELTS Writing Task 2 Strategies',inst:'Ms. Santos',dur:'1:12:05',date:'May 1',topic:'IELTS',access:'Pro',views:89},
+  {id:'r3',title:'Everyday Conversation Practice',inst:'Ms. Rivera',dur:'45:30',date:'May 5',topic:'Speaking',access:'All',views:211},
+  {id:'r4',title:'Advanced Grammar: Conditionals',inst:'Mr. Dela Cruz',dur:'1:05:18',date:'May 8',topic:'Grammar',access:'Pro',views:67},
+  {id:'r5',title:'1-on-1 Mentoring: Career English',inst:'Ms. Garcia',dur:'50:00',date:'May 10',topic:'Business',access:'Premium',views:34},
+  {id:'r6',title:'Phonics for Young Learners',inst:'Ms. Cruz',dur:'38:45',date:'May 12',topic:'Speaking',access:'All',views:178},
+  {id:'r7',title:'IELTS Speaking Band 7+ Tips',inst:'Ms. Santos',dur:'1:18:30',date:'May 14',topic:'IELTS',access:'Pro',views:112},
+  {id:'r8',title:'Professional Email Writing Deep Dive',inst:'Mr. Reyes',dur:'1:02:00',date:'May 15',topic:'Writing',access:'Premium',views:28}
 ];
 
-// ─── NAVIGATION ───────────────────────────────────────────────────────────────
-function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-  document.getElementById('page-'+id).classList.add('active');
-  document.getElementById('nav-'+id).classList.add('active');
+const PROG={eng101:72,biz202:45,ielts301:18};
+
+// ─── HAMBURGER ─────────────────────────────────
+function toggleDrawer(){
+  const d=document.getElementById('navDrawer');
+  const b=document.getElementById('hamBtn');
+  const open=d.classList.toggle('open');
+  b.classList.toggle('open',open);
+}
+function closeDrawer(){
+  document.getElementById('navDrawer').classList.remove('open');
+  document.getElementById('hamBtn').classList.remove('open');
+}
+// Close on outside click
+document.addEventListener('click',function(e){
+  const d=document.getElementById('navDrawer');
+  const b=document.getElementById('hamBtn');
+  if(d.classList.contains('open')&&!d.contains(e.target)&&!b.contains(e.target)) closeDrawer();
+});
+// goPage: used by drawer buttons — navigate then close drawer
+function goPage(id){ nav(id); closeDrawer(); }
+
+// Sync drawer active state
+function syncDrawer(id){
+  ['home','courses','subs','live','recs','dash'].forEach(p=>{
+    const el=document.getElementById('nd-'+p);
+    if(el) el.classList.toggle('act',p===id);
+  });
+}
+
+// ─── NAVIGATION ────────────────────────────────
+function nav(id){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('act'));
+  document.querySelectorAll('.nv').forEach(l=>l.classList.remove('act'));
+  document.getElementById('pg-'+id).classList.add('act');
+  const n=document.getElementById('n-'+id);
+  if(n) n.classList.add('act');
+  syncDrawer(id);
   window.scrollTo(0,0);
-  if(id==='dash') updateDashboard();
+  if(id==='dash') updDash();
+  if(id==='cart') renderCart();
 }
 
-// ─── RENDER COURSES ───────────────────────────────────────────────────────────
-function renderCourses(list) {
-  const g = document.getElementById('courses-grid');
-  document.getElementById('course-count').textContent = 'Showing ' + list.length + ' courses';
-  g.innerHTML = list.map(c => {
-    const enrolled = state.enrolled.includes(c.id);
-    return `<div class="course-card" data-cat="${c.cat}">
-      <div class="course-thumb">
-        <span style="font-size:48px">${c.emoji}</span>
-        <span class="level-badge ${c.level==='Beginner'?'level-beginner':c.level==='Intermediate'?'level-intermediate':'level-advanced'}">${c.level}</span>
-      </div>
-      <div class="course-body">
-        <div class="tag-row">
-          <span class="course-cat">${c.cat}</span>
-          ${c.tag ? `<span class="badge badge-new">${c.tag}</span>` : ''}
+// ─── COURSES ───────────────────────────────────
+function renderCourses(list){
+  document.getElementById('ccnt').textContent='Showing '+list.length+' courses';
+  document.getElementById('cg').innerHTML=list.map(c=>{
+    const enrolled=S.enrolled.includes(c.id);
+    const inCart=S.cart.some(x=>x.id===c.id&&x.type==='course');
+    let btn;
+    if(enrolled) btn=`<button class="btn bs sm">✓ Enrolled</button>`;
+    else if(inCart) btn=`<button class="btn bo sm" onclick="nav('cart')">🛒 In Cart</button>`;
+    else btn=`<button class="btn bp sm" onclick="addCart('${c.id}')">Add to Cart</button>`;
+    return `<div class="cc">
+      <div class="ct"><span>${c.emoji}</span><span class="lb ${c.lvl==='Beginner'?'lb-b':c.lvl==='Intermediate'?'lb-i':'lb-a'}">${c.lvl}</span></div>
+      <div class="cb">
+        <div style="display:flex;gap:6px;align-items:center;margin-bottom:4px">
+          <span class="ccat">${c.cat}</span>${c.tag?`<span class="badge">${c.tag}</span>`:''}
         </div>
-        <div class="course-title">${c.title}</div>
-        <div class="course-instructor">👤 ${c.instructor}</div>
-        <div><span class="stars">${c.stars}</span> <span style="font-size:11px;color:var(--text-mid)">(${c.reviews} reviews)</span></div>
-        <div class="course-footer">
-          <div><span class="course-price">$${c.price.toFixed(2)}</span>${c.oldPrice?`<span class="course-price-old">$${c.oldPrice.toFixed(2)}</span>`:''}</div>
-          ${enrolled
-            ? '<button class="btn btn-success btn-sm" onclick="void(0)">✓ Enrolled</button>'
-            : `<button class="btn btn-primary btn-sm" onclick="enrollCourse('${c.id}','${c.title}')">Enroll Now</button>`}
+        <div class="ctit">${c.title}</div>
+        <div class="cinst">👤 ${c.inst}</div>
+        <div><span class="stars">${c.stars}</span> <span style="font-size:11px;color:var(--tm)">(${c.rev})</span></div>
+        <div class="cf">
+          <div><span class="cpr">$${c.price.toFixed(2)}</span>${c.old?`<span class="cpr-old">$${c.old.toFixed(2)}</span>`:''}</div>
+          ${btn}
         </div>
       </div>
     </div>`;
   }).join('');
 }
 
-function filterCourses(q) {
-  const f = courses.filter(c => c.title.toLowerCase().includes(q.toLowerCase()) || c.cat.toLowerCase().includes(q.toLowerCase()));
-  renderCourses(f);
+function fCourses(q){
+  renderCourses(COURSES.filter(c=>c.title.toLowerCase().includes(q.toLowerCase())||c.cat.toLowerCase().includes(q.toLowerCase())));
+}
+function fPill(el,cat){
+  document.querySelectorAll('#fpills .pill').forEach(p=>p.classList.remove('act'));
+  el.classList.add('act');
+  renderCourses(cat==='All'?COURSES:COURSES.filter(c=>c.cat.includes(cat)));
 }
 
-function filterByPill(el, cat) {
-  document.querySelectorAll('#filter-pills .pill').forEach(p => p.classList.remove('active'));
-  el.classList.add('active');
-  const f = cat === 'All' ? courses : courses.filter(c => c.cat.includes(cat) || (cat==='Kids' && c.cat==='Kids') || (cat==='ESL' && c.cat==='ESL'));
-  renderCourses(f);
+// ─── CART ──────────────────────────────────────
+function addCart(id){
+  const c=COURSES.find(x=>x.id===id);
+  if(!c||S.cart.some(x=>x.id===id&&x.type==='course')) return;
+  S.cart.push({id,title:c.title,price:c.price,type:'course',emoji:c.emoji});
+  updCartBadge(); renderCourses(COURSES);
+  toast('Added to cart: '+c.title,'ok');
+}
+function removeCart(id){
+  S.cart=S.cart.filter(x=>x.id!==id);
+  updCartBadge(); renderCourses(COURSES); renderCart();
+}
+function updCartBadge(){
+  const n=S.cart.length;
+  document.getElementById('cart-cnt').textContent=n;
+  document.getElementById('cart-cnt2').textContent=n;
+}
+function renderCart(){
+  const el=document.getElementById('cart-content');
+  const sub=document.getElementById('cart-sub');
+  if(S.cart.length===0){
+    sub.textContent='Your cart is empty.';
+    el.innerHTML=`<div class="empty-cart"><div class="icon">🛒</div><p style="font-size:15px;font-weight:700;margin-bottom:8px">Your cart is empty</p><p style="font-size:12px;margin-bottom:20px">Browse our courses and add them to your cart.</p><button class="btn bp" onclick="nav('courses')">Browse Courses</button></div>`;
+    return;
+  }
+  sub.textContent='Review your items before checkout.';
+  const total=S.cart.reduce((a,x)=>a+x.price,0);
+  el.innerHTML=`<div class="cart-wrap">
+    <div>${S.cart.map(item=>`<div class="cart-item">
+      <div class="ci-thumb">${item.emoji||'📚'}</div>
+      <div class="ci-info"><div class="ci-title">${item.title}</div><div class="ci-sub">${item.type==='course'?'Self-Paced Course':'Subscription Plan'}</div></div>
+      <div class="ci-price">$${item.price.toFixed(2)}</div>
+      <button class="rm-btn" onclick="removeCart('${item.id}')">✕</button>
+    </div>`).join('')}</div>
+    <div class="order-summary">
+      <div class="os-title">Order Summary</div>
+      ${S.cart.map(x=>`<div class="os-row"><span>${x.title.substring(0,28)}…</span><span>$${x.price.toFixed(2)}</span></div>`).join('')}
+      <hr class="dvdr">
+      <div class="os-row"><span>Subtotal</span><span>$${total.toFixed(2)}</span></div>
+      <div class="os-row"><span>Processing fee</span><span>$0.00</span></div>
+      <div class="os-total"><span>Total</span><span>$${total.toFixed(2)}</span></div>
+      <button class="btn bp" style="width:100%;margin-top:14px;padding:12px" onclick="goCheckout('courses')">Proceed to Checkout →</button>
+      <button class="btn bo sm" style="width:100%;margin-top:8px" onclick="nav('courses')">← Continue Shopping</button>
+    </div>
+  </div>`;
 }
 
-function enrollCourse(id, title) {
-  if(state.enrolled.includes(id)) return;
-  showModal('Confirm Enrollment', `Enroll in "<strong>${title}</strong>"? You'll be redirected to the payment page.`, () => {
-    state.enrolled.push(id);
-    renderCourses(courses);
-    showToast('✓ Enrolled successfully! Check your Dashboard.', 'success');
-    updateNavTokens();
-  });
+// ─── CHECKOUT ──────────────────────────────────
+function goCheckout(mode){ S.checkoutMode=mode; updCheckoutSummary(); nav('checkout'); }
+function subCheckout(plan,price,tokens){
+  S.subPending={plan,price,tokens};
+  S.cart=[{id:'sub-'+plan,title:'Kooduz '+plan+' Plan',price,type:'subscription',emoji:'⭐'}];
+  S.checkoutMode='subscription'; updCheckoutSummary(); nav('checkout');
+}
+function updCheckoutSummary(){
+  const total=S.cart.reduce((a,x)=>a+x.price,0);
+  document.getElementById('os-items').innerHTML=S.cart.map(x=>`<div class="os-row"><span>${x.title.substring(0,26)}…</span><span>$${x.price.toFixed(2)}</span></div>`).join('');
+  document.getElementById('os-sub').textContent='$'+total.toFixed(2);
+  document.getElementById('os-total').textContent='$'+total.toFixed(2);
+}
+function selPay(method){
+  ['card','paypal','gcash'].forEach(m=>document.getElementById('po-'+m).classList.toggle('sel',m===method));
+  const pf=document.getElementById('pay-fields');
+  if(method==='card') pf.innerHTML=`<div class="card-fields"><div class="fg full" style="margin-bottom:10px"><label>Cardholder Name</label><input type="text" placeholder="Name on card"></div><div class="fg full" style="margin-bottom:10px"><label>Card Number</label><input type="text" placeholder="1234 5678 9012 3456" maxlength="19"></div><div class="fg" style="margin-bottom:0"><div><label>Expiry Date</label><input type="text" placeholder="MM / YY" maxlength="7"></div><div><label>CVV</label><input type="text" placeholder="123" maxlength="4"></div></div></div><p class="secure">🔒 Encrypted & secured by Stripe.</p>`;
+  else if(method==='paypal') pf.innerHTML=`<div class="card-fields" style="text-align:center;padding:20px"><div style="font-size:32px;margin-bottom:8px">🅿️</div><p style="color:var(--tm);font-size:13px">You'll be redirected to PayPal to complete your payment securely.</p></div>`;
+  else pf.innerHTML=`<div class="card-fields"><label>GCash Mobile Number</label><input type="tel" placeholder="09XX XXX XXXX"><p class="secure" style="margin-top:8px">📱 A GCash OTP will be sent to your number.</p></div>`;
+}
+function placeOrder(){
+  const orderNum='KDZ-'+Math.floor(Math.random()*90000+10000);
+  const total=S.cart.reduce((a,x)=>a+x.price,0);
+  const isSub=S.checkoutMode==='subscription';
+  if(isSub&&S.subPending){
+    S.plan=S.subPending.plan; S.planTokens=S.subPending.tokens;
+    S.tokens=S.subPending.tokens; S.tokensUsed=0;
+    ['nt','nt2'].forEach(id=>document.getElementById(id).textContent=S.tokens);
+    document.getElementById('tok-disp').textContent=S.tokens;
+  } else {
+    S.cart.filter(x=>x.type==='course').forEach(x=>{if(!S.enrolled.includes(x.id))S.enrolled.push(x.id);});
+  }
+  document.getElementById('success-msg').textContent=isSub
+    ?`You're now subscribed to the ${S.plan} plan! You have ${S.tokens} tokens ready to use.`
+    :'Your course(s) are now available in your Dashboard. Happy learning!';
+  document.getElementById('success-details').innerHTML=`
+    <div class="od-row"><span>Order Number</span><strong>${orderNum}</strong></div>
+    <div class="od-row"><span>Items</span><span>${S.cart.map(x=>x.title).join(', ')}</span></div>
+    <div class="od-row"><span>Total Paid</span><strong>$${total.toFixed(2)}</strong></div>
+    <div class="od-row"><span>Confirmation</span><span>Sent to your email</span></div>`;
+  S.cart=[]; S.subPending=null; updCartBadge(); renderCourses(COURSES); nav('success');
 }
 
-// ─── RENDER SESSIONS ──────────────────────────────────────────────────────────
-function renderSessions() {
-  const g = document.getElementById('sessions-grid');
-  g.innerHTML = sessions.map(s => {
-    const booked = state.bookedSessions.includes(s.id);
-    const isFull = s.state === 'full';
-    const slotsLeft = s.cap - s.slots;
-    let slotBadge, btn;
-    if(booked) {
-      slotBadge = `<span class="slot-badge slot-booked">✓ You're Booked</span>`;
-      btn = `<a class="meet-link" href="#">🎥 Join Google Meet</a>`;
-    } else if(isFull) {
-      slotBadge = `<span class="slot-badge slot-full">Session Full</span>`;
-      btn = `<button class="btn btn-gray btn-sm" style="width:100%;margin-top:8px" disabled>📋 Join Waitlist</button>`;
-    } else {
-      const few = slotsLeft <= 5;
-      slotBadge = `<span class="slot-badge ${few?'slot-few':'slot-open'}">${s.slots} slots left</span>`;
-      btn = state.tokens > 0
-        ? `<button class="btn btn-primary btn-sm" style="width:100%;margin-top:8px" onclick="bookSession('${s.id}','${s.title}')">🎫 Book — Use 1 Token</button>`
-        : `<button class="btn btn-warning btn-sm" style="width:100%;margin-top:8px" onclick="showPage('subs')">Subscribe to Book</button>`;
+// ─── SESSIONS ──────────────────────────────────
+function renderSessions(){
+  document.getElementById('ssg').innerHTML=SESSIONS.map(s=>{
+    const booked=S.booked.includes(s.id), full=s.state==='full', few=s.slots<=5;
+    let slot,btn;
+    if(booked){slot=`<span class="slot sl-b">✓ Booked</span>`;btn=`<a class="ml">🎥 Join Google Meet</a>`;}
+    else if(full){slot=`<span class="slot sl-x">Session Full</span>`;btn=`<button class="btn bg sm" style="width:100%;margin-top:8px" disabled>Join Waitlist</button>`;}
+    else{
+      slot=`<span class="slot ${few?'sl-f':'sl-o'}">${s.slots} slots left</span>`;
+      btn=S.tokens>0
+        ?`<button class="btn bp sm" style="width:100%;margin-top:8px" onclick="bookSess('${s.id}','${s.title}')">🎫 Book — 1 Token</button>`
+        :`<button class="btn" style="width:100%;margin-top:8px;background:var(--warn);color:white" onclick="nav('subs')">Subscribe to Book</button>`;
     }
-    return `<div class="session-card" id="sess-${s.id}">
-      <div class="session-date"><div class="day">${s.date}</div><div class="month">${s.month}</div></div>
-      <div class="session-title">${s.title}</div>
-      <div class="session-meta">
-        <span>👤 ${s.instructor}</span>
-        <span>🕐 ${s.time}</span>
-        <span>📌 ${s.topic}</span>
-      </div>
-      ${slotBadge}${btn}
+    return `<div class="scard" id="ss-${s.id}">
+      <div class="sdate"><div class="day">${s.day}</div><div class="mo">${s.mo}</div></div>
+      <div class="stit2">${s.title}</div>
+      <div class="smeta"><span>👤 ${s.inst}</span><span>🕐 ${s.time}</span></div>
+      ${slot}${btn}
     </div>`;
   }).join('');
 }
-
-function bookSession(id, title) {
-  if(state.tokens < 1) { showToast('No tokens remaining. Please subscribe to get more.', 'error'); return; }
-  showModal('Confirm Booking', `Use <strong>1 token</strong> to book "<strong>${title}</strong>"?<br><br>After booking, your Google Meet link will be revealed.`, () => {
-    state.tokens--;
-    state.tokensUsed++;
-    state.bookedSessions.push(id);
-    updateNavTokens();
-    document.getElementById('token-display').textContent = state.tokens;
-    document.getElementById('tokens-used').textContent = state.tokensUsed;
-    renderSessions();
-    showToast('🎉 Session booked! Check your email for the Google Meet link.', 'success');
+function bookSess(id,title){
+  if(S.tokens<1){toast('No tokens left. Please subscribe.','er');return;}
+  showModal('Confirm Booking',`Use <strong>1 token</strong> to book "<strong>${title}</strong>"?`,()=>{
+    S.tokens--;S.tokensUsed++;S.booked.push(id);
+    ['nt','nt2'].forEach(el=>document.getElementById(el).textContent=S.tokens);
+    document.getElementById('tok-disp').textContent=S.tokens;
+    document.getElementById('t-used').textContent=S.tokensUsed;
+    renderSessions(); toast('🎉 Session booked! Google Meet link is now visible.','ok');
   });
 }
 
-// ─── RENDER RECORDINGS ────────────────────────────────────────────────────────
-function renderRecordings(list) {
-  const g = document.getElementById('recordings-grid');
-  const planTier = { Starter:1, Pro:2, Premium:3 };
-  const accessTier = { All:0, Pro:2, Premium:3 };
-  const userTier = planTier[state.activePlan] || 0;
-  g.innerHTML = list.map(r => {
-    const reqTier = accessTier[r.access];
-    const canAccess = userTier >= reqTier;
-    const accessLabel = r.access === 'All' ? 'All Plans' : r.access + ' +';
-    const accessClass = r.access==='All'?'access-all':r.access==='Pro'?'access-pro':'access-premium';
-    return `<div class="rec-card">
-      <div class="rec-thumb">
-        ${canAccess
-          ? `<div class="play-btn" onclick="showToast('▶ Playing: ${r.title}','success')">▶</div>`
-          : `<div class="lock-overlay"><div class="lock-icon">🔒</div></div>`}
-        <span class="rec-duration">${r.duration}</span>
-        <span class="rec-access ${accessClass}">${accessLabel}</span>
+// ─── RECORDINGS ────────────────────────────────
+function renderRecs(list){
+  const tier={Starter:1,Pro:2,Premium:3}, req={All:0,Pro:2,Premium:3}, ut=tier[S.plan]||0;
+  document.getElementById('rg').innerHTML=list.map(r=>{
+    const ok=ut>=req[r.access];
+    const acls=r.access==='All'?'ra-all':r.access==='Pro'?'ra-pro':'ra-prem';
+    const albl=r.access==='All'?'All Plans':r.access+' +';
+    return `<div class="rc">
+      <div class="rth">
+        ${ok?`<div class="pbtn" onclick="toast('▶ Playing: ${r.title}','ok')">▶</div>`:`<div class="lko">🔒</div>`}
+        <span class="rdur">${r.dur}</span><span class="rac ${acls}">${albl}</span>
       </div>
-      <div class="rec-body">
-        <div class="rec-title">${r.title}</div>
-        <div class="rec-meta">👤 ${r.instructor} &nbsp;|&nbsp; 📅 ${r.date} &nbsp;|&nbsp; 👁 ${r.views} views</div>
-        <div class="rec-footer">
-          ${canAccess
-            ? `<button class="btn btn-primary btn-sm" onclick="showToast('▶ Playing: ${r.title}','success')">▶ Watch Now</button>`
-            : `<button class="btn btn-warning btn-sm" onclick="showPage('subs')">🔒 Upgrade to Access</button>`}
-        </div>
+      <div class="rb">
+        <div class="rtit">${r.title}</div>
+        <div class="rmeta">👤 ${r.inst} · 📅 ${r.date} · 👁 ${r.views}</div>
+        <div class="rf">${ok?`<button class="btn bp sm" onclick="toast('▶ Playing: ${r.title}','ok')">▶ Watch</button>`:`<button class="btn sm" style="background:var(--warn);color:white" onclick="nav('subs')">🔒 Upgrade</button>`}</div>
       </div>
     </div>`;
   }).join('');
 }
-
-function filterRec(el, topic) {
-  document.querySelectorAll('.topic-filters .pill').forEach(p => p.classList.remove('active'));
-  el.classList.add('active');
-  const f = topic === 'All' ? recordings : recordings.filter(r => r.topic === topic);
-  renderRecordings(f);
+function fRec(el,topic){
+  document.querySelectorAll('#rpills .pill').forEach(p=>p.classList.remove('act'));
+  el.classList.add('act');
+  renderRecs(topic==='All'?RECS:RECS.filter(r=>r.topic===topic));
 }
 
-// ─── DASHBOARD ────────────────────────────────────────────────────────────────
-const progresses = { eng101:72, biz202:45, ielts301:18 };
-function updateDashboard() {
-  document.getElementById('dash-tokens-left').textContent = state.tokens;
-  document.getElementById('token-circle-num').textContent = state.tokens;
-  document.getElementById('dash-enrolled').textContent = state.enrolled.length;
-  const enrolled = courses.filter(c => state.enrolled.includes(c.id));
-  document.getElementById('dash-courses').innerHTML = enrolled.map(c => {
-    const pct = progresses[c.id] || 0;
-    return `<div class="enroll-card">
-      <div class="enroll-thumb">${c.emoji}</div>
-      <div class="enroll-info">
-        <div class="enroll-title">${c.title}</div>
-        <div class="enroll-sub">👤 ${c.instructor} &nbsp;|&nbsp; <span class="${c.level==='Beginner'?'level-beginner':c.level==='Intermediate'?'level-intermediate':'level-advanced'}" style="padding:2px 6px;border-radius:10px;font-size:10px;font-weight:700">${c.level}</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
-        <div class="progress-label"><span>${pct}% complete</span><span>${pct===100?'✓ Done':'In progress'}</span></div>
-      </div>
-      <button class="btn btn-primary btn-sm">Continue</button>
-    </div>`;
-  }).join('') || '<p style="color:var(--text-mid);font-size:13px">No courses enrolled yet. <a href="#" onclick="showPage(\'courses\');return false" style="color:var(--primary)">Browse courses →</a></p>';
+// ─── DASHBOARD ─────────────────────────────────
+function updDash(){
+  document.getElementById('d-enr').textContent=S.enrolled.length;
+  document.getElementById('d-tok').textContent=S.tokens;
+  document.getElementById('tc-num').textContent=S.tokens;
+  document.getElementById('tc-of').textContent=S.planTokens;
+  document.getElementById('d-plan').textContent=S.plan.toUpperCase();
+  const enrolled=COURSES.filter(c=>S.enrolled.includes(c.id));
+  document.getElementById('dcourses').innerHTML=enrolled.length
+    ?enrolled.map(c=>{const p=PROG[c.id]||0;return `<div class="ec">
+      <div class="eth">${c.emoji}</div>
+      <div class="ei"><div class="etit">${c.title}</div><div class="esub">👤 ${c.inst}</div>
+      <div class="pbar"><div class="pfill" style="width:${p}%"></div></div>
+      <div class="plbl"><span>${p}% complete</span><span>${p===100?'✓ Done':'In progress'}</span></div></div>
+      <button class="btn bp sm">Continue</button>
+    </div>`;}).join('')
+    :`<p style="color:var(--tm);font-size:13px">No courses yet. <a href="#" onclick="nav('courses');return false" style="color:var(--p)">Browse courses →</a></p>`;
 }
 
-// ─── SUBSCRIPTIONS ────────────────────────────────────────────────────────────
-function subscribePlan(plan) {
-  const tokens = {Starter:2,Pro:5,Premium:12};
-  showModal('Subscribe to ' + plan, `You're subscribing to the <strong>${plan}</strong> plan. You'll receive <strong>${tokens[plan]} tokens/month</strong>.<br><br>You'll be redirected to the secure checkout page.`, () => {
-    state.activePlan = plan;
-    state.tokens = tokens[plan];
-    state.tokensUsed = 0;
-    updateNavTokens();
-    showToast('🎉 Subscribed to ' + plan + '! You now have ' + tokens[plan] + ' tokens.', 'success');
-    setTimeout(() => showPage('dash'), 1500);
-  });
+// ─── HELPERS ───────────────────────────────────
+let mCb=null;
+function showModal(title,body,cb){
+  document.getElementById('m-title').textContent=title;
+  document.getElementById('m-body').innerHTML=body;
+  mCb=cb; document.getElementById('modal').classList.add('open');
+  document.getElementById('m-confirm').onclick=()=>{closeModal();if(mCb)mCb();};
+}
+function closeModal(){ document.getElementById('modal').classList.remove('open'); }
+let tt;
+function toast(msg,type=''){
+  const el=document.getElementById('toast');
+  el.textContent=msg; el.className='toast show '+type;
+  clearTimeout(tt); tt=setTimeout(()=>el.classList.remove('show'),3000);
 }
 
-// ─── HELPERS ──────────────────────────────────────────────────────────────────
-function updateNavTokens() {
-  document.getElementById('nav-tok-count').textContent = state.tokens;
-  document.getElementById('token-display').textContent = state.tokens;
-  if(document.getElementById('token-circle-num')) document.getElementById('token-circle-num').textContent = state.tokens;
-}
-
-let modalCallback = null;
-function showModal(title, body, cb) {
-  document.getElementById('modal-title').textContent = title;
-  document.getElementById('modal-body').innerHTML = body;
-  modalCallback = cb;
-  document.getElementById('modal').classList.add('open');
-  document.getElementById('modal-confirm').onclick = () => { closeModal(); if(cb) cb(); };
-}
-function closeModal() { document.getElementById('modal').classList.remove('open'); }
-
-let toastTimer;
-function showToast(msg, type='') {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = 'toast show ' + type;
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => { t.classList.remove('show'); }, 3200);
-}
-
-// ─── INIT ─────────────────────────────────────────────────────────────────────
-renderCourses(courses);
+// ─── INIT ──────────────────────────────────────
+renderCourses(COURSES);
 renderSessions();
-renderRecordings(recordings);
-updateDashboard();
+renderRecs(RECS);
+updDash();
+updCartBadge();
 </script>
 </body>
 </html>
